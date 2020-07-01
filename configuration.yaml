@@ -1,11 +1,10 @@
-
-# Configure a default setup of Home Assistant (frontend, api, etc)
-default_config:
-
-# Text to speech
-tts:
-  - platform: google_translate
-
+homeassistant:
+    latitude: !secret home_latitude
+    longitude: !secret home_longitude
+    name: !secret home_name
+    time_zone: America/Indiana/Indianapolis
+    unit_system: imperial
+       
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml

@@ -3,4 +3,6 @@
 .storage
 .ssh
 deps
-secrets.yaml
+*.log
+*.db*
+/secrets.yaml
