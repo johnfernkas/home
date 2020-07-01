@@ -1,0 +1,6 @@
+desk_lights:
+    name: Desk Lights
+    icon: mdi:desk-lamp
+    entities:
+    - light.office_right_desk_light
+    - light.office_left_desk_light
