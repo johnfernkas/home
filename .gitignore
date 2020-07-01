@@ -1,5 +1,6 @@
 .DS_Store
 .cloud
 .storage
+.ssh
 deps
 secrets.yaml
