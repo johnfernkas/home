@@ -1,0 +1,29 @@
+# Lights
+light.family_room_floor_light:
+    friendly_name: Family Room Floor Light
+    icon: mdi:floor-lamp
+light.kitchen_counter_light:
+    friendly_name: Kitchen Counter Light
+    icon: mdi:lamp
+light.office_closet_light:
+    friendly_name: Office Closet Light
+    icon: mdi:wall-sconce
+light.office_left_desk_light:
+    friendly_name: Office Left Desk Light
+    icon: mdi:desk-lamp
+light.office_right_desk_light:
+    friendly_name: Office Right Desk Light
+    icon: mdi:desk-lamp
+
+
+# Switches
+switch.hallway_light:
+    friendly_name: Hallway Light
+    icon: mdi:lamp
+switch.left_nightstand_light:
+    friendly_name: Left Nightstand Light
+    icon: mdi:lamp
+switch.right_nightstand_light:
+    friendly_name: Right Nightstand Light
+    icon: mdi:lamp
+
