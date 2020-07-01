@@ -1,4 +1,0 @@
-2020-06-29 21:44:43 WARNING (Recorder) [homeassistant.components.recorder] Ended unfinished session (id=8 from 2020-06-30 00:29:12.114846)
-2020-06-29 23:49:27 ERROR (MainThread) [homeassistant.components.websocket_api.http.connection.1806795664] Error handling message: expected dict for dictionary value @ data['service_data']. Got 'SSH Server'
-expected str for dictionary value @ data['service']. Got None
-2020-06-30 14:06:11 WARNING (Thread-168) [homeassistant.components.sonos.media_player] Error calling <bound method SonosEntity.update_media of <Entity Sonos: playing>>: Connection error: HTTPConnectionPool(host='192.168.1.133', port=1400): Read timed out. (read timeout=20)
