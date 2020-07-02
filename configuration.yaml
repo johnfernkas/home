@@ -6,7 +6,7 @@ homeassistant:
     name: !secret home_name
     time_zone: America/Indiana/Indianapolis
     unit_system: imperial
-       
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
