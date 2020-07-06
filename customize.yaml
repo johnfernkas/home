@@ -1,13 +1,13 @@
 # Lights
 light.front_room_floor_lamp:
     icon: mdi:floor-lamp
-light.kitchen_counter_lamp:
+light.kitchen_counter:
     icon: mdi:lamp
-light.office_closet_light:
+light.office_closet:
     icon: mdi:wall-sconce
-light.office_john_left_desk_lamp:
+light.office_johns_desk_left_lamp:
     icon: mdi:desk-lamp
-light.office_john_right_desk_lamp:
+light.office_johns_desk_right_lamp:
     icon: mdi:desk-lamp
 
 # Switches
@@ -27,5 +27,5 @@ switch.office_annie_desk_lamp:
     icon: mdi:lamp
 
 # Misc
-climate.upstairs_bedroom_window_ac:
+climate.upstairs_bedroom:
     icon: mdi:air-conditioner
