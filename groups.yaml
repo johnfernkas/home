@@ -1,3 +1,21 @@
+# -----
+# Rooms
+# -----
+
+# Ofiice
+office:
+    name: Office
+    icon: mdi:desk
+    entities:
+        - group.john_desk_lights
+        - switch.office_annie_desk_lamp
+        - light.office_closet
+
+# -----
+# Lights
+# -----
+
+# John's Desk Lights
 john_desk_lights:
     name: John's Desk Lights
     icon: mdi:desk-lamp
