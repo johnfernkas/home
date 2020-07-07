@@ -1,1 +1,27 @@
-[]
+- alias: 'Turn on lights at 6:30AM'
+  trigger:
+    platform: time
+    at: '06:30:00'
+  entities:
+    switch.hallway_lamp: 'on'
+    switch.guest_bedroom_table_lamp: 'on'
+    light.kitchen_counter:
+      state: 'on'
+      brightness: 35
+
+- alias: 'Turn on the front room bookshelf lamp at 6pm'
+  trigger:
+    platform: time
+    at: '18:00:00'
+  entities:
+    switch.front_room_bookshelf_lamp: 'on'
+
+- alias: 'Turn off lights at 11PM'
+  trigger:
+    platform: time
+    at: "23:00:00"
+  entities:
+    switch.front_room_bookshelf_lamp: 'off'
+    switch.hallway_lamp: 'off'
+    switch.guest_bedroom_table_lamp: 'off'
+    light.kitchen_counter: 'off'

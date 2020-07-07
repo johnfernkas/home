@@ -1,4 +1,7 @@
+# Base Configuration
 default_config:
+
+# General Configuration
 homeassistant:
     customize: !include customize.yaml
     latitude: !secret home_latitude
