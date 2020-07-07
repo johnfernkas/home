@@ -8,8 +8,9 @@ office:
     icon: mdi:desk
     entities:
         - group.john_desk_lights
-        - switch.office_annie_desk_lamp
         - light.office_closet
+        - switch.office_annie_desk_lamp
+        - switch.office_table_lamp
 
 # -----
 # Lights
