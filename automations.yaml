@@ -2,26 +2,33 @@
   trigger:
     platform: time
     at: '06:30:00'
-  entities:
-    switch.hallway_lamp: 'on'
-    switch.guest_bedroom_table_lamp: 'on'
-    light.kitchen_counter:
-      state: 'on'
-      brightness: 35
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.hallway_lamp
+        - guest_bedroom_table_lamp
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_counter
+        brightness_pct: 35
 
 - alias: 'Turn on the front room bookshelf lamp at 6pm'
   trigger:
     platform: time
     at: '18:00:00'
-  entities:
-    switch.front_room_bookshelf_lamp: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.front_room_bookshelf_lamp
 
 - alias: 'Turn off lights at 11PM'
   trigger:
     platform: time
     at: "23:00:00"
-  entities:
-    switch.front_room_bookshelf_lamp: 'off'
-    switch.hallway_lamp: 'off'
-    switch.guest_bedroom_table_lamp: 'off'
-    light.kitchen_counter: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.front_room_bookshelf_lamp
+        - switch.hallway_lamp
+        - guest_bedroom_table_lamp
+    - service: light.turn_off
+      entity_id: light.kitchen_counter
