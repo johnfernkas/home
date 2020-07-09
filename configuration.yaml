@@ -17,3 +17,4 @@ scene: !include scenes.yaml
 
 # Integrations
 cover: !include integrations/cover.yaml
+cloudflare: !include integrations/cloudflare.yaml
