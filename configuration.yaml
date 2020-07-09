@@ -1,6 +1,7 @@
 # Base Configuration
 default_config:
 http:
+    base_url: !secret base_url
     ssl_certificate: ssl/fullchain.pem
     ssl_key: ssl/privkey.pem
 
