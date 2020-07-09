@@ -6,3 +6,4 @@ deps
 *.log
 *.db*
 /secrets.yaml
+/ssl
