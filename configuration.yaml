@@ -1,8 +1,8 @@
 # Base Configuration
 default_config:
 http:
-  ssl_certificate: ssl/fullchain.pem
-  ssl_key: ssl/privkey.pem
+    ssl_certificate: ssl/fullchain.pem
+    ssl_key: ssl/privkey.pem
 
 # General Configuration
 homeassistant:
