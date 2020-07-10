@@ -1,5 +1,8 @@
 # Base Configuration
 default_config:
+http:
+    ssl_certificate: ssl/fullchain.pem
+    ssl_key: ssl/privkey.pem
 
 # General Configuration
 homeassistant:
@@ -9,6 +12,7 @@ homeassistant:
     name: !secret home_name
     time_zone: America/Indiana/Indianapolis
     unit_system: imperial
+    external_url: !secret external_url
 
 group: !include groups.yaml
 automation: !include automations.yaml
