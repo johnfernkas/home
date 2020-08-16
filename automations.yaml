@@ -34,7 +34,7 @@
   trigger:
     platform: state
     entity_id: binary_sensor.office_closet_door
-    to: 'open'
+    to: 'on'
   action:
     service: homeassistant.turn_on
     entity_id: light.office_closet
@@ -43,7 +43,7 @@
   trigger:
     platform: state
     entity_id: binary_sensor.office_closet_door
-    to: 'closed'
+    to: 'off'
   action:
     service: homeassistant.turn_off
     entity_id: light.office_closet
