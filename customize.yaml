@@ -26,6 +26,10 @@ switch.guest_bedroom_table_lamp:
 switch.office_annie_desk_lamp:
     icon: mdi:lamp
 
+# Doors
+binary_sensor.office_closet_door:
+    device_class: door
+
 # Misc
 climate.upstairs_bedroom:
     icon: mdi:air-conditioner
