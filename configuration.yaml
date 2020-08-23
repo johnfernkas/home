@@ -25,3 +25,4 @@ scene: !include scenes.yaml
 cover: !include integrations/cover.yaml
 cloudflare: !include integrations/cloudflare.yaml
 dyson: !include integrations/dyson.yaml
+lutron_caseta: !include integrations/lutron_caseta.yaml
