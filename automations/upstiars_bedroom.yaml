@@ -1,0 +1,12 @@
+- alias: "Toggle both bedside lamps"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: smart_switch
+      event: 1002
+  action:
+    service: homeassistant.toggle
+    entity_id:
+      - switch.upstairs_bedroom_left_lamp
+      - switch.upstairs_bedroom_right_lamp
