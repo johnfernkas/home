@@ -20,5 +20,4 @@
       event: 1004
   action:
     service: homeassistant.toggle
-    entity_id:
-      - switch.upstairs_bedroom_left_lamp
+    entity_id: switch.upstairs_bedroom_left_lamp
