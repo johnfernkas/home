@@ -31,8 +31,8 @@ sensor:
   - platform: pmsx003
     type: PMSX003
     pm_1_0:
-      name: "Basement Particulate Matter <1.0µm Concentration"
+      name: "Particulate Matter <1.0µm Concentration"
     pm_2_5:
-      name: "Basement Particulate Matter <2.5µm Concentration"
+      name: "Particulate Matter <2.5µm Concentration"
     pm_10_0:
-      name: "Basement Particulate Matter <10.0µm Concentration"
+      name: "Particulate Matter <10.0µm Concentration"
