@@ -1,0 +1,15 @@
+title: Office
+path: office
+
+cards:
+  - type: entities
+    title: Office
+    entities:
+      - entity: switch.office_annie_desk_lamp
+        name: Annie's Desk Lamp
+      - entity: group.john_desk_lights
+        name: John's Desk Lights
+      - entity: switch.office_table_lamp
+        name: Table Lamp
+      - entity: light.office_overhead
+        name: Overhead

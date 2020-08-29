@@ -1,0 +1,41 @@
+title: Home
+path: home
+
+badges:
+  - person.john
+
+cards:
+  - type: weather-forecast
+    entity: weather.keye_daynight
+
+  - type: entities
+    title: Garage
+    show_header_toggle: false
+    entities:
+      - entity: cover.garage_door
+
+  - type: vertical-stack
+    cards:
+      - type: thermostat
+        entity: climate.downstairs
+      - type: thermostat
+        entity: climate.upstairs_bedroom
+
+  - type: vertical-stack
+    cards:
+      - type: picture-entity
+        entity: camera.front_door
+        camera_view: live
+        show_state: false
+      - type: picture-entity
+        entity: camera.driveway
+        camera_view: live
+        show_state: false
+      - type: picture-entity
+        entity: camera.backyard
+        camera_view: live
+        show_state: false
+      - type: picture-entity
+        entity: camera.laundry_room
+        camera_view: live
+        show_state: false

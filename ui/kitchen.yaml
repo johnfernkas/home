@@ -1,0 +1,11 @@
+title: Kitchen
+path: kitchen
+
+cards:
+  - type: entities
+    title: Kitchen
+    entities:
+      - entity: light.kitchen_counter
+        name: Counter Lamp
+      - entity: light.kitchen_overhead
+        name: Overhead

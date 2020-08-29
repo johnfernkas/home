@@ -5,6 +5,8 @@ http:
     ssl_key: ssl/privkey.pem
 recorder:
     db_url: !secret db_url
+lovelace:
+    mode: yaml
 
 # General Configuration
 homeassistant:

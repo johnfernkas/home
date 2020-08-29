@@ -1,0 +1,11 @@
+title: Front Room
+path: front_room
+
+cards:
+  - type: entities
+    title: Front Room
+    entities:
+      - entity: light.front_room_floor_lamp
+        name: Floor Lamp
+      - entity: switch.front_room_bookshelf_lamp
+        name: Bookshelf Lamp

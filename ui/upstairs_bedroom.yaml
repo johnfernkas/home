@@ -1,0 +1,13 @@
+title: Upstiars Bedroom
+path: upstiars_bedroom
+
+cards:
+  - type: entities
+    title: Upstiars Bedroom
+    entities:
+      - entity: switch.upstairs_bedroom_left_lamp
+        name: Annie's Bedside Lamp
+      - entity: switch.upstairs_bedroom_right_lamp
+        name: John's Bedside Lamp
+      - entity: light.upstairs_bedroom_overhead
+        name: Overhead
