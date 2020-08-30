@@ -1,0 +1,42 @@
+- alias: Update door open count
+  trigger:
+    platform: event
+    event_type: state_changed
+  condition:
+    - condition: template
+      value_template: "{{ trigger.event.data.entity_id in (expand('group.door_sensors') | map(attribute='entity_id')) }}"
+  action:
+    service: homeassistant.update_entity
+    entity_id: sensor.open_doors_count
+
+- alias: Door opened
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.open_doors_count
+    above: 0
+    for:
+      minutes: 15
+  action:
+    - service: scene.create
+      data:
+        scene_id: doors_before
+        snapshot_entities:
+          - climate.downstairs
+    - service: climate.set_hvac_mode
+      data:
+        entity_id: climate.downstairs
+        hvac_mode: 'off'
+    - service: climate.set_fan_mode
+      data:
+        entity_id: climate.downstairs
+        fan_mode: 'off'
+
+- alias: Door closed
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.open_doors_count
+    below: 1
+  action:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.doors_before

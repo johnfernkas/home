@@ -29,3 +29,4 @@ cloudflare: !include integrations/cloudflare.yaml
 dyson: !include integrations/dyson.yaml
 lutron_caseta: !include integrations/lutron_caseta.yaml
 ecobee: !include integrations/ecobee.yaml
+sensor: !include integrations/sensor.yaml
