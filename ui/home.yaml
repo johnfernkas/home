@@ -14,6 +14,9 @@ cards:
     entities:
       - entity: cover.garage_door
 
+  - type: sensor
+    entity: sensor.open_doors_count
+
   - type: vertical-stack
     cards:
       - type: thermostat
@@ -55,6 +58,3 @@ cards:
             entity: sensor.disk_use_percent
             name: Disk
             graph: line
-
-  - type: sensor
-    entity: sensor.open_doors_count

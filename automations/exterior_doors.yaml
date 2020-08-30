@@ -9,17 +9,18 @@
     service: homeassistant.update_entity
     entity_id: sensor.open_doors_count
 
-- alias: Door opened
+- alias: Back door opened
   trigger:
-    platform: numeric_state
-    entity_id: sensor.open_doors_count
-    above: 0
+    platform: state
+    entity_id: binary_sensor.back_door
+    from: 'off'
+    to: 'on'
     for:
       minutes: 15
   action:
     - service: scene.create
       data:
-        scene_id: doors_before
+        scene_id: back_door_before
         snapshot_entities:
           - climate.downstairs
     - service: climate.set_hvac_mode
@@ -31,12 +32,13 @@
         entity_id: climate.downstairs
         fan_mode: 'off'
 
-- alias: Door closed
+- alias: Back door closed
   trigger:
-    platform: numeric_state
-    entity_id: sensor.open_doors_count
-    below: 1
+    platform: state
+    entity_id: binary_sensor.back_door
+    from: 'on'
+    to: 'off'
   action:
     - service: scene.turn_on
       data:
-        entity_id: scene.doors_before
+        entity_id: scene.back_door_before
