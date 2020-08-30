@@ -1,0 +1,9 @@
+- alias: iOS Notification Action CLOSE_GARAGE_DOOR 
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: CLOSE_GARAGE_DOOR
+  action:
+    service: cover.close_cover
+    entity_id: cover.garage_door

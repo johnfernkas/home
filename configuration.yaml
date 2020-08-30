@@ -22,6 +22,7 @@ group: !include groups.yaml
 automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 scene: !include scenes.yaml
+alert: !include alerts.yaml
 
 # Integrations
 cover: !include integrations/cover.yaml
@@ -30,3 +31,4 @@ dyson: !include integrations/dyson.yaml
 lutron_caseta: !include integrations/lutron_caseta.yaml
 ecobee: !include integrations/ecobee.yaml
 sensor: !include integrations/sensor.yaml
+ios: !include integrations/ios.yaml
