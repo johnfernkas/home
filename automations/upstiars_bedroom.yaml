@@ -3,7 +3,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: smart_switch
+      id: upstairs_bedroom_mini_button
       event: 1002
   action:
     service: homeassistant.toggle
@@ -16,7 +16,7 @@
     platform: event
     event_type: deconz_event
     event_data:
-      id: smart_switch
+      id: upstairs_bedroom_mini_button
       event: 1004
   action:
     service: homeassistant.toggle
