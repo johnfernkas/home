@@ -1,0 +1,14 @@
+host: !secret influx_host
+port: 8086
+database: !secret influx_database
+username: !secret influx_username
+password: !secret influx_password
+max_retries: 3
+default_measurement: state
+include:
+    entities:
+        - sensor.basement_temperature
+        - sensor.basement_humidity
+        - sensor.particulate_matter_2_5um_concentration
+        - sensor.particulate_matter_1_0um_concentration
+        - sensor.particulate_matter_10_0um_concentration
