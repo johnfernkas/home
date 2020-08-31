@@ -8,3 +8,4 @@ deps
 /secrets.yaml
 /ssl
 /tts
+www/community

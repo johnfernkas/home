@@ -14,8 +14,12 @@ cards:
     entities:
       - entity: cover.garage_door
 
-  - type: sensor
-    entity: sensor.open_doors_count
+  - type: custom:group-card
+    card:
+      type: entities
+      title: Doors
+      show_header_toggle: false
+    group: group.door_sensors
 
   - type: vertical-stack
     cards:
@@ -42,19 +46,3 @@ cards:
         entity: camera.laundry_room
         camera_view: live
         show_state: false
-
-  - type: vertical-stack
-    cards:
-      - type: sensor
-        entity: sensor.processor_use
-        graph: line
-      - type: horizontal-stack
-        cards:
-          - type: sensor
-            entity: sensor.memory_use_percent
-            name: Memory
-            graph: line
-          - type: sensor
-            entity: sensor.disk_use_percent
-            name: Disk
-            graph: line
