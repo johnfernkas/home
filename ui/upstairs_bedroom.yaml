@@ -3,7 +3,7 @@ path: upstiars_bedroom
 
 cards:
   - type: entities
-    title: Upstiars Bedroom
+    title: Lights
     entities:
       - entity: switch.upstairs_bedroom_left_lamp
         name: Annie's Bedside Lamp

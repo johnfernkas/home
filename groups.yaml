@@ -5,6 +5,13 @@ john_desk_lights:
         - light.office_johns_desk_left_lamp
         - light.office_johns_desk_right_lamp
 
+driveway_lights:
+    name: Driveway Lights
+    icon: mdi:spotlight-beam
+    entities:
+        - light.driveway_spotlight_left
+        - light.driveway_spotlight_right
+
 door_sensors:
     name: Door Sensors
     icon: mdi:door

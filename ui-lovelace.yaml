@@ -8,4 +8,5 @@ views:
   - !include ui/kitchen.yaml
   - !include ui/front_room.yaml
   - !include ui/upstairs_bedroom.yaml
+  - !include ui/outside.yaml
   - !include ui/status.yaml

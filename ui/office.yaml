@@ -3,7 +3,7 @@ path: office
 
 cards:
   - type: entities
-    title: Office
+    title: Lights
     entities:
       - entity: switch.office_annie_desk_lamp
         name: Annie's Desk Lamp
