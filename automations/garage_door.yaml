@@ -1,4 +1,4 @@
-- alias: iOS Notification Action CLOSE_GARAGE_DOOR 
+- alias: iOS Notification Action CLOSE_GARAGE_DOOR
   trigger:
     platform: event
     event_type: ios.notification_action_fired

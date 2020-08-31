@@ -8,7 +8,7 @@ cards:
       title: Batteries
       show_header_toggle: false
     group: group.batteries
-  
+
   - type: vertical-stack
     cards:
       - type: sensor
