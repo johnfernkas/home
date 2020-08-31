@@ -8,6 +8,14 @@ cards:
   - type: weather-forecast
     entity: weather.keye_daynight
 
+  - type: button
+    name: Goodnight
+    entity: script.goodnight
+    tap_action:
+      action: call-service
+      service: script.turn_on
+    icon: mdi:weather-night
+
   - type: entities
     title: Garage
     show_header_toggle: false

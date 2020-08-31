@@ -1,0 +1,60 @@
+goodnight:
+  sequence:
+    - service: script.turn_on
+      data:
+        entity_id: script.kitchen_lights_off
+    - service: script.turn_on
+      data:
+        entity_id: script.office_lights_off
+    - service: script.turn_on
+      data:
+        entity_id: script.front_room_lights_off
+    - service: script.turn_on
+      data:
+        entity_id: script.upstairs_bedroom_lights_off
+    - service: script.turn_on
+      data:
+        entity_id: script.hvac_night_mode
+
+kitchen_lights_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: light.kitchen_counter
+    - service: homeassistant.turn_off
+      entity_id: light.kitchen_overhead
+
+office_lights_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: group.john_desk_lights
+    - service: homeassistant.turn_off
+      entity_id: switch.office_annie_desk_lamp
+    - service: homeassistant.turn_off
+      entity_id: switch.office_table_lamp
+    - service: homeassistant.turn_off
+      entity_id: light.office_overhead
+
+front_room_lights_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: light.front_room_floor_lamp
+
+upstiars_bedroom_lights_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: switch.upstairs_bedroom_left_lamp
+    - service: homeassistant.turn_off
+      entity_id: switch.upstairs_bedroom_right_lamp
+    - service: homeassistant.turn_off
+      entity_id: light.upstairs_bedroom_overhead
+
+hvac_night_mode:
+  sequence:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.downstairs
+        temperature: 70
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.upstairs_bedroom
+        temperature: 68
