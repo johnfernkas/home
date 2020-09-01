@@ -1,0 +1,17 @@
+title: Basement
+path: basement
+
+cards:
+  - type: sensor
+    name: Average Basement Temperature
+    icon: mdi:thermometer
+    unit: "°F"
+    graph: line
+    entity: sensor.mean_value_of_basement_temperature
+
+  - type: sensor
+    name: Average Basement Humidity 
+    icon: mdi:water-percent
+    unit: "%"
+    graph: line
+    entity: sensor.mean_value_of_basement_humidity
