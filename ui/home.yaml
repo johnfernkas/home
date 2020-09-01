@@ -8,13 +8,26 @@ cards:
   - type: weather-forecast
     entity: weather.keye_daynight
 
-  - type: button
-    name: Goodnight
-    entity: script.goodnight
-    tap_action:
-      action: call-service
-      service: script.turn_on
-    icon: mdi:weather-night
+  - type: horizontal-stack
+    cards:
+      - type: button
+        name: Goodnight
+        entity: script.goodnight
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.goodnight
+        icon: mdi:weather-night
+      - type: button
+        name: Good Morning
+        entity: script.good_morning
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.good_morning
+        icon: mdi:weather-sunny
 
   - type: entities
     title: Garage

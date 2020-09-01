@@ -11,15 +11,16 @@ goodnight:
         entity_id: script.front_room_lights_off
     - service: script.turn_on
       data:
+        entity_id: script.upstairs_bedroom_fan_on
+    - service: script.turn_on
+      data:
         entity_id: script.upstairs_bedroom_lights_off
     - service: script.turn_on
       data:
-        entity_id: script.hvac_night_mode
+        entity_id: script.set_hvac_night_mode
 
 kitchen_lights_off:
   sequence:
-    - service: homeassistant.turn_off
-      entity_id: light.kitchen_counter
     - service: homeassistant.turn_off
       entity_id: light.kitchen_overhead
 
@@ -39,7 +40,7 @@ front_room_lights_off:
     - service: homeassistant.turn_off
       entity_id: light.front_room_floor_lamp
 
-upstiars_bedroom_lights_off:
+upstairs_bedroom_lights_off:
   sequence:
     - service: homeassistant.turn_off
       entity_id: switch.upstairs_bedroom_left_lamp
@@ -48,8 +49,31 @@ upstiars_bedroom_lights_off:
     - service: homeassistant.turn_off
       entity_id: light.upstairs_bedroom_overhead
 
-hvac_night_mode:
+upstairs_bedroom_fan_on:
   sequence:
+    - service: fan.turn_on
+      entity_id: fan.upstairs_bedroom
+    - service: dyson.set_night_mode
+      data:
+        entity_id: fan.upstairs_bedroom
+        night_mode: true
+    - service: fan.set_speed
+      data:
+        entity_id: fan.upstairs_bedroom
+        speed: 7
+    - service: fan.oscillate
+      data:
+        entity_id: fan.upstairs_bedroom
+        oscillating: true
+
+set_hvac_night_mode:
+  sequence:
+    - service: scene.create
+      data:
+        scene_id: hvac_before_goodnight
+        snapshot_entities:
+          - climate.downstairs
+          - climate.upstairs_bedroom
     - service: climate.set_temperature
       data:
         entity_id: climate.downstairs
@@ -58,3 +82,57 @@ hvac_night_mode:
       data:
         entity_id: climate.upstairs_bedroom
         temperature: 68
+    - service: climate.set_fan_mode
+      data:
+        entity_id: climate.downstairs
+        fan_mode: 'on'
+
+good_morning:
+  sequence:
+    - service: script.turn_on
+      data:
+        entity_id: script.kitchen_lights_on
+    - service: script.turn_on
+      data:
+        entity_id: script.office_lights_on
+    - service: script.turn_on
+      data:
+        entity_id: script.front_room_lights_on
+    - service: script.turn_on
+      data:
+        entity_id: script.upstairs_bedroom_fan_off
+    - service: script.turn_on
+      data:
+        entity_id: script.set_hvac_mode_from_yesterday
+
+kitchen_lights_on:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: light.kitchen_overhead
+
+office_lights_on:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: group.john_desk_lights
+    - service: homeassistant.turn_on
+      entity_id: switch.office_annie_desk_lamp
+    - service: homeassistant.turn_on
+      entity_id: switch.office_table_lamp
+    - service: homeassistant.turn_on
+      entity_id: light.office_overhead
+
+front_room_lights_on:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: light.front_room_floor_lamp
+
+upstairs_bedroom_fan_off:
+  sequence:
+    - service: fan.turn_off
+      entity_id: fan.upstairs_bedroom
+
+set_hvac_mode_from_yesterday:
+  sequence:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.hvac_before_goodnight
