@@ -28,10 +28,10 @@
   password: !secret influx_password
   queries:
     - name: mean value of basement_temperature
-      where: '"entity_id" = ''basement_temperature'' and time > now() - 24h'
+      where: '"entity_id" = ''basement_temperature'' and time > now() - 1h'
       measurement: '"°F"'
       value_template: '{{ value | round(1) }}'
     - name: mean value of basement_humidity
-      where: '"entity_id" = ''basement_humidity'' and time > now() - 24h'
+      where: '"entity_id" = ''basement_humidity'' and time > now() - 1h'
       measurement: '"%"'
       value_template: '{{ value | round(1) }}'

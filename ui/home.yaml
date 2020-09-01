@@ -6,7 +6,7 @@ badges:
 
 cards:
   - type: weather-forecast
-    entity: weather.keye_daynight
+    entity: weather.dark_sky
 
   - type: horizontal-stack
     cards:
