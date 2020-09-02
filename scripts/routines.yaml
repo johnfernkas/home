@@ -14,6 +14,12 @@ goodnight:
         entity_id: script.upstairs_bedroom_fan_on
     - service: script.turn_on
       data:
+        entity_id: script.upstairs_bedroom_fan_oscillate_on
+    - service: script.turn_on
+      data:
+        entity_id: script.upstairs_bedroom_fan_night_mode_on
+    - service: script.turn_on
+      data:
         entity_id: script.upstairs_bedroom_lights_off
     - service: script.turn_on
       data:
@@ -52,19 +58,23 @@ upstairs_bedroom_lights_off:
 upstairs_bedroom_fan_on:
   sequence:
     - service: fan.turn_on
-      entity_id: fan.upstairs_bedroom
-    - service: dyson.set_night_mode
-      data:
-        entity_id: fan.upstairs_bedroom
-        night_mode: true
-    - service: fan.set_speed
       data:
         entity_id: fan.upstairs_bedroom
         speed: 7
+
+upstairs_bedroom_fan_oscillate_on:
+  sequence:
     - service: fan.oscillate
       data:
         entity_id: fan.upstairs_bedroom
-        oscillating: true
+        oscillating: True
+
+upstairs_bedroom_fan_night_mode_on:
+  sequence:
+    - service: dyson.set_night_mode
+      data:
+        entity_id: fan.upstairs_bedroom
+        night_mode: True
 
 set_hvac_night_mode:
   sequence:
