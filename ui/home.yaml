@@ -27,7 +27,7 @@ cards:
           service: script.turn_on
           service_data:
             entity_id: script.good_morning
-        icon: mdi:weather-sunny
+        icon: mdi:party-popper
 
   - type: entities
     title: Garage

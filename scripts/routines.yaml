@@ -12,12 +12,15 @@ goodnight:
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_fan_on
+    - wait_template: "{{ is_state_attr('fan.upstairs_bedroom', 'speed', 7) }}"
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_fan_oscillate_on
+    - wait_template: "{{ is_state_attr('fan.upstairs_bedroom', 'oscillating', true) }}"
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_fan_night_mode_on
+    - wait_template: "{{ is_state_attr('fan.upstairs_bedroom', 'night_mode', true) }}"
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_lights_off
@@ -67,20 +70,20 @@ upstairs_bedroom_fan_oscillate_on:
     - service: fan.oscillate
       data:
         entity_id: fan.upstairs_bedroom
-        oscillating: True
+        oscillating: true
 
 upstairs_bedroom_fan_night_mode_on:
   sequence:
     - service: dyson.set_night_mode
       data:
         entity_id: fan.upstairs_bedroom
-        night_mode: True
+        night_mode: true
 
 set_hvac_night_mode:
   sequence:
     - service: scene.create
       data:
-        scene_id: hvac_before_goodnight
+        scene_id: hvac_before
         snapshot_entities:
           - climate.downstairs
           - climate.upstairs_bedroom
@@ -88,14 +91,17 @@ set_hvac_night_mode:
       data:
         entity_id: climate.downstairs
         temperature: 70
+    - wait_template: "{{ is_state_attr('climate.downstairs', 'temperature', 70) }}"
     - service: climate.set_temperature
       data:
         entity_id: climate.upstairs_bedroom
         temperature: 68
+    - wait_template: "{{ is_state_attr('climate.upstairs_bedroom', 'temperature', 68) }}"
     - service: climate.set_fan_mode
       data:
         entity_id: climate.downstairs
         fan_mode: 'on'
+    - wait_template: "{{ is_state_attr('climate.downstairs', 'fan', 'on') }}"
 
 good_morning:
   sequence:
@@ -145,4 +151,4 @@ set_hvac_mode_from_yesterday:
   sequence:
     - service: scene.turn_on
       data:
-        entity_id: scene.hvac_before_goodnight
+        entity_id: scene.hvac_before
