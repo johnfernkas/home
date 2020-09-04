@@ -24,11 +24,11 @@
         snapshot_entities:
           - climate.downstairs
     - service: climate.set_hvac_mode
-      data:
+      data_template:
         entity_id: climate.downstairs
         hvac_mode: 'off'
     - service: climate.set_fan_mode
-      data:
+      data_template:
         entity_id: climate.downstairs
         fan_mode: 'off'
 

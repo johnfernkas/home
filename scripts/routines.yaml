@@ -3,27 +3,31 @@ goodnight:
     - service: script.turn_on
       data:
         entity_id: script.kitchen_lights_off
+    - wait_template: "{{ is_state('script.kitchen_lights_off', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.office_lights_off
+    - wait_template: "{{ is_state('script.office_lights_off', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.front_room_lights_off
+    - wait_template: "{{ is_state('script.front_room_lights_off', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_fan_on
-    - wait_template: "{{ is_state_attr('fan.upstairs_bedroom', 'speed', 7) }}"
+    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_on', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_fan_oscillate_on
-    - wait_template: "{{ is_state_attr('fan.upstairs_bedroom', 'oscillating', true) }}"
+    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_oscillate_on', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_fan_night_mode_on
-    - wait_template: "{{ is_state_attr('fan.upstairs_bedroom', 'night_mode', true) }}"
+    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_night_mode_on', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_lights_off
+    - wait_template: "{{ is_state('script.upstairs_bedroom_lights_off', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.set_hvac_night_mode
@@ -88,35 +92,36 @@ set_hvac_night_mode:
           - climate.downstairs
           - climate.upstairs_bedroom
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.downstairs
         temperature: 70
-    - wait_template: "{{ is_state_attr('climate.downstairs', 'temperature', 70) }}"
     - service: climate.set_temperature
-      data:
+      data_template:
         entity_id: climate.upstairs_bedroom
         temperature: 68
-    - wait_template: "{{ is_state_attr('climate.upstairs_bedroom', 'temperature', 68) }}"
     - service: climate.set_fan_mode
-      data:
+      data_template:
         entity_id: climate.downstairs
         fan_mode: 'on'
-    - wait_template: "{{ is_state_attr('climate.downstairs', 'fan', 'on') }}"
 
 good_morning:
   sequence:
     - service: script.turn_on
       data:
         entity_id: script.kitchen_lights_on
+    - wait_template: "{{ is_state('script.kitchen_lights_on', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.office_lights_on
+    - wait_template: "{{ is_state('script.office_lights_on', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.front_room_lights_on
+    - wait_template: "{{ is_state('script.front_room_lights_on', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.upstairs_bedroom_fan_off
+    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_off', 'off') }}"
     - service: script.turn_on
       data:
         entity_id: script.set_hvac_mode_from_yesterday
