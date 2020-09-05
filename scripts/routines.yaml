@@ -1,36 +1,23 @@
 goodnight:
   sequence:
     - service: script.turn_on
-      data:
-        entity_id: script.kitchen_lights_off
+      entity_id: script.kitchen_lights_off
     - wait_template: "{{ is_state('script.kitchen_lights_off', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.office_lights_off
+      entity_id: script.office_lights_off
     - wait_template: "{{ is_state('script.office_lights_off', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.front_room_lights_off
+      entity_id: script.front_room_lights_off
     - wait_template: "{{ is_state('script.front_room_lights_off', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.upstairs_bedroom_fan_on
+      entity_id: script.upstairs_bedroom_fan_on
     - wait_template: "{{ is_state('script.upstairs_bedroom_fan_on', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.upstairs_bedroom_fan_oscillate_on
-    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_oscillate_on', 'off') }}"
-    - service: script.turn_on
-      data:
-        entity_id: script.upstairs_bedroom_fan_night_mode_on
-    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_night_mode_on', 'off') }}"
-    - service: script.turn_on
-      data:
-        entity_id: script.upstairs_bedroom_lights_off
+      entity_id: script.upstairs_bedroom_lights_off
     - wait_template: "{{ is_state('script.upstairs_bedroom_lights_off', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.set_hvac_night_mode
+      entity_id: script.set_hvac_night_mode
+    - wait_template: "{{ is_state('script.set_hvac_night_mode', 'off') }}"
 
 kitchen_lights_off:
   sequence:
@@ -68,16 +55,10 @@ upstairs_bedroom_fan_on:
       data:
         entity_id: fan.upstairs_bedroom
         speed: 7
-
-upstairs_bedroom_fan_oscillate_on:
-  sequence:
     - service: fan.oscillate
       data:
         entity_id: fan.upstairs_bedroom
         oscillating: true
-
-upstairs_bedroom_fan_night_mode_on:
-  sequence:
     - service: dyson.set_night_mode
       data:
         entity_id: fan.upstairs_bedroom
@@ -95,10 +76,12 @@ set_hvac_night_mode:
       data_template:
         entity_id: climate.downstairs
         temperature: 70
+        hvac_mode: cool
     - service: climate.set_temperature
       data_template:
         entity_id: climate.upstairs_bedroom
         temperature: 68
+        hvac_mode: cool
     - service: climate.set_fan_mode
       data_template:
         entity_id: climate.downstairs
@@ -107,24 +90,19 @@ set_hvac_night_mode:
 good_morning:
   sequence:
     - service: script.turn_on
-      data:
-        entity_id: script.kitchen_lights_on
+      entity_id: script.kitchen_lights_on
     - wait_template: "{{ is_state('script.kitchen_lights_on', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.office_lights_on
+      entity_id: script.office_lights_on
     - wait_template: "{{ is_state('script.office_lights_on', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.front_room_lights_on
+      entity_id: script.front_room_lights_on
     - wait_template: "{{ is_state('script.front_room_lights_on', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.upstairs_bedroom_fan_off
+      entity_id: script.upstairs_bedroom_fan_off
     - wait_template: "{{ is_state('script.upstairs_bedroom_fan_off', 'off') }}"
     - service: script.turn_on
-      data:
-        entity_id: script.set_hvac_mode_from_yesterday
+      entity_id: script.set_hvac_mode_from_yesterday
 
 kitchen_lights_on:
   sequence:

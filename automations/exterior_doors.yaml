@@ -30,7 +30,7 @@
     - service: climate.set_fan_mode
       data_template:
         entity_id: climate.downstairs
-        fan_mode: 'off'
+        fan_mode: 'auto'
 
 - alias: Back door closed
   trigger:
