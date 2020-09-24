@@ -3,6 +3,7 @@ path: home
 
 badges:
   - person.john
+  - person.annie
 
 cards:
   - type: weather-forecast
