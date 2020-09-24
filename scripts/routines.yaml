@@ -70,22 +70,22 @@ set_hvac_night_mode:
       data:
         scene_id: hvac_before
         snapshot_entities:
-          - climate.downstairs
+          # - climate.downstairs
           - climate.upstairs_bedroom
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.downstairs
-        temperature: 70
-        hvac_mode: cool
+    # - service: climate.set_temperature
+    #   data_template:
+    #     entity_id: climate.downstairs
+    #     temperature: 70
+    #     hvac_mode: cool
     - service: climate.set_temperature
       data_template:
         entity_id: climate.upstairs_bedroom
         temperature: 68
         hvac_mode: cool
-    - service: climate.set_fan_mode
-      data_template:
-        entity_id: climate.downstairs
-        fan_mode: 'on'
+    # - service: climate.set_fan_mode
+    #   data_template:
+    #     entity_id: climate.downstairs
+    #     fan_mode: "on"
 
 good_morning:
   sequence:
