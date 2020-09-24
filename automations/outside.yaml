@@ -2,7 +2,7 @@
   trigger:
     platform: state
     entity_id: binary_sensor.motion_driveway
-    to: 'on'
+    to: "on"
   condition:
     condition: or
     conditions:
@@ -19,7 +19,7 @@
   trigger:
     platform: state
     entity_id: binary_sensor.motion_driveway
-    to: 'off'
+    to: "off"
     for:
       minutes: 10
   condition:
@@ -30,6 +30,7 @@
         after_offset: "-00:45:00"
       - condition: sun
         before: sunrise
+        before_offset: "01:00:00"
   action:
     service: light.turn_off
     entity_id: group.driveway_lights
