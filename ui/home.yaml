@@ -1,0 +1,70 @@
+title: Home
+path: home
+
+badges:
+  - person.john
+  - person.annie
+
+cards:
+  - type: weather-forecast
+    entity: weather.dark_sky
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        name: Goodnight
+        entity: script.goodnight
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.goodnight
+        icon: mdi:weather-night
+      - type: button
+        name: Good Morning
+        entity: script.good_morning
+        tap_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.good_morning
+        icon: mdi:party-popper
+
+  - type: entities
+    title: Garage
+    show_header_toggle: false
+    entities:
+      - entity: cover.garage_door
+
+  - type: custom:group-card
+    card:
+      type: entities
+      title: Doors
+      show_header_toggle: false
+    group: group.door_sensors
+
+  - type: vertical-stack
+    cards:
+      - type: thermostat
+        entity: climate.downstairs
+      - type: thermostat
+        entity: climate.upstairs_bedroom
+
+  - type: vertical-stack
+    cards:
+      - type: picture-entity
+        entity: camera.front_door
+        camera_view: live
+        show_state: false
+      - type: picture-entity
+        entity: camera.driveway
+        camera_view: live
+        show_state: false
+      - type: picture-entity
+        entity: camera.backyard
+        camera_view: live
+        show_state: false
+      - type: picture-entity
+        entity: camera.laundry_room
+        camera_view: live
+        show_state: false

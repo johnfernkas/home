@@ -1,0 +1,137 @@
+goodnight:
+  sequence:
+    - service: script.turn_on
+      entity_id: script.kitchen_lights_off
+    - wait_template: "{{ is_state('script.kitchen_lights_off', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.office_lights_off
+    - wait_template: "{{ is_state('script.office_lights_off', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.front_room_lights_off
+    - wait_template: "{{ is_state('script.front_room_lights_off', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.upstairs_bedroom_fan_on
+    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_on', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.upstairs_bedroom_lights_off
+    - wait_template: "{{ is_state('script.upstairs_bedroom_lights_off', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.set_hvac_night_mode
+    - wait_template: "{{ is_state('script.set_hvac_night_mode', 'off') }}"
+
+kitchen_lights_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: light.kitchen_overhead
+
+office_lights_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: group.john_desk_lights
+    - service: homeassistant.turn_off
+      entity_id: switch.office_annie_desk_lamp
+    - service: homeassistant.turn_off
+      entity_id: switch.office_table_lamp
+    - service: homeassistant.turn_off
+      entity_id: light.office_overhead
+
+front_room_lights_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: light.front_room_floor_lamp
+
+upstairs_bedroom_lights_off:
+  sequence:
+    - service: homeassistant.turn_off
+      entity_id: switch.upstairs_bedroom_left_lamp
+    - service: homeassistant.turn_off
+      entity_id: switch.upstairs_bedroom_right_lamp
+    - service: homeassistant.turn_off
+      entity_id: light.upstairs_bedroom_overhead
+
+upstairs_bedroom_fan_on:
+  sequence:
+    - service: fan.turn_on
+      data:
+        entity_id: fan.upstairs_bedroom
+        speed: 7
+    - service: fan.oscillate
+      data:
+        entity_id: fan.upstairs_bedroom
+        oscillating: true
+    - service: dyson.set_night_mode
+      data:
+        entity_id: fan.upstairs_bedroom
+        night_mode: true
+
+set_hvac_night_mode:
+  sequence:
+    - service: scene.create
+      data:
+        scene_id: hvac_before
+        snapshot_entities:
+          # - climate.downstairs
+          - climate.upstairs_bedroom
+    # - service: climate.set_temperature
+    #   data_template:
+    #     entity_id: climate.downstairs
+    #     temperature: 70
+    #     hvac_mode: cool
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.upstairs_bedroom
+        temperature: 68
+        hvac_mode: cool
+    # - service: climate.set_fan_mode
+    #   data_template:
+    #     entity_id: climate.downstairs
+    #     fan_mode: "on"
+
+good_morning:
+  sequence:
+    - service: script.turn_on
+      entity_id: script.kitchen_lights_on
+    - wait_template: "{{ is_state('script.kitchen_lights_on', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.office_lights_on
+    - wait_template: "{{ is_state('script.office_lights_on', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.front_room_lights_on
+    - wait_template: "{{ is_state('script.front_room_lights_on', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.upstairs_bedroom_fan_off
+    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_off', 'off') }}"
+    - service: script.turn_on
+      entity_id: script.set_hvac_mode_from_yesterday
+
+kitchen_lights_on:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: light.kitchen_overhead
+
+office_lights_on:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: group.john_desk_lights
+    - service: homeassistant.turn_on
+      entity_id: switch.office_annie_desk_lamp
+    - service: homeassistant.turn_on
+      entity_id: switch.office_table_lamp
+    - service: homeassistant.turn_on
+      entity_id: light.office_overhead
+
+front_room_lights_on:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: light.front_room_floor_lamp
+
+upstairs_bedroom_fan_off:
+  sequence:
+    - service: fan.turn_off
+      entity_id: fan.upstairs_bedroom
+
+set_hvac_mode_from_yesterday:
+  sequence:
+    - service: scene.turn_on
+      data:
+        entity_id: scene.hvac_before

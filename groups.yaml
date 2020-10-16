@@ -1,25 +1,32 @@
-# -----
-# Rooms
-# -----
-
-# Ofiice
-office:
-    name: Office
-    icon: mdi:desk
-    entities:
-        - group.john_desk_lights
-        - light.office_closet
-        - switch.office_annie_desk_lamp
-        - switch.office_table_lamp
-
-# -----
-# Lights
-# -----
-
-# John's Desk Lights
 john_desk_lights:
     name: John's Desk Lights
     icon: mdi:desk-lamp
     entities:
         - light.office_johns_desk_left_lamp
         - light.office_johns_desk_right_lamp
+
+driveway_lights:
+    name: Driveway Lights
+    icon: mdi:spotlight-beam
+    entities:
+        - light.driveway_spotlight_left
+        - light.driveway_spotlight_right
+
+door_sensors:
+    name: Door Sensors
+    icon: mdi:door
+    entities:
+        - binary_sensor.front_door
+        - binary_sensor.back_door
+        - binary_sensor.side_door
+
+batteries:
+    name: Batteries
+    icon: mdi:battery
+    entities:
+        - sensor.front_door_battery_level
+        - sensor.back_door_battery_level
+        - sensor.side_door_battery_level
+        - sensor.office_closet_door_battery_level
+        - sensor.upstairs_bedroom_mini_button_battery_level
+        - sensor.office_mini_button_battery_level

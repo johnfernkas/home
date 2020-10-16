@@ -1,0 +1,38 @@
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_use_percent
+    - type: load_5m
+    - type: processor_use
+
+- platform: template
+  sensors:
+    open_doors_count:
+      friendly_name: "Open Doors"
+      entity_id: group.door_sensors
+      value_template: >-
+        {{ expand('group.door_sensors') | selectattr('state', 'eq', 'on') | list | count }}
+      icon_template: >-
+        {% if expand('group.door_sensors') | selectattr('state', 'eq', 'on') | list | count > 0 %}
+          mdi:door-open
+        {% else %}
+          mdi:door-closed
+        {% endif %}
+
+- platform: influxdb
+  host: !secret influx_host
+  port: 8086
+  database: !secret influx_database
+  username: !secret influx_username
+  password: !secret influx_password
+  queries:
+    - name: mean value of basement_temperature
+      where: '"entity_id" = ''basement_temperature'' and time > now() - 1h'
+      measurement: '"°F"'
+      value_template: '{{ value | round(1) }}'
+    - name: mean value of basement_humidity
+      where: '"entity_id" = ''basement_humidity'' and time > now() - 1h'
+      measurement: '"%"'
+      value_template: '{{ value | round(1) }}'
+  scan_interval: 900

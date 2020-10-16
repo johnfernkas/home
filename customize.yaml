@@ -1,3 +1,11 @@
+# Light Groups
+light.kitchen_overhead:
+    icon: mdi:ceiling-light
+light.office_overhead:
+    icon: mdi:ceiling-light
+light.upstairs_bedroom_overhead:
+    icon: mdi:ceiling-light
+
 # Lights
 light.front_room_floor_lamp:
     icon: mdi:floor-lamp
@@ -29,7 +37,17 @@ switch.office_annie_desk_lamp:
 # Doors
 binary_sensor.office_closet_door:
     device_class: door
+binary_sensor.front_door:
+    device_class: door
+binary_sensor.back_door:
+    device_class: door
+binary_sensor.side_door:
+    device_class: door
 
 # Misc
 climate.upstairs_bedroom:
     icon: mdi:air-conditioner
+
+# People
+person.john:
+    icon: mdi:human-male

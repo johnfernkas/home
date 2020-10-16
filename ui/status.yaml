@@ -1,0 +1,26 @@
+title: Status
+path: status
+
+cards:
+  - type: custom:group-card
+    card:
+      type: entities
+      title: Batteries
+      show_header_toggle: false
+    group: group.batteries
+
+  - type: vertical-stack
+    cards:
+      - type: sensor
+        entity: sensor.processor_use
+        graph: line
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.memory_use_percent
+            name: Memory
+            graph: line
+          - type: sensor
+            entity: sensor.disk_use_percent
+            name: Disk
+            graph: line

@@ -1,0 +1,9 @@
+title: Outside
+path: outside
+
+cards:
+  - type: entities
+    title: Lights
+    entities:
+      - entity: group.driveway_lights
+        name: Driveway Lights

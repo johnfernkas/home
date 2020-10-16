@@ -5,6 +5,8 @@ http:
     ssl_key: ssl/privkey.pem
 recorder:
     db_url: !secret db_url
+lovelace:
+    mode: yaml
 
 # General Configuration
 homeassistant:
@@ -18,11 +20,17 @@ homeassistant:
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
-script: !include scripts.yaml
+script: !include_dir_merge_named scripts
 scene: !include scenes.yaml
+alert: !include alerts.yaml
 
 # Integrations
 cover: !include integrations/cover.yaml
 cloudflare: !include integrations/cloudflare.yaml
 dyson: !include integrations/dyson.yaml
 lutron_caseta: !include integrations/lutron_caseta.yaml
+ecobee: !include integrations/ecobee.yaml
+sensor: !include integrations/sensor.yaml
+ios: !include integrations/ios.yaml
+influxdb: !include integrations/influxdb.yaml
+weather: !include integrations/weather.yaml
