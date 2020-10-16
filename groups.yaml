@@ -29,4 +29,4 @@ batteries:
         - sensor.side_door_battery_level
         - sensor.office_closet_door_battery_level
         - sensor.upstairs_bedroom_mini_button_battery_level
-        - sensor.office_mini_button_battery_level
+        - sensor.front_room_mini_button_battery_level

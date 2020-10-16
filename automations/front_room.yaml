@@ -13,3 +13,14 @@
   action:
     service: switch.turn_off
     entity_id: switch.front_room_bookshelf_lamp
+
+- alias: "Toggle the table overhead light"
+  trigger:
+    platform: event
+    event_type: deconz_event
+    event_data:
+      id: front_room_mini_button
+      event: 1002
+  action:
+    service: homeassistant.toggle
+    entity_id: switch.front_room_table_overhead
