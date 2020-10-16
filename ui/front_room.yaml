@@ -9,3 +9,5 @@ cards:
         name: Floor Lamp
       - entity: switch.front_room_bookshelf_lamp
         name: Bookshelf Lamp
+      - entity: switch.front_room_table_overhead
+        name: Table Overhead Lamp
