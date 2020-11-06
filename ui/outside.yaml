@@ -3,7 +3,8 @@ path: outside
 
 cards:
   - type: entities
-    title: Lights
+    title: Driveway
     entities:
+      - entity: input_boolean.driveway_motion_sensor_override
       - entity: group.driveway_lights
         name: Driveway Lights

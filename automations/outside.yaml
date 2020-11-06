@@ -4,13 +4,18 @@
     entity_id: binary_sensor.motion_driveway
     to: "on"
   condition:
-    condition: or
+    condition: and
     conditions:
-      - condition: sun
-        after: sunset
-        after_offset: "-00:45:00"
-      - condition: sun
-        before: sunrise
+      - condition: state
+        entity_id: input_boolean.driveway_motion_sensor_override
+        state: "off"
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+            after_offset: "-00:45:00"
+          - condition: sun
+            before: sunrise
   action:
     service: light.turn_on
     entity_id: group.driveway_lights
@@ -23,14 +28,19 @@
     for:
       minutes: 10
   condition:
-    condition: or
+    condition: and
     conditions:
-      - condition: sun
-        after: sunset
-        after_offset: "-00:45:00"
-      - condition: sun
-        before: sunrise
-        before_offset: "01:00:00"
+      - condition: state
+        entity_id: input_boolean.driveway_motion_sensor_override
+        state: "off"
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+            after_offset: "-00:45:00"
+          - condition: sun
+            before: sunrise
+            before_offset: "01:00:00"
   action:
     service: light.turn_off
     entity_id: group.driveway_lights

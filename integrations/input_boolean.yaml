@@ -1,0 +1,4 @@
+driveway_motion_sensor_override:
+  name: Driveway Motion Sensor Override
+  initial: off
+  icon: mdi:motion-sensor
