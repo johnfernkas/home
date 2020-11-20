@@ -4,6 +4,7 @@ path: outside
 cards:
   - type: entities
     title: Driveway
+    show_header_toggle: false
     entities:
       - entity: input_boolean.driveway_motion_sensor_override
       - entity: group.driveway_lights
