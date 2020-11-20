@@ -64,7 +64,13 @@ cards:
         entity: camera.backyard
         camera_view: live
         show_state: false
-      - type: picture-entity
-        entity: camera.laundry_room
-        camera_view: live
-        show_state: false
+      - type: horizontal-stack
+        cards:
+          - type: picture-entity
+            entity: camera.laundry_room
+            camera_view: live
+            show_state: false
+          - type: picture-entity
+            entity: camera.garage
+            camera_view: live
+            show_state: false
