@@ -9,3 +9,5 @@ deps
 /ssl
 /tts
 www/community
+*.pyc
+__pycache__
