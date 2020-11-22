@@ -1,17 +1,34 @@
-- alias: 'Turn on office closet light'
+- alias: "Turn on office closet light"
   trigger:
     platform: state
     entity_id: binary_sensor.office_closet_door
-    to: 'on'
+    to: "on"
   action:
     service: homeassistant.turn_on
     entity_id: light.office_closet
 
-- alias: 'Turn off office closet light'
+- alias: "Turn off office closet light"
   trigger:
     platform: state
     entity_id: binary_sensor.office_closet_door
-    to: 'off'
+    to: "off"
   action:
     service: homeassistant.turn_off
     entity_id: light.office_closet
+
+- alias: "Turn on the Christmas lights 1 hour before sunset"
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-01:00:00"
+  action:
+    service: switch.turn_on
+    entity_id: switch.pluga1
+
+- alias: "Turn off Christmas lights at 2AM"
+  trigger:
+    platform: time
+    at: "02:00:00"
+  action:
+    service: switch.turn_off
+    entity_id: switch.pluga1

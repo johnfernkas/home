@@ -13,4 +13,5 @@ cards:
     title: Backyard
     entities:
       - entity: switch.pluga1
+        icon: mdi:string-lights
         name: Fence Icicle Lights
