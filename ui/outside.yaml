@@ -9,3 +9,8 @@ cards:
       - entity: input_boolean.driveway_motion_sensor_override
       - entity: group.driveway_lights
         name: Driveway Lights
+  - type: entities
+    title: Backyard
+    entities:
+      - entity: switch.pluga1
+        name: Fence Icicle Lights
