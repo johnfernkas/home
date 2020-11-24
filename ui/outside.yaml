@@ -10,8 +10,14 @@ cards:
       - entity: group.driveway_lights
         name: Driveway Lights
   - type: entities
-    title: Backyard
+    title: Back
     entities:
       - entity: switch.pluga1
         icon: mdi:string-lights
         name: Fence Icicle Lights
+  - type: entities
+    title: Front
+    entities:
+      - entity: switch.plugb1
+        icon: mdi:string-lights
+        name: Treet Lights & Spotlight
