@@ -11,3 +11,4 @@ deps
 www/community
 *.pyc
 __pycache__
+/image

@@ -1,19 +1,23 @@
-- alias: 'Turn on the bookshelf lamp 1 hour before sunset'
+- alias: "Turn on lights 1 hour before sunset"
   trigger:
     platform: sun
     event: sunset
     offset: "-01:00:00"
   action:
     service: switch.turn_on
-    entity_id: switch.front_room_bookshelf_lamp
+    entity_id:
+      - switch.front_room_bookshelf_lamp
+      - switch.christmas_tree
 
-- alias: 'Turn off the bookshelf lamp at 11PM'
+- alias: "Turn off lights at 11PM"
   trigger:
     platform: time
     at: "23:00:00"
   action:
     service: switch.turn_off
-    entity_id: switch.front_room_bookshelf_lamp
+    entity_id:
+      - switch.front_room_bookshelf_lamp
+      - switch.christmas_tree
 
 - alias: "Toggle the table overhead light"
   trigger:
