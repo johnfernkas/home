@@ -1,4 +1,4 @@
-- alias: "Turn on lights 1 hour before sunset"
+- alias: "Turn on front room lights 1 hour before sunset"
   trigger:
     platform: sun
     event: sunset
@@ -9,7 +9,7 @@
       - switch.front_room_bookshelf_lamp
       - switch.christmas_tree
 
-- alias: "Turn off lights at 11PM"
+- alias: "Turn off front room lights at 11PM"
   trigger:
     platform: time
     at: "23:00:00"
