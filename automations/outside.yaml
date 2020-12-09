@@ -55,6 +55,7 @@
     entity_id:
       - switch.pluga1
       - switch.plugb1
+      - switch.plugb2
 
 - alias: "Turn off Christmas lights at 2AM"
   trigger:
@@ -65,3 +66,4 @@
     entity_id:
       - switch.pluga1
       - switch.plugb1
+      - switch.plugb2
