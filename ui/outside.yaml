@@ -9,12 +9,3 @@ cards:
       - entity: input_boolean.driveway_motion_sensor_override
       - entity: group.driveway_lights
         name: Driveway Lights
-  - type: entities
-    title: Christmas Lights
-    entities:
-      - entity: switch.pluga1
-        icon: mdi:string-lights
-        name: Fence Icicle Lights
-      - entity: switch.plugb1
-        icon: mdi:string-lights
-        name: Front Lights & Spotlight

@@ -11,5 +11,3 @@ cards:
         name: Bookshelf Lamp
       - entity: switch.front_room_table_overhead
         name: Table Overhead Lamp
-      - entity: switch.christmas_tree
-        icon: mdi:string-lights
