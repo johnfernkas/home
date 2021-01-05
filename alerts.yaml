@@ -1,12 +1,13 @@
 garage_door_left_open:
   name: Garage door was left open!
   entity_id: cover.garage_door
-  state: 'open'
+  state: "open"
   repeat: 60
   can_acknowledge: true
   skip_first: true
   notifiers:
-    - mobile_app_iphone
+    - mobile_app_jpf_iphone
+    - mobile_app_iphone_2
   data:
     push:
       category: GARAGE_DOOR
