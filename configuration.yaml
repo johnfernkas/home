@@ -32,6 +32,6 @@ ecobee: !include integrations/ecobee.yaml
 sensor: !include integrations/sensor.yaml
 ios: !include integrations/ios.yaml
 influxdb: !include integrations/influxdb.yaml
-weather: !include integrations/weather.yaml
+weather:
 input_boolean: !include integrations/input_boolean.yaml
 tplink: !include integrations/tplink.yaml

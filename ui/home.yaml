@@ -6,9 +6,6 @@ badges:
   - person.annie
 
 cards:
-  - type: weather-forecast
-    entity: weather.dark_sky
-
   - type: horizontal-stack
     cards:
       - type: button
