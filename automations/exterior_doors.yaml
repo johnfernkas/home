@@ -1,14 +1,3 @@
-# - alias: Update door open count
-#   trigger:
-#     platform: event
-#     event_type: state_changed
-#   condition:
-#     - condition: template
-#       value_template: "{{ trigger.event.data.entity_id in (expand('group.exterior_doors') | map(attribute='entity_id')) }}"
-#   action:
-#     service: homeassistant.update_entity
-#     entity_id: sensor.open_doors_count
-
 # - alias: Back door opened
 #   trigger:
 #     platform: state
