@@ -1,44 +1,44 @@
-- alias: Update door open count
-  trigger:
-    platform: event
-    event_type: state_changed
-  condition:
-    - condition: template
-      value_template: "{{ trigger.event.data.entity_id in (expand('group.door_sensors') | map(attribute='entity_id')) }}"
-  action:
-    service: homeassistant.update_entity
-    entity_id: sensor.open_doors_count
+# - alias: Update door open count
+#   trigger:
+#     platform: event
+#     event_type: state_changed
+#   condition:
+#     - condition: template
+#       value_template: "{{ trigger.event.data.entity_id in (expand('group.exterior_doors') | map(attribute='entity_id')) }}"
+#   action:
+#     service: homeassistant.update_entity
+#     entity_id: sensor.open_doors_count
 
-- alias: Back door opened
-  trigger:
-    platform: state
-    entity_id: binary_sensor.back_door
-    from: 'off'
-    to: 'on'
-    for:
-      minutes: 15
-  action:
-    - service: scene.create
-      data:
-        scene_id: back_door_before
-        snapshot_entities:
-          - climate.downstairs
-    - service: climate.set_hvac_mode
-      data_template:
-        entity_id: climate.downstairs
-        hvac_mode: 'off'
-    - service: climate.set_fan_mode
-      data_template:
-        entity_id: climate.downstairs
-        fan_mode: 'auto'
+# - alias: Back door opened
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.back_door
+#     from: 'off'
+#     to: 'on'
+#     for:
+#       minutes: 15
+#   action:
+#     - service: scene.create
+#       data:
+#         scene_id: back_door_before
+#         snapshot_entities:
+#           - climate.downstairs
+#     - service: climate.set_hvac_mode
+#       data_template:
+#         entity_id: climate.downstairs
+#         hvac_mode: 'off'
+#     - service: climate.set_fan_mode
+#       data_template:
+#         entity_id: climate.downstairs
+#         fan_mode: 'auto'
 
-- alias: Back door closed
-  trigger:
-    platform: state
-    entity_id: binary_sensor.back_door
-    from: 'on'
-    to: 'off'
-  action:
-    - service: scene.turn_on
-      data:
-        entity_id: scene.back_door_before
+# - alias: Back door closed
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.back_door
+#     from: 'on'
+#     to: 'off'
+#   action:
+#     - service: scene.turn_on
+#       data:
+#         entity_id: scene.back_door_before

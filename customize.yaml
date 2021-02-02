@@ -37,6 +37,8 @@ switch.office_west_table_lamp_plug:
 # Doors
 binary_sensor.office_closet_door:
   device_class: door
+binary_sensor.hallway_closet_door:
+  device_class: door
 binary_sensor.front_door:
   device_class: door
 binary_sensor.back_door:

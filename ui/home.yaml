@@ -38,7 +38,7 @@ cards:
       type: entities
       title: Doors
       show_header_toggle: false
-    group: group.door_sensors
+    group: group.exterior_doors
 
   - type: vertical-stack
     cards:
