@@ -6,19 +6,6 @@
     - type: load_5m
     - type: processor_use
 
-- platform: template
-  sensors:
-    open_doors_count:
-      friendly_name: "Open Doors"
-      value_template: >-
-        {{ expand('group.exterior_doors') | selectattr('state', 'eq', 'on') | list | count }}
-      icon_template: >-
-        {% if expand('group.exterior_doors') | selectattr('state', 'eq', 'on') | list | count > 0 %}
-          mdi:door-open
-        {% else %}
-          mdi:door-closed
-        {% endif %}
-
 - platform: influxdb
   host: !secret influx_host
   port: 8086
