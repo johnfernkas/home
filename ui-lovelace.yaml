@@ -1,7 +1,4 @@
 title: !secret home_name
-resources:
-  - url: /hacsfiles/group-card/group-card.js
-    type: module
 views:
   - !include ui/home.yaml
   - !include ui/office.yaml

@@ -5,8 +5,6 @@ http:
   ssl_key: ssl/privkey.pem
 recorder:
   db_url: !secret db_url
-lovelace:
-  mode: yaml
 
 # General Configuration
 homeassistant:
@@ -35,3 +33,4 @@ influxdb: !include integrations/influxdb.yaml
 weather:
 input_boolean: !include integrations/input_boolean.yaml
 tplink: !include integrations/tplink.yaml
+lovelace: !include integrations/lovelace.yaml
