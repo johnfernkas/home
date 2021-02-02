@@ -6,8 +6,10 @@ cards:
     title: Lights
     entities:
       - entity: light.front_room_south_floor_lamp
-        name: Floor Lamp
+        name: Couch Floor Lamp
+      - entity: light.front_room_north_floor_lamp
+        name: Chair Floor Lamp
       - entity: switch.front_room_bookshelf_lamp_plug
         name: Bookshelf Lamp
       - entity: switch.front_room_table_overhead_plug
-        name: Table Overhead Lamp
+        name: Table Overhead Light

@@ -15,3 +15,9 @@ cards:
     unit: "%"
     graph: line
     entity: sensor.mean_value_of_basement_humidity
+
+  - type: sensor
+    name: particulate_matter_2_5um_concentration
+    unit: "μg"
+    graph: line
+    entity: sensor.particulate_matter_2_5um_concentration
