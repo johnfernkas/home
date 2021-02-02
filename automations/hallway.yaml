@@ -4,7 +4,7 @@
     at: "06:30:00"
   action:
     service: switch.turn_on
-    entity_id: switch.hallway_lamp
+    entity_id: switch.hallway_lamp_plug
 
 - alias: "Turn off the hallway lamp at 11PM"
   trigger:
@@ -12,7 +12,7 @@
     at: "23:00:00"
   action:
     service: switch.turn_off
-    entity_id: switch.hallway_lamp
+    entity_id: switch.hallway_lamp_plug
 
 - alias: "Turn on hallway closet overhead light"
   trigger:

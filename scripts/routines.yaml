@@ -29,9 +29,9 @@ office_lights_off:
     - service: homeassistant.turn_off
       entity_id: group.john_desk_lights
     - service: homeassistant.turn_off
-      entity_id: switch.office_annie_desk_lamp
+      entity_id: switch.office_west_table_lamp_plug
     - service: homeassistant.turn_off
-      entity_id: switch.office_table_lamp
+      entity_id: switch.office_north_table_lamp_plug
     - service: homeassistant.turn_off
       entity_id: light.office_overhead
 
@@ -43,9 +43,9 @@ front_room_lights_off:
 upstairs_bedroom_lights_off:
   sequence:
     - service: homeassistant.turn_off
-      entity_id: switch.upstairs_bedroom_left_lamp
+      entity_id: switch.upstairs_bedroom_west_lamp_plug
     - service: homeassistant.turn_off
-      entity_id: switch.upstairs_bedroom_right_lamp
+      entity_id: switch.upstairs_bedroom_east_lamp_plug
     - service: homeassistant.turn_off
       entity_id: light.upstairs_bedroom_overhead
 
@@ -114,9 +114,9 @@ office_lights_on:
     - service: homeassistant.turn_on
       entity_id: group.john_desk_lights
     - service: homeassistant.turn_on
-      entity_id: switch.office_annie_desk_lamp
+      entity_id: switch.office_west_table_lamp_plug
     - service: homeassistant.turn_on
-      entity_id: switch.office_table_lamp
+      entity_id: switch.office_north_table_lamp_plug
     - service: homeassistant.turn_on
       entity_id: light.office_overhead
 

@@ -1,53 +1,53 @@
 # Light Groups
 light.kitchen_overhead:
-    icon: mdi:ceiling-light
+  icon: mdi:ceiling-light
 light.office_overhead:
-    icon: mdi:ceiling-light
+  icon: mdi:ceiling-light
 light.upstairs_bedroom_overhead:
-    icon: mdi:ceiling-light
+  icon: mdi:ceiling-light
 
 # Lights
 light.front_room_floor_lamp:
-    icon: mdi:floor-lamp
+  icon: mdi:floor-lamp
 light.kitchen_counter:
-    icon: mdi:lamp
+  icon: mdi:lamp
 light.office_closet:
-    icon: mdi:wall-sconce
+  icon: mdi:wall-sconce
 light.office_johns_desk_left_lamp:
-    icon: mdi:desk-lamp
+  icon: mdi:desk-lamp
 light.office_johns_desk_right_lamp:
-    icon: mdi:desk-lamp
+  icon: mdi:desk-lamp
 
 # Switches
-switch.hallway_lamp:
-    icon: mdi:lamp
-switch.upstairs_bedroom_left_lamp:
-    icon: mdi:lamp
-switch.upstairs_bedroom_right_lamp:
-    icon: mdi:lamp
-switch.office_table_lamp:
-    icon: mdi:lamp
-switch.front_room_bookshelf_lamp:
-    icon: mdi:lamp
-switch.front_room_table_overhead:
-    icon: mdi:ceiling-light
-switch.office_annie_desk_lamp:
-    icon: mdi:lamp
+switch.hallway_lamp_plug:
+  icon: mdi:lamp
+switch.upstairs_bedroom_west_lamp_plug:
+  icon: mdi:lamp
+switch.upstairs_bedroom_east_lamp_plug:
+  icon: mdi:lamp
+switch.office_north_table_lamp_plug:
+  icon: mdi:lamp
+switch.front_room_bookshelf_lamp_plug:
+  icon: mdi:lamp
+switch.front_room_table_overhead_plug:
+  icon: mdi:ceiling-light
+switch.office_west_table_lamp_plug:
+  icon: mdi:lamp
 
 # Doors
 binary_sensor.office_closet_door:
-    device_class: door
+  device_class: door
 binary_sensor.front_door:
-    device_class: door
+  device_class: door
 binary_sensor.back_door:
-    device_class: door
+  device_class: door
 binary_sensor.side_door:
-    device_class: door
+  device_class: door
 
 # Misc
 climate.upstairs_bedroom:
-    icon: mdi:air-conditioner
+  icon: mdi:air-conditioner
 
 # People
 person.john:
-    icon: mdi:human-male
+  icon: mdi:human-male

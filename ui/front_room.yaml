@@ -7,7 +7,7 @@ cards:
     entities:
       - entity: light.front_room_floor_lamp
         name: Floor Lamp
-      - entity: switch.front_room_bookshelf_lamp
+      - entity: switch.front_room_bookshelf_lamp_plug
         name: Bookshelf Lamp
-      - entity: switch.front_room_table_overhead
+      - entity: switch.front_room_table_overhead_plug
         name: Table Overhead Lamp

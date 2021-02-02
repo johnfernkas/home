@@ -6,7 +6,7 @@
   action:
     service: switch.turn_on
     entity_id:
-      - switch.front_room_bookshelf_lamp
+      - switch.front_room_bookshelf_lamp_plug
 
 - alias: "Turn off front room lights at 11PM"
   trigger:
@@ -15,7 +15,7 @@
   action:
     service: switch.turn_off
     entity_id:
-      - switch.front_room_bookshelf_lamp
+      - switch.front_room_bookshelf_lamp_plug
 
 - alias: "Toggle the table overhead light"
   trigger:
@@ -26,4 +26,4 @@
       event: 1002
   action:
     service: homeassistant.toggle
-    entity_id: switch.front_room_table_overhead
+    entity_id: switch.front_room_table_overhead_plug
