@@ -2,15 +2,15 @@ john_desk_lights:
   name: John's Desk Lights
   icon: mdi:desk-lamp
   entities:
-    - light.office_johns_desk_left_lamp
-    - light.office_johns_desk_right_lamp
+    - light.office_north_desk_lamp
+    - light.office_south_desk_lamp
 
-driveway_lights:
+driveway_floodlights:
   name: Driveway Lights
   icon: mdi:spotlight-beam
   entities:
     - light.driveway_spotlight_left
-    - light.driveway_spotlight_right
+    - light.driveway_east_floodlight
 
 exterior_doors:
   name: Door Sensors

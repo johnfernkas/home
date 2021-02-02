@@ -7,5 +7,5 @@ cards:
     show_header_toggle: false
     entities:
       - entity: input_boolean.driveway_motion_sensor_override
-      - entity: group.driveway_lights
+      - entity: group.driveway_floodlights
         name: Driveway Lights

@@ -6,16 +6,20 @@ light.office_overhead:
 light.upstairs_bedroom_overhead:
   icon: mdi:ceiling-light
 
-# Lights
-light.front_room_floor_lamp:
-  icon: mdi:floor-lamp
-light.kitchen_counter:
-  icon: mdi:lamp
-light.office_closet:
+# Overhead
+light.office_closet_overhead:
   icon: mdi:wall-sconce
-light.office_johns_desk_left_lamp:
+
+# Lamps
+light.front_room_north_floor_lamp:
+  icon: mdi:floor-lamp
+light.front_room_south_floor_lamp:
+  icon: mdi:floor-lamp
+light.kitchen_counter_lamp:
+  icon: mdi:lamp
+light.office_north_desk_lamp:
   icon: mdi:desk-lamp
-light.office_johns_desk_right_lamp:
+light.office_south_desk_lamp:
   icon: mdi:desk-lamp
 
 # Switches

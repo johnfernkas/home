@@ -5,7 +5,7 @@ cards:
   - type: entities
     title: Lights
     entities:
-      - entity: light.front_room_floor_lamp
+      - entity: light.front_room_south_floor_lamp
         name: Floor Lamp
       - entity: switch.front_room_bookshelf_lamp_plug
         name: Bookshelf Lamp

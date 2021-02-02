@@ -18,6 +18,10 @@ goodnight:
     - service: script.turn_on
       entity_id: script.set_hvac_night_mode
     - wait_template: "{{ is_state('script.set_hvac_night_mode', 'off') }}"
+    - service: light.turn_on
+      data:
+        entity_id: light.front_room_north_floor_lamp
+        brightness: 127
 
 kitchen_lights_off:
   sequence:
@@ -38,7 +42,7 @@ office_lights_off:
 front_room_lights_off:
   sequence:
     - service: homeassistant.turn_off
-      entity_id: light.front_room_floor_lamp
+      entity_id: light.front_room_south_floor_lamp
 
 upstairs_bedroom_lights_off:
   sequence:
@@ -103,6 +107,10 @@ good_morning:
     - wait_template: "{{ is_state('script.upstairs_bedroom_fan_off', 'off') }}"
     - service: script.turn_on
       entity_id: script.set_hvac_mode_from_yesterday
+    - service: light.turn_on
+      data:
+        entity_id: light.front_room_north_floor_lamp
+        brightness: 255
 
 kitchen_lights_on:
   sequence:
@@ -123,7 +131,7 @@ office_lights_on:
 front_room_lights_on:
   sequence:
     - service: homeassistant.turn_on
-      entity_id: light.front_room_floor_lamp
+      entity_id: light.front_room_south_floor_lamp
 
 upstairs_bedroom_fan_off:
   sequence:
