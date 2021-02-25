@@ -37,6 +37,8 @@ front_room_lights_off:
       data:
         entity_id: light.front_room_north_floor_lamp
         brightness: 127
+    - service: homeassistant.turn_off
+      entity_id: switch.front_room_table_overhead_plug
 
 upstairs_bedroom_lights_off:
   sequence:
