@@ -2,26 +2,16 @@ goodnight:
   sequence:
     - service: script.turn_on
       entity_id: script.kitchen_lights_off
-    - wait_template: "{{ is_state('script.kitchen_lights_off', 'off') }}"
     - service: script.turn_on
       entity_id: script.office_lights_off
-    - wait_template: "{{ is_state('script.office_lights_off', 'off') }}"
     - service: script.turn_on
       entity_id: script.front_room_lights_off
-    - wait_template: "{{ is_state('script.front_room_lights_off', 'off') }}"
-    - service: script.turn_on
-      entity_id: script.upstairs_bedroom_fan_on
-    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_on', 'off') }}"
+    # - service: script.turn_on
+    #   entity_id: script.upstairs_bedroom_fan_on
     - service: script.turn_on
       entity_id: script.upstairs_bedroom_lights_off
-    - wait_template: "{{ is_state('script.upstairs_bedroom_lights_off', 'off') }}"
-    - service: script.turn_on
-      entity_id: script.set_hvac_night_mode
-    - wait_template: "{{ is_state('script.set_hvac_night_mode', 'off') }}"
-    - service: light.turn_on
-      data:
-        entity_id: light.front_room_north_floor_lamp
-        brightness: 127
+    # - service: script.turn_on
+    #   entity_id: script.set_hvac_night_mode
 
 kitchen_lights_off:
   sequence:
@@ -43,6 +33,10 @@ front_room_lights_off:
   sequence:
     - service: homeassistant.turn_off
       entity_id: light.front_room_south_floor_lamp
+    - service: light.turn_on
+      data:
+        entity_id: light.front_room_north_floor_lamp
+        brightness: 127
 
 upstairs_bedroom_lights_off:
   sequence:
@@ -95,22 +89,14 @@ good_morning:
   sequence:
     - service: script.turn_on
       entity_id: script.kitchen_lights_on
-    - wait_template: "{{ is_state('script.kitchen_lights_on', 'off') }}"
     - service: script.turn_on
       entity_id: script.office_lights_on
-    - wait_template: "{{ is_state('script.office_lights_on', 'off') }}"
     - service: script.turn_on
       entity_id: script.front_room_lights_on
-    - wait_template: "{{ is_state('script.front_room_lights_on', 'off') }}"
-    - service: script.turn_on
-      entity_id: script.upstairs_bedroom_fan_off
-    - wait_template: "{{ is_state('script.upstairs_bedroom_fan_off', 'off') }}"
-    - service: script.turn_on
-      entity_id: script.set_hvac_mode_from_yesterday
-    - service: light.turn_on
-      data:
-        entity_id: light.front_room_north_floor_lamp
-        brightness: 255
+    # - service: script.turn_on
+    #   entity_id: script.upstairs_bedroom_fan_off
+    # - service: script.turn_on
+    #   entity_id: script.set_hvac_mode_from_yesterday
 
 kitchen_lights_on:
   sequence:
@@ -132,6 +118,10 @@ front_room_lights_on:
   sequence:
     - service: homeassistant.turn_on
       entity_id: light.front_room_south_floor_lamp
+    - service: light.turn_on
+      data:
+        entity_id: light.front_room_north_floor_lamp
+        brightness: 255
 
 upstairs_bedroom_fan_off:
   sequence:
