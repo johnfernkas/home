@@ -6,11 +6,11 @@ john_desk_lights:
     - light.office_south_desk_lamp
 
 driveway_floodlights:
-  name: Driveway Lights
+  name: Driveway Floodlights
   icon: mdi:spotlight-beam
   entities:
-    - light.driveway_spotlight_left
-    - light.driveway_east_floodlight
+    - light.driveway_floodlight_1
+    - light.driveway_floodlight_2
 
 exterior_doors:
   name: Door Sensors
