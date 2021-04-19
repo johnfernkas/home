@@ -6,8 +6,9 @@ goodnight:
       entity_id: script.office_lights_off
     - service: script.turn_on
       entity_id: script.front_room_lights_off
-    # - service: script.turn_on
-    #   entity_id: script.upstairs_bedroom_fan_on
+    - service: script.turn_on
+      target:
+        entity_id: script.upstairs_bedroom_fan_on
     - service: script.turn_on
       entity_id: script.upstairs_bedroom_lights_off
     # - service: script.turn_on
@@ -52,17 +53,21 @@ upstairs_bedroom_lights_off:
 upstairs_bedroom_fan_on:
   sequence:
     - service: fan.turn_on
-      data:
+      target:
         entity_id: fan.upstairs_bedroom
-        speed: 7
     - service: fan.oscillate
-      data:
+      target:
         entity_id: fan.upstairs_bedroom
+      data:
         oscillating: true
-    - service: dyson.set_night_mode
-      data:
+    - service: homeassistant.turn_on
+      target:
+        entity_id: switch.upstairs_bedroom_night_mode
+    - service: fan.set_percentage
+      target:
         entity_id: fan.upstairs_bedroom
-        night_mode: true
+      data:
+        percentage: 70
 
 set_hvac_night_mode:
   sequence:
@@ -97,8 +102,9 @@ good_morning:
       entity_id: script.front_room_lights_on
     - service: script.turn_on
       entity_id: script.upstairs_bedroom_lights_on
-    # - service: script.turn_on
-    #   entity_id: script.upstairs_bedroom_fan_off
+    - service: fan.turn_off
+      target:
+        entity_id: fan.upstairs_bedroom
     # - service: script.turn_on
     #   entity_id: script.set_hvac_mode_from_yesterday
 
@@ -131,11 +137,6 @@ upstairs_bedroom_lights_on:
   sequence:
     - service: homeassistant.turn_on
       entity_id: switch.upstairs_bedroom_bathroom_lamp_plug
-
-upstairs_bedroom_fan_off:
-  sequence:
-    - service: fan.turn_off
-      entity_id: fan.upstairs_bedroom
 
 set_hvac_mode_from_yesterday:
   sequence:
