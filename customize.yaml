@@ -33,8 +33,8 @@ switch.office_north_table_lamp_plug:
   icon: mdi:lamp
 switch.front_room_bookshelf_lamp_plug:
   icon: mdi:lamp
-switch.front_room_table_overhead_plug:
-  icon: mdi:ceiling-light
+switch.upstairs_bedroom_bathroom_lamp_plug:
+  icon: mdi:lamp
 switch.office_west_table_lamp_plug:
   icon: mdi:lamp
 

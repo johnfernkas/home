@@ -37,8 +37,6 @@ front_room_lights_off:
       data:
         entity_id: light.front_room_north_floor_lamp
         brightness: 127
-    - service: homeassistant.turn_off
-      entity_id: switch.front_room_table_overhead_plug
 
 upstairs_bedroom_lights_off:
   sequence:
@@ -48,6 +46,8 @@ upstairs_bedroom_lights_off:
       entity_id: switch.upstairs_bedroom_east_lamp_plug
     - service: homeassistant.turn_off
       entity_id: light.upstairs_bedroom_overhead
+    - service: homeassistant.turn_off
+      entity_id: switch.upstairs_bedroom_bathroom_lamp_plug
 
 upstairs_bedroom_fan_on:
   sequence:
@@ -95,6 +95,8 @@ good_morning:
       entity_id: script.office_lights_on
     - service: script.turn_on
       entity_id: script.front_room_lights_on
+    - service: script.turn_on
+      entity_id: script.upstairs_bedroom_lights_on
     # - service: script.turn_on
     #   entity_id: script.upstairs_bedroom_fan_off
     # - service: script.turn_on
@@ -124,6 +126,11 @@ front_room_lights_on:
       data:
         entity_id: light.front_room_north_floor_lamp
         brightness: 255
+
+upstairs_bedroom_lights_on:
+  sequence:
+    - service: homeassistant.turn_on
+      entity_id: switch.upstairs_bedroom_bathroom_lamp_plug
 
 upstairs_bedroom_fan_off:
   sequence:

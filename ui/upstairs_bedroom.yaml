@@ -11,6 +11,8 @@ cards:
         name: John's Bedside Lamp
       - entity: light.upstairs_bedroom_overhead
         name: Overhead
+      - entity: switch.upstairs_bedroom_bathroom_lamp_plug
+        name: Bathroom Lamp
 
   - type: entity
     name: Fan

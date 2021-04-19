@@ -11,5 +11,3 @@ cards:
         name: Chair Floor Lamp
       - entity: switch.front_room_bookshelf_lamp_plug
         name: Bookshelf Lamp
-      - entity: switch.front_room_table_overhead_plug
-        name: Table Overhead Light
