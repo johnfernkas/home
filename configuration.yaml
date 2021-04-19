@@ -23,7 +23,6 @@ scene: !include scenes.yaml
 alert: !include alerts.yaml
 
 # Integrations
-cover: !include integrations/cover.yaml
 dyson: !include integrations/dyson.yaml
 lutron_caseta: !include integrations/lutron_caseta.yaml
 ecobee: !include integrations/ecobee.yaml
