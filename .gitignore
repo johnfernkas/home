@@ -12,3 +12,4 @@ www/community
 *.pyc
 __pycache__
 /image
+.HA_VERSION
