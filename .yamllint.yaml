@@ -4,3 +4,7 @@ rules:
   document-start: disable
   line-length: disable
   truthy: disable
+
+ignore: |
+  custom_components/**/*
+  blueprints/**/*
