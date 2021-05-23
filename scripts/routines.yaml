@@ -18,6 +18,8 @@ kitchen_lights_off:
   sequence:
     - service: homeassistant.turn_off
       entity_id: light.kitchen_overhead
+    - service: homeassistant.turn_off
+      entity_id: light.kitchen_sink_overhead
 
 office_lights_off:
   sequence:

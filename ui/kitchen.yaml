@@ -9,3 +9,5 @@ cards:
         name: Counter Lamp
       - entity: light.kitchen_overhead
         name: Overhead
+      - entity: light.kitchen_sink_overhead
+        name: Kitchen Sink Overhead
