@@ -17,6 +17,8 @@ cards:
           service_data:
             entity_id: script.goodnight
         icon: mdi:weather-night
+        show_name: false
+        icon_height: 32px
       - type: button
         name: Good Morning
         entity: script.good_morning
@@ -26,6 +28,8 @@ cards:
           service_data:
             entity_id: script.good_morning
         icon: mdi:party-popper
+        show_name: false
+        icon_height: 32px
 
   - type: entities
     title: Garage

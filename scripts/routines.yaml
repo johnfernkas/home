@@ -38,6 +38,10 @@ front_room_lights_off:
   sequence:
     - service: homeassistant.turn_off
       entity_id: light.front_room_south_floor_lamp
+    - service: homeassistant.turn_off
+      entity_id: switch.front_room_bookshelf_overhead
+    - service: homeassistant.turn_off
+      entity_id: switch.front_room_table_light
     - service: light.turn_on
       data:
         entity_id: light.front_room_north_floor_lamp
