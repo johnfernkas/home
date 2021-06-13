@@ -1,10 +1,10 @@
 - alias: "Toggle both bedside lamps"
   trigger:
     platform: event
-    event_type: deconz_event
+    event_type: zha_event
     event_data:
-      id: upstairs_bedroom_mini_button
-      event: 1002
+      device_id: 6ad012c0fd2c4548aa830605003af78c
+      command: single
   action:
     service: homeassistant.toggle
     entity_id:
@@ -14,10 +14,10 @@
 - alias: "Toggle Annie's bedside lamp"
   trigger:
     platform: event
-    event_type: deconz_event
+    event_type: zha_event
     event_data:
-      id: upstairs_bedroom_mini_button
-      event: 1004
+      device_id: 6ad012c0fd2c4548aa830605003af78c
+      command: double
   action:
     service: homeassistant.toggle
     entity_id: switch.upstairs_bedroom_west_lamp_plug
