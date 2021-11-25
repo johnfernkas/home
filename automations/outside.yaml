@@ -45,21 +45,33 @@
     service: light.turn_off
     entity_id: group.driveway_floodlights
 
-- alias: "Turn on the Christmas lights 1 hour before sunset"
+- alias: "Turn on the outdoor Christmas lights 1 hour before sunset"
   trigger:
     platform: sun
     event: sunset
     offset: "-01:00:00"
+  condition:
+    condition: not
+    conditions:
+      - condition: state
+        entity_id: switch.driveway_string_lights
+        state: "unavailable"
   action:
     service: switch.turn_on
     entity_id:
       - switch.plugb2
 
-- alias: "Turn off Christmas lights at 2AM"
+- alias: "Turn off outdoor Christmas lights at 2AM"
   trigger:
     platform: time
     at: "02:00:00"
+  condition:
+    condition: not
+    conditions:
+      - condition: state
+        entity_id: switch.driveway_string_lights
+        state: "unavailable"
   action:
     service: switch.turn_off
     entity_id:
-      - switch.plugb2
+      - switch.driveway_string_lights
