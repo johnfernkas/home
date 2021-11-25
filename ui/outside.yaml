@@ -9,3 +9,11 @@ cards:
       - entity: input_boolean.driveway_motion_sensor_override
       - entity: group.driveway_floodlights
         name: Driveway Lights
+      - type: conditional
+        conditions:
+          - entity: switch.driveway_string_lights
+            state_not: "unavailable"
+        row:
+          entity: switch.driveway_string_lights
+          name: Front Christmas Lights
+          icon: mdi:string-lights
