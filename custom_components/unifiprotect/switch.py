@@ -5,7 +5,7 @@ import logging
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import ATTR_ATTRIBUTION
-from homeassistant.helpers.typing import HomeAssistantType
+from homeassistant.core import HomeAssistant
 
 from .const import (
     ATTR_DEVICE_MODEL,
@@ -53,7 +53,7 @@ SWITCH_TYPES = {
 
 
 async def async_setup_entry(
-    hass: HomeAssistantType, entry: ConfigEntry, async_add_entities
+    hass: HomeAssistant, entry: ConfigEntry, async_add_entities
 ) -> None:
     """Set up switches for UniFi Protect integration."""
     entry_data = hass.data[DOMAIN][entry.entry_id]
@@ -139,7 +139,11 @@ class UnifiProtectSwitch(UnifiProtectEntity, SwitchEntity):
             return self._device_data["motion_mode"] == TYPE_RECORD_MOTION
         if self._switch_type == "light_dark":
             return self._device_data["motion_mode"] == TYPE_RECORD_ALWAYS
-        return self._device_data["status_light"] is True
+        return (
+            self._device_data["status_light"] is True
+            if "status_light" in self._device_data
+            else True
+        )
 
     @property
     def icon(self):
