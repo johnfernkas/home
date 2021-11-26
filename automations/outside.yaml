@@ -59,7 +59,7 @@
   action:
     service: switch.turn_on
     entity_id:
-      - switch.plugb2
+      - switch.driveway_string_lights
 
 - alias: "Turn off outdoor Christmas lights at 2AM"
   trigger:
