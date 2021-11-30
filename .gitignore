@@ -3,7 +3,7 @@
 .storage
 .ssh
 deps
-*.log
+*.log*
 *.db*
 /secrets.yaml
 /ssl

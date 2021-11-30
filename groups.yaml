@@ -7,7 +7,7 @@ john_desk_lights:
 
 driveway_floodlights:
   name: Driveway Floodlights
-  icon: mdi:spotlight-beam
+  icon: mdi:light-flood-down
   entities:
     - light.driveway_floodlight_1
     - light.driveway_floodlight_2
