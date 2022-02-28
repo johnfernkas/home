@@ -54,24 +54,24 @@ cards:
   - type: vertical-stack
     cards:
       - type: picture-entity
-        entity: camera.front_door
+        entity: camera.front_door_medium
         camera_view: live
         show_state: false
       - type: picture-entity
-        entity: camera.driveway
+        entity: camera.driveway_medium
         camera_view: live
         show_state: false
       - type: picture-entity
-        entity: camera.backyard
+        entity: camera.backyard_medium
         camera_view: live
         show_state: false
       - type: horizontal-stack
         cards:
           - type: picture-entity
-            entity: camera.laundry_room
+            entity: camera.laundry_room_medium
             camera_view: live
             show_state: false
           - type: picture-entity
-            entity: camera.garage
+            entity: camera.garage_medium
             camera_view: live
             show_state: false
