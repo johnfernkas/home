@@ -1,7 +1,7 @@
 - alias: Turn on driveway lights when motion is detected
   trigger:
     platform: state
-    entity_id: binary_sensor.motion_driveway
+    entity_id: binary_sensor.driveway_motion
     to: "on"
   condition:
     condition: and
@@ -23,7 +23,7 @@
 - alias: Turn off driveway lights 10 minutes after last motion detected
   trigger:
     platform: state
-    entity_id: binary_sensor.motion_driveway
+    entity_id: binary_sensor.driveway_motion
     to: "off"
     for:
       minutes: 10
