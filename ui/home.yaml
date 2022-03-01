@@ -51,27 +51,44 @@ cards:
       - type: thermostat
         entity: climate.upstairs_bedroom
 
-  - type: vertical-stack
-    cards:
-      - type: picture-entity
-        entity: camera.front_door_medium
-        camera_view: live
-        show_state: false
-      - type: picture-entity
-        entity: camera.driveway_medium
-        camera_view: live
-        show_state: false
-      - type: picture-entity
-        entity: camera.backyard_medium
-        camera_view: live
-        show_state: false
-      - type: horizontal-stack
-        cards:
-          - type: picture-entity
-            entity: camera.laundry_room_medium
-            camera_view: live
-            show_state: false
-          - type: picture-entity
-            entity: camera.garage_medium
-            camera_view: live
-            show_state: false
+  - type: custom:card-templater
+    card:
+      type: vertical-stack
+      cards:
+        - type: picture-entity
+          entity: camera.front_door_medium
+          camera_view: live
+          show_state: false
+          name_template: >-
+            {{ device_attr('camera.front_door_medium', 'name') }}
+        - type: picture-entity
+          entity: camera.driveway_medium
+          camera_view: live
+          show_state: false
+          name_template: >-
+            {{ device_attr('camera.driveway_medium', 'name') }}
+        - type: picture-entity
+          entity: camera.backyard_medium
+          camera_view: live
+          show_state: false
+          name_template: >-
+            {{ device_attr('camera.backyard_medium', 'name') }}
+        - type: horizontal-stack
+          cards:
+            - type: picture-entity
+              entity: camera.laundry_room_medium
+              camera_view: live
+              show_state: false
+              name_template: >-
+                {{ device_attr('camera.laundry_room_medium', 'name') }}
+            - type: picture-entity
+              entity: camera.garage_medium
+              camera_view: live
+              show_state: false
+              name_template: >-
+                {{ device_attr('camera.garage_medium', 'name') }}
+    entities:
+      - camera.front_door_medium
+      - camera.driveway_medium
+      - camera.backyard_medium
+      - camera.backyard_medium

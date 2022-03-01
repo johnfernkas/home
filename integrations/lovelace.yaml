@@ -2,3 +2,5 @@ mode: yaml
 resources:
   - url: /hacsfiles/group-card/group-card.js
     type: module
+  - url: /hacsfiles/lovelace-card-templater/lovelace-card-templater.js
+    type: module
