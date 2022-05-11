@@ -22,3 +22,5 @@
       measurement: '"%"'
       value_template: "{{ value | round(1) }}"
   scan_interval: 900
+
+- platform: bhyve

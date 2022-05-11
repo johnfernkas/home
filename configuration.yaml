@@ -17,7 +17,8 @@ homeassistant:
   external_url: !secret external_url
 
 group: !include groups.yaml
-automation: !include_dir_merge_list automations
+automation manual: !include_dir_merge_list automations
+automation ui: !include automations.yaml
 script: !include_dir_merge_named scripts
 scene: !include scenes.yaml
 alert: !include alerts.yaml
@@ -26,9 +27,11 @@ alert: !include alerts.yaml
 lutron_caseta: !include integrations/lutron_caseta.yaml
 ecobee: !include integrations/ecobee.yaml
 sensor: !include integrations/sensor.yaml
+switch: !include integrations/switch.yaml
+binary_sensor: !include integrations/binary_sensor.yaml
 ios: !include integrations/ios.yaml
 influxdb: !include integrations/influxdb.yaml
-weather:
 input_boolean: !include integrations/input_boolean.yaml
 tplink: !include integrations/tplink.yaml
+bhyve: !include integrations/bhyve.yaml
 lovelace: !include integrations/lovelace.yaml
