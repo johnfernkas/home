@@ -1,19 +1,15 @@
 - id: '1652236554927'
-  alias: Water the backyard daily at 6am, 10am, 3pm, and 10pm for 20 minutes
+  alias: Water the backyard daily at 8am and 5pm for 40 minutes
   description: ''
   trigger:
   - platform: time
-    at: 06:00:00
+    at: 08:00:00
   - platform: time
-    at: '10:00:00'
-  - platform: time
-    at: '15:00:00'
-  - platform: time
-    at: '21:00:00'
+    at: '17:00:00'
   condition: []
   action:
   - service: bhyve.start_watering
     data:
       entity_id: switch.backyard_zone
-      minutes: 20
+      minutes: 40
   mode: single
