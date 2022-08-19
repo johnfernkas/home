@@ -35,6 +35,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: alarm-panel
+        name: Alarm
         entity: alarm_control_panel.alarm_control_panel
       - type: custom:group-card
         card:
