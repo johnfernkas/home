@@ -13,3 +13,26 @@
       entity_id: switch.backyard_zone
       minutes: 40
   mode: single
+- id: '1660933121511'
+  alias: Auto-update Home Assistant
+  description: ''
+  trigger:
+  - platform: time
+    at: 04:00:00
+  condition: []
+  action:
+  - service: update.install
+    data:
+      backup: true
+    target:
+      entity_id:
+      - update.home_assistant_core_update
+      - update.home_assistant_supervisor_update
+      - update.studio_code_server_update
+      - update.mariadb_update
+      - update.let_s_encrypt_update
+      - update.influxdb_update
+      - update.home_assistant_google_drive_backup_update
+      - update.git_pull_update
+      - update.esphome_update_2
+  mode: single
