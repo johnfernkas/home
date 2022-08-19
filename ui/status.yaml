@@ -1,5 +1,7 @@
 title: Status
 path: status
+visible:
+  - user: !secret johns_user_id
 
 cards:
   - type: custom:group-card

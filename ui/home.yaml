@@ -1,4 +1,5 @@
 title: Home
+icon: mdi:home
 path: home
 
 badges:
@@ -31,18 +32,21 @@ cards:
         show_name: false
         icon_height: 32px
 
-  - type: entities
-    title: Garage
-    show_header_toggle: false
-    entities:
-      - entity: cover.garage_door
-
-  - type: custom:group-card
-    card:
-      type: entities
-      title: Doors
-      show_header_toggle: false
-    group: group.exterior_doors
+  - type: vertical-stack
+    cards:
+      - type: alarm-panel
+        entity: alarm_control_panel.alarm_control_panel
+      - type: custom:group-card
+        card:
+          type: entities
+          title: Doors
+          show_header_toggle: false
+        group: group.exterior_doors
+      - type: entities
+        title: Garage
+        show_header_toggle: false
+        entities:
+          - entity: cover.garage_door
 
   - type: vertical-stack
     cards:
