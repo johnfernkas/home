@@ -1,11 +1,9 @@
 - id: '1652236554927'
-  alias: Water the backyard daily at 8am and 5pm for 40 minutes
+  alias: Water the backyard daily at 8am for 40 minutes
   description: ''
   trigger:
   - platform: time
     at: 08:00:00
-  - platform: time
-    at: '17:00:00'
   condition: []
   action:
   - service: bhyve.start_watering
