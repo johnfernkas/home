@@ -9,11 +9,6 @@ recorder:
 # General Configuration
 homeassistant:
   customize: !include customize.yaml
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  name: !secret home_name
-  time_zone: America/Indiana/Indianapolis
-  unit_system: imperial
   external_url: !secret external_url
 
 group: !include groups.yaml
