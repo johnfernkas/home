@@ -10,27 +10,14 @@ cards:
   - type: horizontal-stack
     cards:
       - type: button
-        name: Goodnight
-        entity: script.goodnight
-        tap_action:
-          action: call-service
-          service: script.turn_on
-          service_data:
-            entity_id: script.goodnight
-        icon: mdi:weather-night
-        show_name: false
+        name: Sleep Mode
+        icon: mdi:sleep
         icon_height: 32px
-      - type: button
-        name: Good Morning
-        entity: script.good_morning
+        show_state: true
+        state_color: true
+        entity: input_boolean.sleep_mode
         tap_action:
-          action: call-service
-          service: script.turn_on
-          service_data:
-            entity_id: script.good_morning
-        icon: mdi:party-popper
-        show_name: false
-        icon_height: 32px
+          action: toggle
 
   - type: vertical-stack
     cards:

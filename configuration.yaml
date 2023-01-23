@@ -19,7 +19,8 @@ homeassistant:
 group: !include groups.yaml
 automation manual: !include_dir_merge_list automations
 automation ui: !include automations.yaml
-script: !include_dir_merge_named scripts
+script manual: !include_dir_merge_named scripts
+script ui: !include scripts.yaml
 scene: !include scenes.yaml
 alert: !include alerts.yaml
 
