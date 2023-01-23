@@ -11,7 +11,7 @@ cards:
     cards:
       - type: button
         name: Sleep Mode
-        icon: mdi:sleep
+        icon: ios:bed-double-circle-fill
         icon_height: 32px
         show_state: true
         state_color: true
