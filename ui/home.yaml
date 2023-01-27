@@ -2,45 +2,72 @@ title: Home
 icon: mdi:home
 path: home
 
-badges:
-  - person.john
-  - person.annie
-
 cards:
+  - type: custom:mushroom-chips-card
+    alignment: center
+    chips:
+      - type: entity
+        entity: person.john
+        icon: mdi:face-man
+      - type: entity
+        entity: person.annie
+        icon: mdi:face-woman
+      - type: template
+        content: |-
+          {% if is_state('group.exterior_doors', 'off') %}
+            Closed
+          {% else %}
+            Open
+          {% endif %}
+        icon: |-
+          {% if is_state('group.exterior_doors', 'off') %}
+            mdi:door-closed
+          {% else %}
+            mdi:door-open
+          {% endif %}
+        icon_color: |-
+          {% if is_state('group.exterior_doors', 'off') %}
+            green
+          {% else %}
+            red
+          {% endif %}
+        tap_action:
+          action: more-info
+        entity: group.exterior_doors
   - type: horizontal-stack
     cards:
-      - type: button
+      - type: custom:mushroom-entity-card
         name: Sleep Mode
-        icon: ios:bed-double-circle-fill
+        icon: mdi:sleep
         icon_height: 32px
         show_state: true
         state_color: true
+        layout: vertical
         entity: input_boolean.sleep_mode
         tap_action:
           action: toggle
 
   - type: vertical-stack
     cards:
-      - type: alarm-panel
+      - type: custom:mushroom-alarm-control-panel-card
         name: Alarm
+        states: ["armed_home", "armed_away"]
         entity: alarm_control_panel.alarm_control_panel
-      - type: custom:group-card
-        card:
-          type: entities
-          title: Doors
-          show_header_toggle: false
-        group: group.exterior_doors
-      - type: entities
-        title: Garage
-        show_header_toggle: false
-        entities:
-          - entity: cover.garage_door
+      - type: custom:mushroom-cover-card
+        entity: cover.garage_door
+        show_buttons_control: true
+        tap_action:
+          action: more-info
 
-  - type: vertical-stack
+  - type: horizontal-stack
     cards:
-      - type: thermostat
+      - type: custom:mushroom-climate-card
+        show_temperature_control: true
+        hvac_modes: ["auto", "heat_cool", "heat", "cool", "off"]
         entity: climate.downstairs
-      - type: thermostat
+      - type: custom:mushroom-climate-card
+        show_temperature_control: true
+        hvac_modes: ["cool", "off"]
         entity: climate.upstairs_bedroom
 
   - type: custom:card-templater
