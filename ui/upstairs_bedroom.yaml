@@ -14,6 +14,7 @@ cards:
       - entity: switch.upstairs_bedroom_bathroom_lamp_plug
         name: Bathroom Lamp
 
-  - type: entity
-    name: Fan
-    entity: fan.upstairs_bedroom
+  - type: entities
+    entities:
+      - entity: fan.upstairs_bedroom
+      - entity: fan.bedroom
