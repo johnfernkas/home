@@ -15,25 +15,3 @@
   action:
     service: light.turn_off
     entity_id: light.kitchen_counter_lamp
-
-- alias: "Kitchen sink light to full brightness when the overhead lights are on"
-  trigger:
-    - platform: state
-      entity_id: light.kitchen_overhead
-      to: "on"
-  action:
-    - service: light.turn_on
-      target:
-        entity_id: light.kitchen_sink_overhead
-      data:
-        brightness: 255
-
-- alias: "Kitchen sink light to dim when the overhead lights are off"
-  trigger:
-    - platform: state
-      entity_id: light.kitchen_overhead
-      to: "off"
-  action:
-    - service: light.turn_off
-      target:
-        entity_id: light.kitchen_sink_overhead
