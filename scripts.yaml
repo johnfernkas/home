@@ -88,3 +88,20 @@ sleep_mode_off_actions:
         entity_id: climate.upstairs_bedroom
   mode: single
   icon: mdi:weather-sunset-up
+renew_lets_encrypt_ssl_certificates:
+  alias: Renew Let's Encrypt SSL Certificates
+  sequence:
+    - service: hassio.addon_start
+      data:
+        addon: core_letsencrypt
+    - delay:
+        hours: 0
+        minutes: 1
+        seconds: 0
+        milliseconds: 0
+    - service: shell_command.copy_ssl_files
+      data: {}
+    - service: homeassistant.restart
+      data: {}
+  mode: single
+  icon: mdi:shield-lock

@@ -62,3 +62,14 @@
     - service: script.sleep_mode_off_actions
       data: {}
   mode: single
+- id: "1679006488341"
+  alias: Attempt to renew SSL certificates at 3AM daily
+  description: ""
+  trigger:
+    - platform: time
+      at: 03:00:00
+  condition: []
+  action:
+    - service: script.renew_lets_encrypt_ssl_certificates
+      data: {}
+  mode: single

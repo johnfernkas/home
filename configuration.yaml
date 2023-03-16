@@ -18,6 +18,7 @@ script manual: !include_dir_merge_named scripts
 script ui: !include scripts.yaml
 scene: !include scenes.yaml
 alert: !include alerts.yaml
+shell_command: !include shell_commands.yaml
 
 # Integrations
 lutron_caseta: !include integrations/lutron_caseta.yaml
