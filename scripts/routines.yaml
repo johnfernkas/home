@@ -13,8 +13,8 @@ goodnight:
         entity_id: script.upstairs_bedroom_fan_on
     - service: script.turn_on
       entity_id: script.upstairs_bedroom_lights_off
-    # - service: script.turn_on
-    #   entity_id: script.set_hvac_night_mode
+  # - service: script.turn_on
+  #   entity_id: script.set_hvac_night_mode
 
 kitchen_lights_off:
   sequence:
@@ -95,10 +95,10 @@ set_hvac_night_mode:
         entity_id: climate.upstairs_bedroom
         temperature: 68
         hvac_mode: cool
-    # - service: climate.set_fan_mode
-    #   data_template:
-    #     entity_id: climate.downstairs
-    #     fan_mode: "on"
+  # - service: climate.set_fan_mode
+  #   data_template:
+  #     entity_id: climate.downstairs
+  #     fan_mode: "on"
 
 good_morning:
   sequence:
@@ -115,8 +115,8 @@ good_morning:
     - service: fan.turn_off
       target:
         entity_id: fan.upstairs_bedroom
-    # - service: script.turn_on
-    #   entity_id: script.set_hvac_mode_from_yesterday
+  # - service: script.turn_on
+  #   entity_id: script.set_hvac_mode_from_yesterday
 
 kitchen_lights_on:
   sequence:
