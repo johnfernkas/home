@@ -1,8 +1,9 @@
 # Base Configuration
 default_config:
 http:
-  ssl_certificate: ssl/fullchain.pem
-  ssl_key: ssl/privkey.pem
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.30.33.0/24
 recorder:
   db_url: !secret db_url
 

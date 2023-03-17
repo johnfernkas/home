@@ -101,7 +101,8 @@ renew_lets_encrypt_ssl_certificates:
         milliseconds: 0
     - service: shell_command.copy_ssl_files
       data: {}
-    - service: homeassistant.restart
-      data: {}
+    - service: hassio.addon_restart
+      data:
+        addon: core_nginx_proxy
   mode: single
   icon: mdi:shield-lock
