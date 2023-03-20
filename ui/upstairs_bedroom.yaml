@@ -14,7 +14,18 @@ cards:
       - entity: switch.upstairs_bedroom_bathroom_lamp_plug
         name: Bathroom Lamp
 
-  - type: entities
-    entities:
-      - entity: fan.upstairs_bedroom
-      - entity: fan.bedroom
+  - type: vertical-stack
+    cards:
+      - type: custom:mushroom-fan-card
+        entity: fan.upstairs_bedroom
+        show_percentage_control: true
+        show_oscillate_control: true
+        collapsible_controls: true
+        hold_action: more-info
+
+      - type: custom:mushroom-fan-card
+        entity: fan.bedroom
+        show_percentage_control: true
+        show_oscillate_control: true
+        collapsible_controls: true
+        hold_action: more-info
