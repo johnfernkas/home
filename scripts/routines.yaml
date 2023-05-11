@@ -13,8 +13,6 @@ goodnight:
         entity_id: script.upstairs_bedroom_fan_on
     - service: script.turn_on
       entity_id: script.upstairs_bedroom_lights_off
-  # - service: script.turn_on
-  #   entity_id: script.set_hvac_night_mode
 
 kitchen_lights_off:
   sequence:
@@ -77,29 +75,6 @@ upstairs_bedroom_fan_on:
       data:
         percentage: 70
 
-set_hvac_night_mode:
-  sequence:
-    - service: scene.create
-      data:
-        scene_id: hvac_before
-        snapshot_entities:
-          # - climate.downstairs
-          - climate.upstairs_bedroom
-    # - service: climate.set_temperature
-    #   data_template:
-    #     entity_id: climate.downstairs
-    #     temperature: 70
-    #     hvac_mode: cool
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.upstairs_bedroom
-        temperature: 68
-        hvac_mode: cool
-  # - service: climate.set_fan_mode
-  #   data_template:
-  #     entity_id: climate.downstairs
-  #     fan_mode: "on"
-
 good_morning:
   sequence:
     - service: script.turn_on
@@ -115,8 +90,6 @@ good_morning:
     - service: fan.turn_off
       target:
         entity_id: fan.upstairs_bedroom
-  # - service: script.turn_on
-  #   entity_id: script.set_hvac_mode_from_yesterday
 
 kitchen_lights_on:
   sequence:
@@ -147,9 +120,3 @@ upstairs_bedroom_lights_on:
   sequence:
     - service: homeassistant.turn_on
       entity_id: switch.upstairs_bedroom_bathroom_lamp_plug
-
-set_hvac_mode_from_yesterday:
-  sequence:
-    - service: scene.turn_on
-      data:
-        entity_id: scene.hvac_before

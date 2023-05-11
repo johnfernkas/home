@@ -66,8 +66,8 @@ cards:
         entity: climate.downstairs
       - type: custom:mushroom-climate-card
         show_temperature_control: true
-        hvac_modes: ["cool", "off"]
-        entity: climate.upstairs_bedroom
+        hvac_modes: ["cool", "auto", "dry", "fan_only", "off"]
+        entity: climate.aircon_aaa2
 
   - type: custom:card-templater
     card:
