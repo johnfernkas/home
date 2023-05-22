@@ -1,76 +1,79 @@
-- id: "1652236554927"
-  alias: Water the backyard daily at 8am for 40 minutes
-  description: ""
+- id: '1652236554927'
+  alias: Water the backyard daily at 8am for 30 minutes
+  description: ''
   trigger:
-    - platform: time
-      at: 08:00:00
-  condition: []
+  - platform: time
+    at: 08:00:00
+  condition:
+  - condition: state
+    entity_id: switch.backyard_hose_timer_rain_delay
+    state: 'off'
   action:
-    - service: bhyve.start_watering
-      data:
-        entity_id: switch.backyard_zone
-        minutes: 40
+  - service: bhyve.start_watering
+    data:
+      entity_id: switch.backyard_hose_timer
+      minutes: 30
   mode: single
-- id: "1660933121511"
+- id: '1660933121511'
   alias: Auto-update Home Assistant
-  description: ""
+  description: ''
   trigger:
-    - platform: time
-      at: 04:00:00
+  - platform: time
+    at: 04:00:00
   condition: []
   action:
-    - service: update.install
-      data:
-        backup: true
-      target:
-        entity_id:
-          - update.home_assistant_core_update
-          - update.home_assistant_supervisor_update
-          - update.studio_code_server_update
-          - update.mariadb_update
-          - update.let_s_encrypt_update
-          - update.influxdb_update
-          - update.home_assistant_google_drive_backup_update
-          - update.git_pull_update
-          - update.esphome_update_2
-          - update.nginx_home_assistant_ssl_proxy_update
+  - service: update.install
+    data:
+      backup: true
+    target:
+      entity_id:
+      - update.home_assistant_core_update
+      - update.home_assistant_supervisor_update
+      - update.studio_code_server_update
+      - update.mariadb_update
+      - update.let_s_encrypt_update
+      - update.influxdb_update
+      - update.home_assistant_google_drive_backup_update
+      - update.git_pull_update
+      - update.esphome_update_2
+      - update.nginx_home_assistant_ssl_proxy_update
   mode: single
-- id: "1674431380464"
+- id: '1674431380464'
   alias: Sleep Mode On
-  description: ""
+  description: ''
   trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.sleep_mode
-      from: "off"
-      to: "on"
+  - platform: state
+    entity_id:
+    - input_boolean.sleep_mode
+    from: 'off'
+    to: 'on'
   condition: []
   action:
-    - service: script.sleep_mode_on_actions
-      data: {}
+  - service: script.sleep_mode_on_actions
+    data: {}
   mode: single
-- id: "1674435243660"
+- id: '1674435243660'
   alias: Sleep Mode Off
-  description: ""
+  description: ''
   trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.sleep_mode
-      from: "on"
-      to: "off"
+  - platform: state
+    entity_id:
+    - input_boolean.sleep_mode
+    from: 'on'
+    to: 'off'
   condition: []
   action:
-    - service: script.sleep_mode_off_actions
-      data: {}
+  - service: script.sleep_mode_off_actions
+    data: {}
   mode: single
-- id: "1679006488341"
+- id: '1679006488341'
   alias: Attempt to renew SSL certificates at 3AM daily
-  description: ""
+  description: ''
   trigger:
-    - platform: time
-      at: 03:00:00
+  - platform: time
+    at: 03:00:00
   condition: []
   action:
-    - service: script.renew_lets_encrypt_ssl_certificates
-      data: {}
+  - service: script.renew_lets_encrypt_ssl_certificates
+    data: {}
   mode: single
