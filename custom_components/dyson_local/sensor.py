@@ -7,10 +7,11 @@ from libdyson import (
     Dyson360Heurist,
     DysonDevice,
     DysonPureCoolLink,
-    DysonPureHumidifyCool,
-    DysonPurifierHumidifyCoolFormaldehyde,
+    DysonPurifierHumidifyCool,
 )
+
 from libdyson.const import MessageType
+from libdyson.dyson_device import DysonFanDevice
 
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass, SensorEntity
 from homeassistant.config_entries import ConfigEntry
@@ -48,6 +49,7 @@ async def async_setup_entry(
             DysonTemperatureSensor(coordinator, device, name),
             DysonVOCSensor(coordinator, device, name),
         ]
+
         if isinstance(device, DysonPureCoolLink):
             entities.extend(
                 [
@@ -55,7 +57,7 @@ async def async_setup_entry(
                     DysonParticulatesSensor(coordinator, device, name),
                 ]
             )
-        else:  # DysonPureCool or DysonPureHumidifyCool
+        else:  # DysonPureCool or DysonPurifierHumidifyCool
             entities.extend(
                 [
                     DysonPM25Sensor(coordinator, device, name),
@@ -72,10 +74,9 @@ async def async_setup_entry(
                         DysonHEPAFilterLifeSensor(device, name),
                     ]
                 )
-        if isinstance(device, DysonPureHumidifyCool) or isinstance(
-            device, DysonPurifierHumidifyCoolFormaldehyde):
+        if isinstance(device, DysonPurifierHumidifyCool):
             entities.append(DysonNextDeepCleanSensor(device, name))
-        if isinstance(device, DysonPurifierHumidifyCoolFormaldehyde):
+        if hasattr(device, "formaldehyde") and device.formaldehyde is not None:
             entities.append(DysonHCHOSensor(coordinator, device, name))
     async_add_entities(entities)
 
@@ -124,7 +125,7 @@ class DysonBatterySensor(DysonSensor):
     _attr_native_unit_of_measurement = PERCENTAGE
 
     @property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.battery_level
 
@@ -139,7 +140,7 @@ class DysonFilterLifeSensor(DysonSensor):
     _attr_native_unit_of_measurement = TIME_HOURS
 
     @property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.filter_life
 
@@ -154,7 +155,7 @@ class DysonCarbonFilterLifeSensor(DysonSensor):
     _attr_native_unit_of_measurement = PERCENTAGE
 
     @property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.carbon_filter_life
 
@@ -169,7 +170,7 @@ class DysonHEPAFilterLifeSensor(DysonSensor):
     _attr_native_unit_of_measurement = PERCENTAGE
 
     @property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.hepa_filter_life
 
@@ -184,7 +185,7 @@ class DysonCombinedFilterLifeSensor(DysonSensor):
     _attr_native_unit_of_measurement = PERCENTAGE
 
     @property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.hepa_filter_life
 
@@ -199,7 +200,7 @@ class DysonNextDeepCleanSensor(DysonSensor):
     _attr_native_unit_of_measurement = TIME_HOURS
 
     @property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.time_until_next_clean
 
@@ -214,7 +215,7 @@ class DysonHumiditySensor(DysonSensorEnvironmental):
     _attr_state_class = SensorStateClass.MEASUREMENT
 
     @environmental_property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.humidity
 
@@ -258,7 +259,7 @@ class DysonPM25Sensor(DysonSensorEnvironmental):
     _attr_state_class = SensorStateClass.MEASUREMENT
 
     @environmental_property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.particulate_matter_2_5
 
@@ -273,22 +274,20 @@ class DysonPM10Sensor(DysonSensorEnvironmental):
     _attr_state_class = SensorStateClass.MEASUREMENT
 
     @environmental_property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.particulate_matter_10
 
 
 class DysonParticulatesSensor(DysonSensorEnvironmental):
     """Dyson sensor for particulate matters for "Link" devices."""
-
-    _SENSOR_TYPE = "pm1"
-    _SENSOR_NAME = "Particulates"
-    _attr_device_class = SensorDeviceClass.PM1
-    _attr_native_unit_of_measurement = CONCENTRATION_MICROGRAMS_PER_CUBIC_METER
+    _SENSOR_TYPE = "aqi"
+    _SENSOR_NAME = "Air Quality Index"
+    _attr_device_class = SensorDeviceClass.AQI
     _attr_state_class = SensorStateClass.MEASUREMENT
 
     @environmental_property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.particulates
 
@@ -296,14 +295,13 @@ class DysonParticulatesSensor(DysonSensorEnvironmental):
 class DysonVOCSensor(DysonSensorEnvironmental):
     """Dyson sensor for volatile organic compounds."""
 
-    _SENSOR_TYPE = "voc"
-    _SENSOR_NAME = "Volatile Organic Compounds"
-    _attr_device_class = SensorDeviceClass.VOLATILE_ORGANIC_COMPOUNDS
-    _attr_native_unit_of_measurement = CONCENTRATION_MICROGRAMS_PER_CUBIC_METER
+    _SENSOR_TYPE = "voc-index"
+    _SENSOR_NAME = "Volatile Organic Compounds Index"
+    _attr_device_class = SensorDeviceClass.AQI
     _attr_state_class = SensorStateClass.MEASUREMENT
 
     @environmental_property
-    def state(self) -> int:
+    def native_value(self) -> float:
         """Return the state of the sensor."""
         return self._device.volatile_organic_compounds
 
@@ -311,27 +309,27 @@ class DysonVOCSensor(DysonSensorEnvironmental):
 class DysonNO2Sensor(DysonSensorEnvironmental):
     """Dyson sensor for Nitrogen Dioxide."""
 
-    _SENSOR_TYPE = "no2"
-    _SENSOR_NAME = "Nitrogen Dioxide"
-    _attr_device_class = SensorDeviceClass.NITROGEN_DIOXIDE
-    _attr_native_unit_of_measurement = CONCENTRATION_MICROGRAMS_PER_CUBIC_METER
+    _SENSOR_TYPE = "no2-index"
+    _SENSOR_NAME = "Nitrogen Dioxide Index"
+    _attr_device_class = SensorDeviceClass.AQI
     _attr_state_class = SensorStateClass.MEASUREMENT
 
     @environmental_property
-    def state(self) -> int:
+    def native_value(self) -> int:
         """Return the state of the sensor."""
         return self._device.nitrogen_dioxide
 
-    
+
 class DysonHCHOSensor(DysonSensorEnvironmental):
     """Dyson sensor for Formaldehyde."""
 
     _SENSOR_TYPE = "hcho"
     _SENSOR_NAME = "Formaldehyde"
+
     _attr_device_class = SensorDeviceClass.VOLATILE_ORGANIC_COMPOUNDS
-    _attr_unit_of_measurement = CONCENTRATION_MICROGRAMS_PER_CUBIC_METER
+    _attr_state_class = SensorStateClass.MEASUREMENT
 
     @environmental_property
-    def state(self) -> int:
+    def native_value(self) -> float:
         """Return the state of the sensor."""
         return self._device.formaldehyde
