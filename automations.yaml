@@ -77,3 +77,19 @@
   - service: script.renew_lets_encrypt_ssl_certificates
     data: {}
   mode: single
+- id: '1686880897738'
+  alias: Water the front yard daily at 9pm for 30 minutes
+  description: ''
+  trigger:
+  - platform: time
+    at: '21:00:00'
+  condition:
+  - condition: state
+    entity_id: switch.front_smart_hose_tap_timer_rain_delay
+    state: 'off'
+  action:
+  - service: bhyve.start_watering
+    data:
+      entity_id: switch.front_yard_hose_timer
+      minutes: 30
+  mode: single
