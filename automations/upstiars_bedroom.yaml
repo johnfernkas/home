@@ -8,8 +8,8 @@
   action:
     service: homeassistant.toggle
     entity_id:
-      - switch.upstairs_bedroom_west_lamp_plug
-      - switch.upstairs_bedroom_east_lamp_plug
+      - light.hue_ambiance_candle_1
+      - light.hue_ambiance_candle_2
 
 - alias: "Toggle Annie's bedside lamp"
   trigger:
@@ -20,4 +20,4 @@
       command: double
   action:
     service: homeassistant.toggle
-    entity_id: switch.upstairs_bedroom_west_lamp_plug
+    entity_id: light.hue_ambiance_candle_1

@@ -21,13 +21,13 @@ light.office_north_desk_lamp:
   icon: mdi:desk-lamp
 light.office_south_desk_lamp:
   icon: mdi:desk-lamp
+light.hue_ambiance_candle_1:
+  icon: mdi:wall-sconce
+light.hue_ambiance_candle_2:
+  icon: mdi:wall-sconce
 
 # Switches
 switch.hallway_lamp_plug:
-  icon: mdi:lamp
-switch.upstairs_bedroom_west_lamp_plug:
-  icon: mdi:lamp
-switch.upstairs_bedroom_east_lamp_plug:
   icon: mdi:lamp
 switch.office_north_table_lamp_plug:
   icon: mdi:lamp
