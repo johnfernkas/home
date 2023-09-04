@@ -1,4 +1,0 @@
-discovery: false
-strip:
-  - host: 192.168.1.27
-  - host: 192.168.1.97
