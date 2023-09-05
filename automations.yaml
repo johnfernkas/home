@@ -1,13 +1,17 @@
 - id: "1652236554927"
-  alias: Water the backyard daily at 8am for 30 minutes
+  alias: Water the backyard daily at 8am for 30 minutes every other day
   description: ""
   trigger:
     - platform: time
       at: 08:00:00
   condition:
-    - condition: state
-      entity_id: switch.backyard_hose_timer_rain_delay
-      state: "off"
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.backyard_hose_timer_rain_delay
+          state: "off"
+        - condition: template
+          value_template: "{{ now().timetuple().tm_yday % 2 == 0 }}"
   action:
     - service: bhyve.start_watering
       data:
@@ -78,15 +82,19 @@
       data: {}
   mode: single
 - id: "1686880897738"
-  alias: Water the front yard daily at 9pm for 30 minutes
+  alias: Water the front yard daily at 9pm for 30 minutes every other day
   description: ""
   trigger:
     - platform: time
       at: "21:00:00"
   condition:
-    - condition: state
-      entity_id: switch.front_smart_hose_tap_timer_rain_delay
-      state: "off"
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.front_smart_hose_tap_timer_rain_delay
+          state: "off"
+        - condition: template
+          value_template: "{{ now().timetuple().tm_yday % 2 == 0 }}"
   action:
     - service: bhyve.start_watering
       data:
