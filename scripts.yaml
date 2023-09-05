@@ -1,125 +1,125 @@
 sleep_mode_on_actions:
   alias: Sleep Mode On
   sequence:
-  - service: homeassistant.turn_off
-    data: {}
-    target:
-      entity_id:
-      - light.kitchen_sink_overhead
-      - light.kitchen_overhead
-      - group.john_desk_lights
-      - switch.office_west_table_lamp_plug
-      - switch.office_north_table_lamp_plug
-      - light.office_overhead
-      - light.front_room_south_floor_lamp
-      - switch.front_room_bookshelf_overhead
-      - switch.front_room_table_light
-      - switch.guest_bedroom_east_lamp_plug
-      - light.upstairs_bedroom_overhead
-      - switch.upstairs_bedroom_bathroom_lamp_plug
-      - light.hue_ambiance_candle_1
-      - light.hue_ambiance_candle_2
-  - service: light.turn_on
-    data:
-      brightness_pct: 50
-    target:
-      entity_id: light.front_room_north_floor_lamp
-  - if:
-    - condition: zone
-      entity_id: person.annie
-      zone: zone.home
-    then:
-    - service: fan.turn_on
-      data: {}
-      target:
-        entity_id: fan.bedroom
-    - service: fan.oscillate
-      data:
-        oscillating: true
-      target:
-        entity_id: fan.bedroom
-    - service: homeassistant.turn_on
-      data: {}
-      target:
-        entity_id: switch.bedroom_night_mode
-    - service: fan.set_percentage
-      data:
-        percentage: 70
-      target:
-        entity_id: fan.bedroom
-  - if:
-    - condition: zone
-      entity_id: person.john
-      zone: zone.home
-    then:
-    - service: fan.turn_on
-      data: {}
-      target:
-        entity_id: fan.upstairs_bedroom
-    - service: fan.oscillate
-      data:
-        oscillating: true
-      target:
-        entity_id: fan.upstairs_bedroom
-    - service: homeassistant.turn_on
+    - service: homeassistant.turn_off
       data: {}
       target:
         entity_id:
-        - switch.upstairs_bedroom_night_mode
-    - service: fan.set_percentage
+          - light.kitchen_sink_overhead
+          - light.kitchen_overhead
+          - group.john_desk_lights
+          - switch.office_west_table_lamp_plug
+          - switch.office_north_table_lamp_plug
+          - light.office_overhead
+          - light.front_room_south_floor_lamp
+          - switch.front_room_bookshelf_overhead
+          - switch.front_room_table_light
+          - switch.guest_bedroom_east_lamp_plug
+          - light.upstairs_bedroom_overhead
+          - switch.upstairs_bedroom_bathroom_lamp_plug
+          - light.hue_ambiance_candle_1
+          - light.hue_ambiance_candle_2
+    - service: light.turn_on
       data:
-        percentage: 80
+        brightness_pct: 50
       target:
-        entity_id: fan.upstairs_bedroom
+        entity_id: light.front_room_north_floor_lamp
+    - if:
+        - condition: zone
+          entity_id: person.annie
+          zone: zone.home
+      then:
+        - service: fan.turn_on
+          data: {}
+          target:
+            entity_id: fan.bedroom
+        - service: fan.oscillate
+          data:
+            oscillating: true
+          target:
+            entity_id: fan.bedroom
+        - service: homeassistant.turn_on
+          data: {}
+          target:
+            entity_id: switch.bedroom_night_mode
+        - service: fan.set_percentage
+          data:
+            percentage: 70
+          target:
+            entity_id: fan.bedroom
+    - if:
+        - condition: zone
+          entity_id: person.john
+          zone: zone.home
+      then:
+        - service: fan.turn_on
+          data: {}
+          target:
+            entity_id: fan.upstairs_bedroom
+        - service: fan.oscillate
+          data:
+            oscillating: true
+          target:
+            entity_id: fan.upstairs_bedroom
+        - service: homeassistant.turn_on
+          data: {}
+          target:
+            entity_id:
+              - switch.upstairs_bedroom_night_mode
+        - service: fan.set_percentage
+          data:
+            percentage: 80
+          target:
+            entity_id: fan.upstairs_bedroom
   mode: single
   icon: mdi:sleep
 sleep_mode_off_actions:
   alias: Sleep Mode Off
   sequence:
-  - service: homeassistant.turn_on
-    data: {}
-    target:
-      entity_id:
-      - light.kitchen_overhead
-      - group.john_desk_lights
-      - switch.office_west_table_lamp_plug
-      - switch.office_north_table_lamp_plug
-      - light.front_room_south_floor_lamp
-      - switch.upstairs_bedroom_bathroom_lamp_plug
-      - switch.guest_bedroom_east_lamp_plug
-      - light.kitchen_sink_overhead
-  - service: light.turn_on
-    data:
-      brightness: 255
-    target:
-      entity_id: light.front_room_north_floor_lamp
-  - service: fan.turn_off
-    data: {}
-    target:
-      entity_id:
-      - fan.upstairs_bedroom
-      - fan.bedroom
-  - service: climate.turn_off
-    data: {}
-    target:
-      entity_id: climate.aircon_aaa2
+    - service: homeassistant.turn_on
+      data: {}
+      target:
+        entity_id:
+          - light.kitchen_overhead
+          - group.john_desk_lights
+          - switch.office_west_table_lamp_plug
+          - switch.office_north_table_lamp_plug
+          - light.front_room_south_floor_lamp
+          - switch.upstairs_bedroom_bathroom_lamp_plug
+          - switch.guest_bedroom_east_lamp_plug
+          - light.kitchen_sink_overhead
+    - service: light.turn_on
+      data:
+        brightness: 255
+      target:
+        entity_id: light.front_room_north_floor_lamp
+    - service: fan.turn_off
+      data: {}
+      target:
+        entity_id:
+          - fan.upstairs_bedroom
+          - fan.bedroom
+    - service: climate.turn_off
+      data: {}
+      target:
+        entity_id: climate.aircon_aaa2
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:
   alias: Renew Let's Encrypt SSL Certificates
   sequence:
-  - service: hassio.addon_start
-    data:
-      addon: core_letsencrypt
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 0
-      milliseconds: 0
-  - service: shell_command.copy_ssl_files
-    data: {}
-  - service: hassio.addon_restart
-    data:
-      addon: core_nginx_proxy
+    - service: hassio.addon_start
+      data:
+        addon: core_letsencrypt
+    - delay:
+        hours: 0
+        minutes: 1
+        seconds: 0
+        milliseconds: 0
+    - service: shell_command.copy_ssl_files
+      data: {}
+    - service: hassio.addon_restart
+      data:
+        addon: core_nginx_proxy
   mode: single
   icon: mdi:shield-lock
