@@ -17,7 +17,7 @@ cards:
             name: Overhead
 
       - type: custom:mushroom-climate-card
-        entity: climate.pure_hot_cool_link
+        entity: climate.office
         show_temperature_control: true
         hvac_modes: ["heat", "cool", "off"]
         tap_action:
