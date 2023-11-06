@@ -101,3 +101,35 @@
         entity_id: switch.front_yard_hose_timer
         minutes: 30
   mode: single
+- id: "1696907494254"
+  alias: Turn Off Kitchen Sink Overhead Light
+  description: ""
+  trigger:
+    - platform: device
+      type: turned_off
+      device_id: 6ca58a729fa44bd29fad47f1990e2e0b
+      entity_id: 132fa6a3a7f91ea63e065bbbeeb4dbd8
+      domain: light
+  condition: []
+  action:
+    - type: turn_off
+      device_id: 4ebdbbd27107e5d4c24e34d545812034
+      entity_id: 2a4ac8d4f327de430f2a615ae1591789
+      domain: light
+  mode: single
+- id: "1696907594807"
+  alias: Turn On Kitchen Sink Overhead Light
+  description: ""
+  trigger:
+    - platform: device
+      type: turned_on
+      device_id: 6ca58a729fa44bd29fad47f1990e2e0b
+      entity_id: 132fa6a3a7f91ea63e065bbbeeb4dbd8
+      domain: light
+  condition: []
+  action:
+    - type: turn_on
+      device_id: 4ebdbbd27107e5d4c24e34d545812034
+      entity_id: 2a4ac8d4f327de430f2a615ae1591789
+      domain: light
+  mode: single
