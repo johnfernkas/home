@@ -71,6 +71,20 @@ sleep_mode_on_actions:
             percentage: 80
           target:
             entity_id: fan.upstairs_bedroom
+    - if:
+        - condition: or
+          conditions:
+            - condition: zone
+              entity_id: person.john
+              zone: zone.home
+            - condition: zone
+              entity_id: person.annie
+              zone: zone.home
+      then:
+        - type: turn_on
+          device_id: fbcdacded1b9aad1e0980d446397eedc
+          entity_id: 683d9331b2470c2855ad44080e051088
+          domain: switch
   mode: single
   icon: mdi:sleep
 sleep_mode_off_actions:
@@ -103,6 +117,10 @@ sleep_mode_off_actions:
       data: {}
       target:
         entity_id: climate.aircon_aaa2
+    - service: switch.turn_off
+      data: {}
+      target:
+        entity_id: switch.upstairs_bedroom_sound_machine
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:

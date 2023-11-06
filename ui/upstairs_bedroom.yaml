@@ -29,3 +29,6 @@ cards:
         show_oscillate_control: true
         collapsible_controls: true
         hold_action: more-info
+
+      - type: custom:mushroom-entity-card
+        entity: switch.upstairs_bedroom_sound_machine
