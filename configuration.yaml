@@ -18,7 +18,7 @@ automation ui: !include automations.yaml
 script manual: !include_dir_merge_named scripts
 script ui: !include scripts.yaml
 scene: !include scenes.yaml
-alert: !include alerts.yaml
+alert:
 shell_command: !include shell_commands.yaml
 
 # Integrations
@@ -27,7 +27,7 @@ ecobee: !include integrations/ecobee.yaml
 sensor: !include integrations/sensor.yaml
 switch: !include integrations/switch.yaml
 binary_sensor: !include integrations/binary_sensor.yaml
-ios: !include integrations/ios.yaml
+ios:
 influxdb: !include integrations/influxdb.yaml
 input_boolean: !include integrations/input_boolean.yaml
 bhyve: !include integrations/bhyve.yaml

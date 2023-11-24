@@ -1,9 +1,0 @@
-push:
-    categories:
-        - name: garage_door_left_open
-          identifier: 'GARAGE_DOOR'
-          actions:
-              - identifier: 'CLOSE_GARAGE_DOOR'
-                title: 'Close garage door'
-                activationMode: 'background'
-                authenticationRequired: true
