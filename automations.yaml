@@ -133,3 +133,53 @@
       entity_id: 2a4ac8d4f327de430f2a615ae1591789
       domain: light
   mode: single
+- id: "1704681312418"
+  alias: Turn off driveway lights 10 minutes after the motion detector is clear
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.driveway_motion
+      to: "off"
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.driveway_motion_sensor_override
+          state: "off"
+        - condition: numeric_state
+          entity_id: sun.sun
+          attribute: elevation
+          below: 0
+  action:
+    - service: homeassistant.turn_off
+      data: {}
+      target:
+        entity_id: group.driveway_floodlights
+  mode: single
+- id: "1704681482220"
+  alias: Turn on driveway lights when motion is detected
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.driveway_motion
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: input_boolean.driveway_motion_sensor_override
+      state: "off"
+    - condition: numeric_state
+      entity_id: sun.sun
+      attribute: elevation
+      below: 0
+  action:
+    - service: homeassistant.turn_on
+      target:
+        entity_id: group.driveway_floodlights
+      data: {}
+  mode: single
