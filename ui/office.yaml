@@ -15,6 +15,8 @@ cards:
             name: Table Lamp
           - entity: light.office_overhead
             name: Overhead
+          - entity: switch.bookshelf_picture_light_switch
+            name: Bookshelf Picture Light
 
       - type: custom:mushroom-climate-card
         entity: climate.office

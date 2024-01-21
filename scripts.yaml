@@ -85,6 +85,10 @@ sleep_mode_on_actions:
           device_id: fbcdacded1b9aad1e0980d446397eedc
           entity_id: 683d9331b2470c2855ad44080e051088
           domain: switch
+    - type: turn_off
+      device_id: 0f8c9c863e41509ae89eb58f99391579
+      entity_id: 18215f9c4664cde8c1db82260612a06a
+      domain: switch
   mode: single
   icon: mdi:sleep
 sleep_mode_off_actions:

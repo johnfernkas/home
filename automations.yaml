@@ -183,3 +183,17 @@
         entity_id: group.driveway_floodlights
       data: {}
   mode: single
+- id: "1705801501213"
+  alias: Turn on office bookshelf light 1 hour before sunset
+  description: ""
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-1:00"
+  condition: []
+  action:
+    - type: turn_on
+      device_id: 0f8c9c863e41509ae89eb58f99391579
+      entity_id: 18215f9c4664cde8c1db82260612a06a
+      domain: switch
+  mode: single
