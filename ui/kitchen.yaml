@@ -11,3 +11,4 @@ cards:
         name: Overhead
       - entity: light.kitchen_sink_overhead
         name: Kitchen Sink Overhead
+      - entity: light.kitchen_sink_counter_lamp
