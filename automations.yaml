@@ -42,6 +42,8 @@
           - update.esphome_update_2
           - update.nginx_home_assistant_ssl_proxy_update
           - update.home_assistant_operating_system_update
+    - service: homeassistant.check_config
+      data: {}
   mode: single
 - id: "1674431380464"
   alias: Sleep Mode On
