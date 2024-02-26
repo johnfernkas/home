@@ -13,3 +13,4 @@ www/community
 __pycache__
 /image
 .HA_VERSION
+/esphome/trash
