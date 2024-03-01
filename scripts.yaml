@@ -99,15 +99,38 @@ sleep_mode_off_actions:
       data: {}
       target:
         entity_id:
-          - light.kitchen_overhead
-          - group.john_desk_lights
           - switch.office_west_table_lamp_plug
           - switch.office_north_table_lamp_plug
           - light.front_room_south_floor_lamp
           - switch.upstairs_bedroom_bathroom_lamp_plug
           - switch.guest_bedroom_east_lamp_plug
-          - light.kitchen_sink_overhead
           - light.kitchen_sink_counter_lamp
+    - if:
+        - condition: zone
+          entity_id: person.john
+          zone: zone.home
+      then:
+        - service: homeassistant.turn_on
+          target:
+            entity_id: group.john_desk_lights
+          data: {}
+    - if:
+        - condition: or
+          conditions:
+            - condition: zone
+              entity_id: person.john
+              zone: zone.home
+            - condition: zone
+              entity_id: person.annie
+              zone: zone.home
+      then:
+        - service: homeassistant.turn_on
+          metadata: {}
+          data: {}
+          target:
+            entity_id:
+              - light.kitchen_overhead
+              - light.kitchen_sink_overhead
     - service: light.turn_on
       data:
         brightness: 255
