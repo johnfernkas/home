@@ -1,22 +1,22 @@
 - id: "1652236554927"
-  alias: Water the backyard daily at 8am for 30 minutes every other day
+  alias: Water the backyard at 4am for 45 minutes every other day
   description: ""
   trigger:
     - platform: time
-      at: 08:00:00
+      at: 04:00:00
   condition:
     - condition: and
       conditions:
         - condition: state
-          entity_id: switch.backyard_hose_timer_rain_delay
+          entity_id: switch.back_smart_hose_tap_timer_rain_delay
           state: "off"
         - condition: template
           value_template: "{{ now().timetuple().tm_yday % 2 == 0 }}"
   action:
     - service: bhyve.start_watering
       data:
-        entity_id: switch.backyard_hose_timer
-        minutes: 30
+        entity_id: switch.back_smart_hose_tap_timer_zone
+        minutes: 45
   mode: single
 - id: "1660933121511"
   alias: Auto-update Home Assistant
@@ -85,11 +85,11 @@
       data: {}
   mode: single
 - id: "1686880897738"
-  alias: Water the front yard daily at 9pm for 30 minutes every other day
+  alias: Water the front yard at 5am for 45 minutes every other day
   description: ""
   trigger:
     - platform: time
-      at: "21:00:00"
+      at: 05:00:00
   condition:
     - condition: and
       conditions:
@@ -101,8 +101,8 @@
   action:
     - service: bhyve.start_watering
       data:
-        entity_id: switch.front_yard_hose_timer
-        minutes: 30
+        entity_id: switch.front_smart_hose_tap_timer_zone
+        minutes: 45
   mode: single
 - id: "1696907494254"
   alias: Turn Off Kitchen Sink Overhead Light
