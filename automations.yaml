@@ -154,10 +154,6 @@
         - condition: state
           entity_id: input_boolean.driveway_motion_sensor_override
           state: "off"
-        - condition: numeric_state
-          entity_id: sun.sun
-          attribute: elevation
-          below: 0
   action:
     - service: homeassistant.turn_off
       data: {}
