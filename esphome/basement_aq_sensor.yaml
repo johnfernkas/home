@@ -11,7 +11,9 @@ wifi:
 captive_portal:
 logger:
 api:
+
 ota:
+  platform: esphome
 
 i2c:
   sda: 0
