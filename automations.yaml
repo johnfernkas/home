@@ -196,3 +196,43 @@
       entity_id: 18215f9c4664cde8c1db82260612a06a
       domain: switch
   mode: single
+- id: "1722904465976"
+  alias: Water the backyard at 4am for 45 minutes every three days
+  description: ""
+  trigger:
+    - platform: time
+      at: 04:00:00
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.back_smart_hose_tap_timer_rain_delay
+          state: "off"
+        - condition: template
+          value_template: "{{ now().timetuple().tm_yday % 3 == 0 }}"
+  action:
+    - service: bhyve.start_watering
+      data:
+        entity_id: switch.back_smart_hose_tap_timer_zone
+        minutes: 45
+  mode: single
+- id: "1722904529787"
+  alias: Water the front yard at 5am for 45 minutes every three days
+  description: ""
+  trigger:
+    - platform: time
+      at: 05:00:00
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: switch.front_smart_hose_tap_timer_rain_delay
+          state: "off"
+        - condition: template
+          value_template: "{{ now().timetuple().tm_yday % 3 == 0 }}"
+  action:
+    - service: bhyve.start_watering
+      data:
+        entity_id: switch.front_smart_hose_tap_timer_zone
+        minutes: 45
+  mode: single
