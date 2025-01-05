@@ -8,8 +8,8 @@ sleep_mode_on_actions:
           - light.kitchen_sink_overhead
           - light.kitchen_overhead
           - group.john_desk_lights
-          - switch.office_west_table_lamp_plug
-          - switch.office_north_table_lamp_plug
+          - light.office_west_desk_lamp
+          - light.office_console_table_lamp
           - light.office_overhead
           - light.front_room_south_floor_lamp
           - switch.front_room_bookshelf_overhead
@@ -99,8 +99,8 @@ sleep_mode_off_actions:
       data: {}
       target:
         entity_id:
-          - switch.office_west_table_lamp_plug
-          - switch.office_north_table_lamp_plug
+          - light.office_west_desk_lamp
+          - light.office_console_table_lamp
           - light.front_room_south_floor_lamp
           - switch.upstairs_bedroom_bathroom_lamp_plug
           - switch.guest_bedroom_east_lamp_plug

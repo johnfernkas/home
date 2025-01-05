@@ -26,9 +26,9 @@ office_lights_off:
     - service: homeassistant.turn_off
       entity_id: group.john_desk_lights
     - service: homeassistant.turn_off
-      entity_id: switch.office_west_table_lamp_plug
+      entity_id: light.office_west_desk_lamp
     - service: homeassistant.turn_off
-      entity_id: switch.office_north_table_lamp_plug
+      entity_id: light.office_console_table_lamp
     - service: homeassistant.turn_off
       entity_id: light.office_overhead
 
@@ -101,9 +101,9 @@ office_lights_on:
     - service: homeassistant.turn_on
       entity_id: group.john_desk_lights
     - service: homeassistant.turn_on
-      entity_id: switch.office_west_table_lamp_plug
+      entity_id: light.office_west_desk_lamp
     - service: homeassistant.turn_on
-      entity_id: switch.office_north_table_lamp_plug
+      entity_id: light.office_console_table_lamp
     - service: homeassistant.turn_on
       entity_id: light.office_overhead
 

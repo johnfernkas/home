@@ -7,15 +7,15 @@ cards:
       - type: entities
         title: Lights
         entities:
-          - entity: switch.office_west_table_lamp_plug
+          - entity: light.office_west_desk_lamp
             name: Annie's Desk Lamp
           - entity: group.john_desk_lights
             name: John's Desk Lights
-          - entity: switch.office_north_table_lamp_plug
-            name: Table Lamp
+          - entity: light.office_console_table_lamp
+            name: Console Table Lamp
           - entity: light.office_overhead
             name: Overhead
-          - entity: switch.bookshelf_picture_light_switch
+          - entity: light.office_bookshelf_picture_light
             name: Bookshelf Picture Light
 
       - type: custom:mushroom-climate-card
