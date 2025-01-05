@@ -54,7 +54,7 @@ upstairs_bedroom_lights_off:
     - service: homeassistant.turn_off
       entity_id: light.upstairs_bedroom_overhead
     - service: homeassistant.turn_off
-      entity_id: switch.upstairs_bedroom_bathroom_lamp_plug
+      entity_id: light.upstairs_bathroom_lamp
 
 upstairs_bedroom_fan_on:
   sequence:
@@ -119,4 +119,4 @@ front_room_lights_on:
 upstairs_bedroom_lights_on:
   sequence:
     - service: homeassistant.turn_on
-      entity_id: switch.upstairs_bedroom_bathroom_lamp_plug
+      entity_id: light.upstairs_bathroom_lamp

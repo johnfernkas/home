@@ -26,10 +26,6 @@ light.hue_ambiance_candle_1:
 light.hue_ambiance_candle_2:
   icon: mdi:wall-sconce
 
-# Switches
-switch.upstairs_bedroom_bathroom_lamp_plug:
-  icon: mdi:lamp
-
 # Doors
 binary_sensor.office_closet_door:
   device_class: door
