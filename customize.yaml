@@ -27,10 +27,6 @@ light.hue_ambiance_candle_2:
   icon: mdi:wall-sconce
 
 # Switches
-switch.hallway_lamp_plug:
-  icon: mdi:lamp
-switch.front_room_bookshelf_lamp_plug:
-  icon: mdi:lamp
 switch.upstairs_bedroom_bathroom_lamp_plug:
   icon: mdi:lamp
 

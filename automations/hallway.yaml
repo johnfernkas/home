@@ -1,33 +1,15 @@
-- alias: "Turn on the hallway lamp at 6:30AM"
-  trigger:
-    platform: time
-    at: "06:30:00"
-  action:
-    service: switch.turn_on
-    entity_id: switch.hallway_lamp_plug
+- alias: "Turn on the back hallway lamp at 6:30AM"
+  triggers:
+    - trigger: time
+      at: "06:30:00"
+  actions:
+    - action: homeassistant.turn_on
+      entity_id: light.back_hallway_table_lamp
 
-- alias: "Turn off the hallway lamp at 11PM"
-  trigger:
-    platform: time
-    at: "23:00:00"
-  action:
-    service: switch.turn_off
-    entity_id: switch.hallway_lamp_plug
-
-- alias: "Turn on hallway closet overhead light"
-  trigger:
-    platform: state
-    entity_id: binary_sensor.hallway_closet_door
-    to: "on"
-  action:
-    service: homeassistant.turn_on
-    entity_id: light.hallway_closet_overhead
-
-- alias: "Turn off hallway closet overhead light"
-  trigger:
-    platform: state
-    entity_id: binary_sensor.hallway_closet_door
-    to: "off"
-  action:
-    service: homeassistant.turn_off
-    entity_id: light.hallway_closet_overhead
+- alias: "Turn off the back hallway lamp at 11PM"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: homeassistant.turn_off
+      entity_id: light.back_hallway_table_lamp

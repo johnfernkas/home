@@ -9,7 +9,7 @@ cards:
         name: Couch Floor Lamp
       - entity: light.front_room_north_floor_lamp
         name: Chair Floor Lamp
-      - entity: switch.front_room_bookshelf_lamp_plug
+      - entity: light.front_room_bookshelf_lamp
         name: Bookshelf Lamp
       - entity: switch.front_room_bookshelf_overhead
         name: Bookshelf Overhead
