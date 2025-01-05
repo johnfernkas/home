@@ -27,6 +27,4 @@ batteries:
     - binary_sensor.front_door_battery
     - binary_sensor.back_door_battery
     - binary_sensor.back_door_battery
-    - sensor.office_closet_door_battery_level
-    - sensor.hallway_closet_door_battery_level
     - sensor.upstairs_bedroom_mini_button_battery_level

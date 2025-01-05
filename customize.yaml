@@ -6,10 +6,6 @@ light.office_overhead:
 light.upstairs_bedroom_overhead:
   icon: mdi:ceiling-light
 
-# Overhead
-light.office_closet_overhead:
-  icon: mdi:wall-sconce
-
 # Lamps
 light.front_room_north_floor_lamp:
   icon: mdi:floor-lamp
