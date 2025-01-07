@@ -1,8 +1,7 @@
 sleep_mode_on_actions:
   alias: Sleep Mode On
   sequence:
-    - service: homeassistant.turn_off
-      data: {}
+    - data: {}
       target:
         entity_id:
           - light.kitchen_sink_overhead
@@ -20,58 +19,55 @@ sleep_mode_on_actions:
           - light.hue_ambiance_candle_1
           - light.hue_ambiance_candle_2
           - light.kitchen_sink_counter_lamp
-    - service: light.turn_on
-      data:
-        brightness_pct: 50
-      target:
-        entity_id: light.front_room_north_floor_lamp
+          - light.front_room_north_floor_lamp
+      action: homeassistant.turn_off
     - if:
         - condition: zone
           entity_id: person.annie
           zone: zone.home
       then:
-        - service: fan.turn_on
-          data: {}
+        - data: {}
           target:
             entity_id: fan.bedroom
-        - service: fan.oscillate
-          data:
+          action: fan.turn_on
+        - data:
             oscillating: true
           target:
             entity_id: fan.bedroom
-        - service: homeassistant.turn_on
-          data: {}
+          action: fan.oscillate
+        - data: {}
           target:
             entity_id: switch.bedroom_night_mode
-        - service: fan.set_percentage
-          data:
+          action: homeassistant.turn_on
+        - data:
             percentage: 70
           target:
             entity_id: fan.bedroom
+          action: fan.set_percentage
     - if:
         - condition: zone
           entity_id: person.john
           zone: zone.home
       then:
-        - service: fan.turn_on
-          data: {}
+        - data: {}
           target:
             entity_id: fan.upstairs_bedroom
-        - service: fan.oscillate
-          data:
+          action: fan.turn_on
+        - data:
             oscillating: true
           target:
             entity_id: fan.upstairs_bedroom
-        - service: homeassistant.turn_on
-          data: {}
+          action: fan.oscillate
+        - data: {}
           target:
             entity_id:
               - switch.upstairs_bedroom_night_mode
-        - service: fan.set_percentage
-          data:
+          action: homeassistant.turn_on
+        - data:
             percentage: 80
           target:
             entity_id: fan.upstairs_bedroom
+          action: fan.set_percentage
     - if:
         - condition: or
           conditions:
@@ -95,8 +91,7 @@ sleep_mode_on_actions:
 sleep_mode_off_actions:
   alias: Sleep Mode Off
   sequence:
-    - service: homeassistant.turn_on
-      data: {}
+    - data: {}
       target:
         entity_id:
           - light.office_west_desk_lamp
@@ -105,15 +100,16 @@ sleep_mode_off_actions:
           - light.upstairs_bathroom_lamp
           - switch.guest_bedroom_east_lamp_plug
           - light.kitchen_sink_counter_lamp
+      action: homeassistant.turn_on
     - if:
         - condition: zone
           entity_id: person.john
           zone: zone.home
       then:
-        - service: homeassistant.turn_on
-          target:
+        - target:
             entity_id: group.john_desk_lights
           data: {}
+          action: homeassistant.turn_on
     - if:
         - condition: or
           conditions:
@@ -124,32 +120,34 @@ sleep_mode_off_actions:
               entity_id: person.annie
               zone: zone.home
       then:
-        - service: homeassistant.turn_on
-          metadata: {}
+        - metadata: {}
           data: {}
           target:
             entity_id:
               - light.kitchen_overhead
               - light.kitchen_sink_overhead
-    - service: light.turn_on
-      data:
+          action: homeassistant.turn_on
+    - data:
         brightness: 255
       target:
         entity_id: light.front_room_north_floor_lamp
-    - service: fan.turn_off
-      data: {}
+      action: light.turn_on
+    - data: {}
       target:
         entity_id:
           - fan.upstairs_bedroom
           - fan.bedroom
-    - service: climate.turn_off
-      data: {}
+      action: fan.turn_off
+    - action: climate.set_hvac_mode
       target:
-        entity_id: climate.aircon_aaa2
-    - service: switch.turn_off
-      data: {}
+        entity_id:
+          - climate.aircon_aaa2
+      data:
+        hvac_mode: "off"
+    - data: {}
       target:
         entity_id: switch.upstairs_bedroom_sound_machine
+      action: switch.turn_off
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:
