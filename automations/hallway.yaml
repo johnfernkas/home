@@ -1,15 +1,15 @@
 - alias: "Turn on the back hallway lamp at 6:30AM"
-  triggers:
-    - trigger: time
-      at: "06:30:00"
-  actions:
-    - action: homeassistant.turn_on
-      entity_id: light.back_hallway_table_lamp
+  trigger:
+    platform: time
+    at: "06:30:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.back_hallway_table_lamp
 
 - alias: "Turn off the back hallway lamp at 11PM"
-  triggers:
-    - trigger: time
-      at: "23:00:00"
-  actions:
-    - action: homeassistant.turn_off
-      entity_id: light.back_hallway_table_lamp
+  trigger:
+    platform: time
+    at: "23:00:00"
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.back_hallway_table_lamp
