@@ -1,0 +1,39 @@
+- name: John's Desk Lights - Bright
+  icon: mdi:lightbulb-on
+  entities:
+    group.john_desk_lights:
+      state: "on"
+      brightness: 255
+
+- name: John's Desk Lights - Dimmed
+  icon: mdi:lightbulb-on-50
+  entities:
+    group.john_desk_lights:
+      state: "on"
+      brightness: 89
+
+- name: John's Desk Lights - Off
+  icon: mdi:lightbulb-outline
+  entities:
+    group.john_desk_lights:
+      state: "off"
+
+- name: Overhead - Bright
+  icon: mdi:lightbulb-on
+  entities:
+    light.office_overhead:
+      state: "on"
+      brightness: 255
+
+- name: Overhead - Dimmed
+  icon: mdi:lightbulb-on-50
+  entities:
+    light.office_overhead:
+      state: "on"
+      brightness: 127
+
+- name: Overhead - Off
+  icon: mdi:lightbulb-outline
+  entities:
+    light.office_overhead:
+      state: "off"
