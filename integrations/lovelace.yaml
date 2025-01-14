@@ -1,4 +1,3 @@
-mode: yaml
 resources:
   - url: /hacsfiles/lovelace-card-templater/lovelace-card-templater.js
     type: module
