@@ -20,6 +20,9 @@ sleep_mode_on_actions:
       - light.hue_ambiance_candle_2
       - light.kitchen_sink_counter_lamp
       - light.front_room_north_floor_lamp
+      - light.downstairs_hallway_accent_light
+      - light.downstairs_hallway_main_lights
+      - light.laundry_room_main_lights
     action: homeassistant.turn_off
   - if:
     - condition: zone
@@ -90,6 +93,16 @@ sleep_mode_on_actions:
     device_id: 681946bb7e00682c4039f4454c4d0c81
     entity_id: efc6876edadc051dff55a9cbcdb10336
     domain: switch
+  - if:
+    - condition: state
+      entity_id: light.back_entry_main_lights
+      state: 'on'
+    then:
+    - action: light.turn_off
+      metadata: {}
+      data: {}
+      target:
+        entity_id: light.back_entry_main_lights
   mode: single
   icon: mdi:sleep
 sleep_mode_off_actions:
@@ -104,6 +117,9 @@ sleep_mode_off_actions:
       - light.upstairs_bathroom_lamp
       - switch.guest_bedroom_east_lamp_plug
       - light.kitchen_sink_counter_lamp
+      - light.laundry_room_main_lights
+      - light.downstairs_hallway_main_lights
+      - light.downstairs_hallway_accent_light
     action: homeassistant.turn_on
   - if:
     - condition: zone

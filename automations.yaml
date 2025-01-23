@@ -1,413 +1,444 @@
-- id: "1652236554927"
+- id: '1652236554927'
   alias: Water the backyard at 4am for 45 minutes every other day
-  description: ""
+  description: ''
   trigger:
-    - platform: time
-      at: 04:00:00
+  - platform: time
+    at: 04:00:00
   condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: switch.back_smart_hose_tap_timer_rain_delay
-          state: "off"
-        - condition: template
-          value_template: "{{ now().timetuple().tm_yday % 2 == 0 }}"
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.back_smart_hose_tap_timer_rain_delay
+      state: 'off'
+    - condition: template
+      value_template: '{{ now().timetuple().tm_yday % 2 == 0 }}'
   action:
-    - service: bhyve.start_watering
-      data:
-        entity_id: switch.back_smart_hose_tap_timer_zone
-        minutes: 45
+  - service: bhyve.start_watering
+    data:
+      entity_id: switch.back_smart_hose_tap_timer_zone
+      minutes: 45
   mode: single
-- id: "1660933121511"
+- id: '1660933121511'
   alias: Auto-update Home Assistant
-  description: ""
+  description: ''
   trigger:
-    - platform: time
-      at: 04:00:00
+  - platform: time
+    at: 04:00:00
   condition: []
   action:
-    - service: update.install
-      data:
-        backup: true
-      target:
-        entity_id:
-          - update.home_assistant_core_update
-          - update.home_assistant_supervisor_update
-          - update.studio_code_server_update
-          - update.mariadb_update
-          - update.let_s_encrypt_update
-          - update.influxdb_update
-          - update.home_assistant_google_drive_backup_update
-          - update.git_pull_update
-          - update.esphome_update_2
-          - update.nginx_home_assistant_ssl_proxy_update
-          - update.home_assistant_operating_system_update
-    - service: homeassistant.check_config
-      data: {}
+  - service: update.install
+    data:
+      backup: true
+    target:
+      entity_id:
+      - update.home_assistant_core_update
+      - update.home_assistant_supervisor_update
+      - update.studio_code_server_update
+      - update.mariadb_update
+      - update.let_s_encrypt_update
+      - update.influxdb_update
+      - update.home_assistant_google_drive_backup_update
+      - update.git_pull_update
+      - update.esphome_update_2
+      - update.nginx_home_assistant_ssl_proxy_update
+      - update.home_assistant_operating_system_update
+  - service: homeassistant.check_config
+    data: {}
   mode: single
-- id: "1674431380464"
+- id: '1674431380464'
   alias: Sleep Mode On
-  description: ""
+  description: ''
   trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.sleep_mode
-      from: "off"
-      to: "on"
+  - platform: state
+    entity_id:
+    - input_boolean.sleep_mode
+    from: 'off'
+    to: 'on'
   condition: []
   action:
-    - service: script.sleep_mode_on_actions
-      data: {}
+  - service: script.sleep_mode_on_actions
+    data: {}
   mode: single
-- id: "1674435243660"
+- id: '1674435243660'
   alias: Sleep Mode Off
-  description: ""
+  description: ''
   trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.sleep_mode
-      from: "on"
-      to: "off"
+  - platform: state
+    entity_id:
+    - input_boolean.sleep_mode
+    from: 'on'
+    to: 'off'
   condition: []
   action:
-    - service: script.sleep_mode_off_actions
-      data: {}
+  - service: script.sleep_mode_off_actions
+    data: {}
   mode: single
-- id: "1679006488341"
+- id: '1679006488341'
   alias: Attempt to renew SSL certificates at 3AM daily
-  description: ""
+  description: ''
   trigger:
-    - platform: time
-      at: 03:00:00
+  - platform: time
+    at: 03:00:00
   condition: []
   action:
-    - service: script.renew_lets_encrypt_ssl_certificates
-      data: {}
+  - service: script.renew_lets_encrypt_ssl_certificates
+    data: {}
   mode: single
-- id: "1686880897738"
+- id: '1686880897738'
   alias: Water the front yard at 5am for 45 minutes every other day
-  description: ""
+  description: ''
   trigger:
-    - platform: time
-      at: 05:00:00
+  - platform: time
+    at: 05:00:00
   condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: switch.front_smart_hose_tap_timer_rain_delay
-          state: "off"
-        - condition: template
-          value_template: "{{ now().timetuple().tm_yday % 2 == 0 }}"
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.front_smart_hose_tap_timer_rain_delay
+      state: 'off'
+    - condition: template
+      value_template: '{{ now().timetuple().tm_yday % 2 == 0 }}'
   action:
-    - service: bhyve.start_watering
-      data:
-        entity_id: switch.front_smart_hose_tap_timer_zone
-        minutes: 45
+  - service: bhyve.start_watering
+    data:
+      entity_id: switch.front_smart_hose_tap_timer_zone
+      minutes: 45
   mode: single
-- id: "1696907494254"
+- id: '1696907494254'
   alias: Turn Off Kitchen Sink Overhead Light
-  description: ""
+  description: ''
   trigger:
-    - platform: device
-      type: turned_off
-      device_id: 6ca58a729fa44bd29fad47f1990e2e0b
-      entity_id: 132fa6a3a7f91ea63e065bbbeeb4dbd8
-      domain: light
+  - platform: device
+    type: turned_off
+    device_id: 6ca58a729fa44bd29fad47f1990e2e0b
+    entity_id: 132fa6a3a7f91ea63e065bbbeeb4dbd8
+    domain: light
   condition: []
   action:
-    - type: turn_off
-      device_id: 4ebdbbd27107e5d4c24e34d545812034
-      entity_id: 2a4ac8d4f327de430f2a615ae1591789
-      domain: light
+  - type: turn_off
+    device_id: 4ebdbbd27107e5d4c24e34d545812034
+    entity_id: 2a4ac8d4f327de430f2a615ae1591789
+    domain: light
   mode: single
-- id: "1696907594807"
+- id: '1696907594807'
   alias: Turn On Kitchen Sink Overhead Light
-  description: ""
+  description: ''
   trigger:
-    - platform: device
-      type: turned_on
-      device_id: 6ca58a729fa44bd29fad47f1990e2e0b
-      entity_id: 132fa6a3a7f91ea63e065bbbeeb4dbd8
-      domain: light
+  - platform: device
+    type: turned_on
+    device_id: 6ca58a729fa44bd29fad47f1990e2e0b
+    entity_id: 132fa6a3a7f91ea63e065bbbeeb4dbd8
+    domain: light
   condition: []
   action:
-    - type: turn_on
-      device_id: 4ebdbbd27107e5d4c24e34d545812034
-      entity_id: 2a4ac8d4f327de430f2a615ae1591789
-      domain: light
+  - type: turn_on
+    device_id: 4ebdbbd27107e5d4c24e34d545812034
+    entity_id: 2a4ac8d4f327de430f2a615ae1591789
+    domain: light
   mode: single
-- id: "1704681312418"
+- id: '1704681312418'
   alias: Turn off driveway lights 10 minutes after the motion detector is clear
-  description: ""
+  description: ''
   trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.driveway_motion
-      to: "off"
-      for:
-        hours: 0
-        minutes: 10
-        seconds: 0
+  - platform: state
+    entity_id:
+    - binary_sensor.driveway_motion
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
   condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.driveway_motion_sensor_override
-          state: "off"
-  action:
-    - service: homeassistant.turn_off
-      data: {}
-      target:
-        entity_id: group.driveway_floodlights
-  mode: single
-- id: "1704681482220"
-  alias: Turn on driveway lights when motion is detected
-  description: ""
-  trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.driveway_motion
-      to: "on"
-  condition:
+  - condition: and
+    conditions:
     - condition: state
       entity_id: input_boolean.driveway_motion_sensor_override
-      state: "off"
-    - condition: numeric_state
-      entity_id: sun.sun
-      attribute: elevation
-      below: 0
+      state: 'off'
   action:
-    - service: homeassistant.turn_on
-      target:
-        entity_id: group.driveway_floodlights
-      data: {}
+  - service: homeassistant.turn_off
+    data: {}
+    target:
+      entity_id: group.driveway_floodlights
   mode: single
-- id: "1705801501213"
-  alias: Turn on office bookshelf light 1 hour before sunset
-  description: ""
+- id: '1704681482220'
+  alias: Turn on driveway lights when motion is detected
+  description: ''
   trigger:
-    - platform: sun
-      event: sunset
-      offset: "-1:00"
+  - platform: state
+    entity_id:
+    - binary_sensor.driveway_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.driveway_motion_sensor_override
+    state: 'off'
+  - condition: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: 0
+  action:
+  - service: homeassistant.turn_on
+    target:
+      entity_id: group.driveway_floodlights
+    data: {}
+  mode: single
+- id: '1705801501213'
+  alias: Turn on office bookshelf light 1 hour before sunset
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '-1:00'
   condition: []
   action:
-    - type: turn_on
-      device_id: 0f8c9c863e41509ae89eb58f99391579
-      entity_id: 18215f9c4664cde8c1db82260612a06a
-      domain: switch
+  - type: turn_on
+    device_id: 0f8c9c863e41509ae89eb58f99391579
+    entity_id: 18215f9c4664cde8c1db82260612a06a
+    domain: switch
   mode: single
-- id: "1722904465976"
+- id: '1722904465976'
   alias: Water the backyard at 4am for 45 minutes every three days
-  description: ""
+  description: ''
   trigger:
-    - platform: time
-      at: 04:00:00
+  - platform: time
+    at: 04:00:00
   condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: switch.back_smart_hose_tap_timer_rain_delay
-          state: "off"
-        - condition: template
-          value_template: "{{ now().timetuple().tm_yday % 3 == 0 }}"
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.back_smart_hose_tap_timer_rain_delay
+      state: 'off'
+    - condition: template
+      value_template: '{{ now().timetuple().tm_yday % 3 == 0 }}'
   action:
-    - service: bhyve.start_watering
-      data:
-        entity_id: switch.back_smart_hose_tap_timer_zone
-        minutes: 45
+  - service: bhyve.start_watering
+    data:
+      entity_id: switch.back_smart_hose_tap_timer_zone
+      minutes: 45
   mode: single
-- id: "1722904529787"
+- id: '1722904529787'
   alias: Water the front yard at 5am for 45 minutes every three days
-  description: ""
+  description: ''
   trigger:
-    - platform: time
-      at: 05:00:00
+  - platform: time
+    at: 05:00:00
   condition:
-    - condition: and
-      conditions:
-        - condition: state
-          entity_id: switch.front_smart_hose_tap_timer_rain_delay
-          state: "off"
-        - condition: template
-          value_template: "{{ now().timetuple().tm_yday % 3 == 0 }}"
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.front_smart_hose_tap_timer_rain_delay
+      state: 'off'
+    - condition: template
+      value_template: '{{ now().timetuple().tm_yday % 3 == 0 }}'
   action:
-    - service: bhyve.start_watering
-      data:
-        entity_id: switch.front_smart_hose_tap_timer_zone
-        minutes: 45
+  - service: bhyve.start_watering
+    data:
+      entity_id: switch.front_smart_hose_tap_timer_zone
+      minutes: 45
   mode: single
-- id: "1736821137695"
+- id: '1736821137695'
   alias: Toggle Annie's bedside lamp
-  description: ""
+  description: ''
   triggers:
-    - event_type: zha_event
-      event_data:
-        device_id: 6ad012c0fd2c4548aa830605003af78c
-        command: double
-      trigger: event
+  - event_type: zha_event
+    event_data:
+      device_id: 6ad012c0fd2c4548aa830605003af78c
+      command: double
+    trigger: event
   conditions: []
   actions:
-    - entity_id: light.hue_ambiance_candle_1
-      action: homeassistant.toggle
+  - entity_id: light.hue_ambiance_candle_1
+    action: homeassistant.toggle
   mode: single
-- id: "1736821180980"
+- id: '1736821180980'
   alias: Toggle both bedside lamps
-  description: ""
+  description: ''
   triggers:
-    - event_type: zha_event
-      event_data:
-        device_id: 6ad012c0fd2c4548aa830605003af78c
-        command: single
-      trigger: event
+  - event_type: zha_event
+    event_data:
+      device_id: 6ad012c0fd2c4548aa830605003af78c
+      command: single
+    trigger: event
   conditions: []
   actions:
-    - entity_id:
-        - light.hue_ambiance_candle_1
-        - light.hue_ambiance_candle_2
-      action: homeassistant.toggle
+  - entity_id:
+    - light.hue_ambiance_candle_1
+    - light.hue_ambiance_candle_2
+    action: homeassistant.toggle
   mode: single
-- id: "1736821285748"
+- id: '1736821285748'
   alias: Turn off front room lights at 11PM
-  description: ""
+  description: ''
   triggers:
-    - trigger: time
-      at: "23:00:00"
+  - trigger: time
+    at: '23:00:00'
   conditions: []
   actions:
-    - action: homeassistant.turn_off
-      target:
-        entity_id:
-          - light.front_room_bookshelf_lamp
-      data: {}
+  - action: homeassistant.turn_off
+    target:
+      entity_id:
+      - light.front_room_bookshelf_lamp
+    data: {}
   mode: single
-- id: "1736821352634"
+- id: '1736821352634'
   alias: Turn off outdoor Christmas lights at 2AM if available
-  description: ""
+  description: ''
   triggers:
-    - at: 02:00:00
-      trigger: time
+  - at: 02:00:00
+    trigger: time
   conditions:
-    - condition: not
-      conditions:
-        - condition: state
-          entity_id: switch.driveway_string_lights
-          state: unavailable
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: switch.driveway_string_lights
+      state: unavailable
   actions:
-    - entity_id: switch.driveway_string_lights
-      action: switch.turn_off
+  - entity_id: switch.driveway_string_lights
+    action: switch.turn_off
   mode: single
-- id: "1736821367317"
+- id: '1736821367317'
   alias: Turn off the back hallway lamp at 11PM
-  description: ""
+  description: ''
   triggers:
-    - trigger: time
-      at: "23:00:00"
+  - trigger: time
+    at: '23:00:00'
   conditions: []
   actions:
-    - action: homeassistant.turn_off
-      target:
-        entity_id: light.back_hallway_table_lamp
-      data: {}
+  - action: homeassistant.turn_off
+    target:
+      entity_id: light.back_hallway_table_lamp
+    data: {}
   mode: single
-- id: "1736821381146"
+- id: '1736821381146'
   alias: Turn off the Christmas tree at 11PM if available
-  description: ""
+  description: ''
   triggers:
-    - at: "23:00:00"
-      trigger: time
+  - at: '23:00:00'
+    trigger: time
   conditions:
-    - condition: not
-      conditions:
-        - condition: state
-          entity_id: switch.front_room_christmas_tree
-          state: unavailable
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: switch.front_room_christmas_tree
+      state: unavailable
   actions:
-    - entity_id: switch.front_room_christmas_tree
-      action: switch.turn_off
+  - entity_id: switch.front_room_christmas_tree
+    action: switch.turn_off
   mode: single
-- id: "1736821396434"
+- id: '1736821396434'
   alias: Turn off the countertop lamp at 11PM
-  description: ""
+  description: ''
   triggers:
-    - at: "23:00:00"
-      trigger: time
+  - at: '23:00:00'
+    trigger: time
   conditions: []
   actions:
-    - entity_id: light.kitchen_counter_lamp
-      action: light.turn_off
+  - entity_id: light.kitchen_counter_lamp
+    action: light.turn_off
   mode: single
-- id: "1736821413203"
+- id: '1736821413203'
   alias: Turn on front room lights 1 hour before sunset
-  description: ""
+  description: ''
   triggers:
-    - trigger: sun
-      event: sunset
-      offset: -01:00:00
+  - trigger: sun
+    event: sunset
+    offset: -01:00:00
   conditions: []
   actions:
-    - action: homeassistant.turn_on
-      target:
-        entity_id:
-          - light.front_room_bookshelf_lamp
-      data: {}
+  - action: homeassistant.turn_on
+    target:
+      entity_id:
+      - light.front_room_bookshelf_lamp
+    data: {}
   mode: single
-- id: "1736821434031"
+- id: '1736821434031'
   alias: Turn on the back hallway lamp at 6:30AM
-  description: ""
+  description: ''
   triggers:
-    - trigger: time
-      at: 06:30:00
+  - trigger: time
+    at: 06:30:00
   conditions: []
   actions:
-    - action: homeassistant.turn_on
-      target:
-        entity_id: light.back_hallway_table_lamp
-      data: {}
+  - action: homeassistant.turn_on
+    target:
+      entity_id: light.back_hallway_table_lamp
+    data: {}
   mode: single
-- id: "1736821450316"
+- id: '1736821450316'
   alias: Turn on the Christmas tree 1 hour before sunset if available
-  description: ""
+  description: ''
   triggers:
-    - event: sunset
-      offset: -01:00:00
-      trigger: sun
+  - event: sunset
+    offset: -01:00:00
+    trigger: sun
   conditions:
-    - condition: not
-      conditions:
-        - condition: state
-          entity_id: switch.front_room_christmas_tree
-          state: unavailable
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: switch.front_room_christmas_tree
+      state: unavailable
   actions:
-    - entity_id: switch.front_room_christmas_tree
-      action: switch.turn_on
+  - entity_id: switch.front_room_christmas_tree
+    action: switch.turn_on
   mode: single
-- id: "1736821461230"
+- id: '1736821461230'
   alias: Turn on the countertop lamp at 6:30AM
-  description: ""
+  description: ''
   triggers:
-    - at: 06:30:00
-      trigger: time
+  - at: 06:30:00
+    trigger: time
   conditions: []
   actions:
-    - data:
-        entity_id: light.kitchen_counter_lamp
-        brightness_pct: 35
-      action: light.turn_on
+  - data:
+      entity_id: light.kitchen_counter_lamp
+      brightness_pct: 35
+    action: light.turn_on
   mode: single
-- id: "1736821478996"
+- id: '1736821478996'
   alias: Turn on the outdoor Christmas lights 1 hour before sunset if available
-  description: ""
+  description: ''
   triggers:
-    - event: sunset
-      offset: -01:00:00
-      trigger: sun
+  - event: sunset
+    offset: -01:00:00
+    trigger: sun
   conditions:
-    - condition: not
-      conditions:
-        - condition: state
-          entity_id: switch.driveway_string_lights
-          state: unavailable
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: switch.driveway_string_lights
+      state: unavailable
   actions:
-    - entity_id: switch.driveway_string_lights
-      action: switch.turn_on
+  - entity_id: switch.driveway_string_lights
+    action: switch.turn_on
+  mode: single
+- id: '1737592566178'
+  alias: Turn off back entry light at 11 PM if still on
+  description: ''
+  triggers:
+  - trigger: time
+    at: '23:00:00'
+  conditions:
+  - condition: state
+    entity_id: light.back_entry_main_lights
+    state: 'on'
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.back_entry_main_lights
+  mode: single
+- id: '1737592631276'
+  alias: Turn on back entry light at 6:30 AM
+  description: ''
+  triggers:
+  - trigger: time
+    at: 06:30:00
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.back_entry_main_lights
   mode: single
