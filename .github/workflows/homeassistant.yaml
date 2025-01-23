@@ -1,13 +1,13 @@
-name: Check Home Assistant configuration
+name: Check
 on: [push, pull_request]
 jobs:
-  check:
+  home-assistant:
+    name: Home Assistant Core Configuration Check
     runs-on: ubuntu-latest
-    container:
-      image: homeassistant/amd64-homeassistant
     steps:
-      - uses: actions/checkout@v1
-      - name: Copy secrets
-        run: cp secrets_ci.yaml secrets.yaml && mkdir -p ssl && touch ssl/fullchain.pem && touch ssl/privkey.pem
-      - name: Check configuration
-        run: hass --script check_config -c .
+      - name: ⤵️ Check out configuration from GitHub
+        uses: actions/checkout@v3
+      - name: 🚀 Run Home Assistant Configuration Check
+        uses: frenck/action-home-assistant@v1
+        with:
+          secrets: secrets_ci.yaml
