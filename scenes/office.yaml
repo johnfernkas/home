@@ -37,3 +37,33 @@
   entities:
     light.office_overhead:
       state: "off"
+
+- name: John's Desk Climate - Heat On
+  entities:
+    climate.office:
+      temperature: 85
+      fan_mode: focus
+      state: heat
+  icon: mdi:fire
+  metadata:
+    climate.office:
+      entity_only: true
+
+- name: John's Desk Climate - Fan On
+  entities:
+    climate.office:
+      fan_mode: focus
+      state: cool
+  icon: mdi:fan
+  metadata:
+    climate.office:
+      entity_only: true
+
+- name: John's Desk Climate - Off
+  entities:
+    climate.office:
+      state: "off"
+  icon: mdi:fan-off
+  metadata:
+    climate.office:
+      entity_only: true
