@@ -117,9 +117,6 @@ sleep_mode_off_actions:
           - light.upstairs_bathroom_lamp
           - switch.guest_bedroom_east_lamp_plug
           - light.kitchen_sink_counter_lamp
-          - light.laundry_room_main_lights
-          - light.downstairs_hallway_main_lights
-          - light.downstairs_hallway_accent_light
       action: homeassistant.turn_on
     - if:
         - condition: zone
@@ -168,6 +165,15 @@ sleep_mode_off_actions:
       target:
         entity_id: switch.upstairs_bedroom_sound_machine
       action: switch.turn_off
+    - action: light.turn_on
+      metadata: {}
+      data:
+        brightness_pct: 50
+      target:
+        entity_id:
+          - light.laundry_room_main_lights
+          - light.downstairs_hallway_main_lights
+          - light.downstairs_hallway_accent_light
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:
