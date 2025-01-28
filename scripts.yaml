@@ -161,6 +161,7 @@ sleep_mode_off_actions:
           - climate.aircon_aaa2
       data:
         hvac_mode: "off"
+      continue_on_error: true
     - data: {}
       target:
         entity_id: switch.upstairs_bedroom_sound_machine
