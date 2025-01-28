@@ -1,0 +1,70 @@
+- name: John's Desk Lights - Bright
+  icon: mdi:lightbulb-on
+  entities:
+    group.john_desk_lights:
+      state: 'on'
+      brightness: 255
+  id: bd9b876f47504f678adbd3531408cb87
+- name: John's Desk Lights - Dimmed
+  icon: mdi:lightbulb-on-50
+  entities:
+    group.john_desk_lights:
+      state: 'on'
+      brightness: 89
+  id: bde7db68cb4f419b9004886c69280dc9
+- name: John's Desk Lights - Off
+  icon: mdi:lightbulb-outline
+  entities:
+    group.john_desk_lights:
+      state: 'off'
+  id: 6757d91545b841cd95c31452eacf832b
+- name: Overhead - Bright
+  icon: mdi:lightbulb-on
+  entities:
+    light.office_overhead:
+      state: 'on'
+      brightness: 255
+  id: 30b66b8675de4f6ca283328d78c672e7
+- name: Overhead - Dimmed
+  icon: mdi:lightbulb-on-50
+  entities:
+    light.office_overhead:
+      state: 'on'
+      brightness: 127
+  id: a95bf70dd82545178c675719ea584aa2
+- name: Overhead - Off
+  icon: mdi:lightbulb-outline
+  entities:
+    light.office_overhead:
+      state: 'off'
+  id: 2c577521aa7944cebd11d1bff9595744
+- name: John's Desk Climate - Heat On
+  entities:
+    climate.office:
+      temperature: 85
+      fan_mode: focus
+      state: heat
+  icon: mdi:fire
+  metadata:
+    climate.office:
+      entity_only: true
+  id: 3b5deedfe0eb4bb18ccc9db8c3f50333
+- name: John's Desk Climate - Fan On
+  entities:
+    climate.office:
+      fan_mode: focus
+      state: cool
+  icon: mdi:fan
+  metadata:
+    climate.office:
+      entity_only: true
+  id: 9aefe2bba1234e5a9fda59c19b411600
+- name: John's Desk Climate - Off
+  entities:
+    climate.office:
+      state: 'off'
+  icon: mdi:fan-off
+  metadata:
+    climate.office:
+      entity_only: true
+  id: 424174a356ae42d7824bda84ed7e4937
