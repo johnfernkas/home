@@ -1,42 +1,42 @@
 - name: John's Desk Lights - Bright
   icon: mdi:lightbulb-on
   entities:
-    group.john_desk_lights:
-      state: 'on'
+    light.john_s_desk_lights:
+      state: "on"
       brightness: 255
   id: bd9b876f47504f678adbd3531408cb87
 - name: John's Desk Lights - Dimmed
   icon: mdi:lightbulb-on-50
   entities:
-    group.john_desk_lights:
-      state: 'on'
+    light.john_s_desk_lights:
+      state: "on"
       brightness: 89
   id: bde7db68cb4f419b9004886c69280dc9
 - name: John's Desk Lights - Off
   icon: mdi:lightbulb-outline
   entities:
-    group.john_desk_lights:
-      state: 'off'
+    light.john_s_desk_lights:
+      state: "off"
   id: 6757d91545b841cd95c31452eacf832b
 - name: Overhead - Bright
   icon: mdi:lightbulb-on
   entities:
     light.office_overhead:
-      state: 'on'
+      state: "on"
       brightness: 255
   id: 30b66b8675de4f6ca283328d78c672e7
 - name: Overhead - Dimmed
   icon: mdi:lightbulb-on-50
   entities:
     light.office_overhead:
-      state: 'on'
+      state: "on"
       brightness: 127
   id: a95bf70dd82545178c675719ea584aa2
 - name: Overhead - Off
   icon: mdi:lightbulb-outline
   entities:
     light.office_overhead:
-      state: 'off'
+      state: "off"
   id: 2c577521aa7944cebd11d1bff9595744
 - name: John's Desk Climate - Heat On
   entities:
@@ -62,7 +62,7 @@
 - name: John's Desk Climate - Off
   entities:
     climate.office:
-      state: 'off'
+      state: "off"
   icon: mdi:fan-off
   metadata:
     climate.office:

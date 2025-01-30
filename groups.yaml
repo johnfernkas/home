@@ -1,10 +1,3 @@
-john_desk_lights:
-  name: John's Desk Lights
-  icon: mdi:desk-lamp
-  entities:
-    - light.office_north_desk_lamp
-    - light.office_south_desk_lamp
-
 driveway_floodlights:
   name: Driveway Floodlights
   icon: mdi:spotlight-beam
