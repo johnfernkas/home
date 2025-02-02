@@ -174,7 +174,12 @@ sleep_mode_off_actions:
         entity_id:
           - light.laundry_room_main_lights
           - light.downstairs_hallway_main_lights
-          - light.downstairs_hallway_accent_light
+    - action: light.turn_on
+      metadata: {}
+      data:
+        brightness_pct: 5
+      target:
+        entity_id: light.downstairs_hallway_accent_light
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:
