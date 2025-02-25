@@ -6,7 +6,6 @@ sleep_mode_on_actions:
         entity_id:
           - light.kitchen_sink_overhead
           - light.kitchen_overhead
-          - group.john_desk_lights
           - light.office_west_desk_lamp
           - light.office_console_table_lamp
           - light.office_overhead
@@ -23,6 +22,7 @@ sleep_mode_on_actions:
           - light.downstairs_hallway_accent_light
           - light.downstairs_hallway_main_lights
           - light.laundry_room_main_lights
+          - light.john_s_desk_lights
       action: homeassistant.turn_off
     - if:
         - condition: zone
@@ -123,10 +123,11 @@ sleep_mode_off_actions:
           entity_id: person.john
           zone: zone.home
       then:
-        - target:
-            entity_id: group.john_desk_lights
+        - action: light.turn_on
+          target:
+            entity_id:
+              - light.john_s_desk_lights
           data: {}
-          action: homeassistant.turn_on
     - if:
         - condition: or
           conditions:
