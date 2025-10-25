@@ -440,7 +440,94 @@
     - action: light.turn_on
       metadata: {}
       data:
-        brightness_pct: 50
+        brightness_pct: 25
       target:
         entity_id: light.back_entry_main_lights
+  mode: single
+- id: "1744400113564"
+  alias: Turn on Sleep Mode at 10:30pm
+  description: ""
+  triggers:
+    - trigger: time
+      at: "22:30:00"
+  conditions: []
+  actions:
+    - action: script.sleep_mode_on_actions
+      data: {}
+    - action: alarm_control_panel.alarm_arm_home
+      metadata: {}
+      data: {}
+      target:
+        entity_id: alarm_control_panel.alarm_control_panel
+    - action: notify.mobile_app_jpf_iphone
+      metadata: {}
+      data:
+        title: "\U0001F634 Sleep Mode On"
+        message: Sleep mode has been turned on for the night!
+  mode: single
+- id: "1744400185940"
+  alias: Turn off Sleep Mode at 7am
+  description: ""
+  triggers:
+    - trigger: time
+      at: 07:00:00
+  conditions: []
+  actions:
+    - action: script.sleep_mode_off_actions
+      data: {}
+    - action: alarm_control_panel.alarm_disarm
+      metadata: {}
+      data: {}
+      target:
+        entity_id: alarm_control_panel.alarm_control_panel
+    - action: notify.mobile_app_jpf_iphone
+      metadata: {}
+      data:
+        title: ☀️ Sleep Mode Off
+        message: Sleep mode has been turned off for the day!
+  mode: single
+- id: "1752292482251"
+  alias: Switch upstairs AC to fan when dishwasher has started
+  description: ""
+  triggers:
+    - device_id: 5fe64a9215c9d2ff94bf6fe7685f8907
+      domain: home_connect_alt
+      type: program_started
+      metadata: {}
+      trigger: device
+      enabled: true
+  conditions:
+    - condition: state
+      entity_id: climate.aircon_aaa2
+      attribute: hvac_action
+      state: cooling
+  actions:
+    - action: climate.set_hvac_mode
+      metadata: {}
+      data:
+        hvac_mode: fan_only
+      target:
+        device_id: 42fe3015ad299c85c554662206f3c3da
+  mode: single
+- id: "1752292644582"
+  alias: Switch upstairs AC to cooling when dishwasher finishes
+  description: ""
+  triggers:
+    - device_id: 5fe64a9215c9d2ff94bf6fe7685f8907
+      domain: home_connect_alt
+      type: program_finished
+      trigger: device
+      enabled: true
+  conditions:
+    - condition: state
+      entity_id: climate.aircon_aaa2
+      attribute: hvac_action
+      state: fan
+  actions:
+    - action: climate.set_hvac_mode
+      metadata: {}
+      data:
+        hvac_mode: cool
+      target:
+        device_id: 42fe3015ad299c85c554662206f3c3da
   mode: single
