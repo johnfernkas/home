@@ -498,7 +498,7 @@
       enabled: true
   conditions:
     - condition: state
-      entity_id: climate.aircon_aaa2
+  entity_id: climate.midea_ac
       attribute: hvac_action
       state: cooling
   actions:
@@ -520,7 +520,7 @@
       enabled: true
   conditions:
     - condition: state
-      entity_id: climate.aircon_aaa2
+  entity_id: climate.midea_ac
       attribute: hvac_action
       state: fan
   actions:
