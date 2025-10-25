@@ -23,7 +23,6 @@ shell_command: !include shell_commands.yaml
 
 # Integrations
 lutron_caseta: !include integrations/lutron_caseta.yaml
-ecobee: !include integrations/ecobee.yaml
 sensor: !include integrations/sensor.yaml
 switch: !include integrations/switch.yaml
 binary_sensor: !include integrations/binary_sensor.yaml

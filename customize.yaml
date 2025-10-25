@@ -35,7 +35,8 @@ binary_sensor.side_door:
   device_class: door
 
 # Misc
-climate.aircon_aaa2:
+
+climate.midea_ac:
   icon: mdi:air-conditioner
 
 # People

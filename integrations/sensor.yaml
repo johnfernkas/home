@@ -1,11 +1,3 @@
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /
-    - type: memory_use_percent
-    - type: load_5m
-    - type: processor_use
-
 - platform: influxdb
   host: !secret influx_host
   port: 8086
@@ -13,14 +5,13 @@
   username: !secret influx_username
   password: !secret influx_password
   queries:
-    - name: mean value of basement_temperature
+    - name: mean_value_of_basement_temperature
       where: '"entity_id" = ''basement_temperature'' and time > now() - 1h'
       measurement: '"°F"'
       value_template: "{{ value | round(1) }}"
-    - name: mean value of basement_humidity
+    - name: mean_value_of_basement_humidity
       where: '"entity_id" = ''basement_humidity'' and time > now() - 1h'
       measurement: '"%"'
       value_template: "{{ value | round(1) }}"
   scan_interval: 900
-
 - platform: bhyve

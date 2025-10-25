@@ -239,16 +239,17 @@
 - id: "1736821137695"
   alias: Toggle Annie's bedside lamp
   description: ""
-  triggers:
-    - event_type: zha_event
+  trigger:
+    - platform: event
+      event_type: zha_event
       event_data:
         device_id: 6ad012c0fd2c4548aa830605003af78c
         command: double
-      trigger: event
-  conditions: []
-  actions:
-    - entity_id: light.hue_ambiance_candle_1
-      action: homeassistant.toggle
+  condition: []
+  action:
+    - service: homeassistant.toggle
+      target:
+        entity_id: light.hue_ambiance_candle_1
   mode: single
 - id: "1736821180980"
   alias: Toggle both bedside lamps
