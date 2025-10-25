@@ -1,0 +1,17 @@
+substitutions:
+  name: konnected-64e394
+  friendly_name: Garage Door Opener 64e394
+packages:
+  konnected.garage-door-gdov2-s: github://konnected-io/konnected-esphome/garage-door-GDOv2-S.yaml@master
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+api:
+  encryption:
+    key: b7mZqeSbI3WO0EfM1GnVdxgrqsELcJNhFcsZnco0uCM=
+
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
