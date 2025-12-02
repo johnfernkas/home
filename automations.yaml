@@ -285,17 +285,30 @@
   alias: Turn off outdoor Christmas lights at 2AM if available
   description: ""
   triggers:
-    - at: 02:00:00
-      trigger: time
-  conditions:
-    - condition: not
-      conditions:
-        - condition: state
-          entity_id: switch.driveway_string_lights
-          state: unavailable
+    - trigger: time
+      at: 02:00:00
+  conditions: []
   actions:
-    - entity_id: switch.driveway_string_lights
-      action: switch.turn_off
+    - if:
+        - condition: not
+          conditions:
+            - condition: state
+              entity_id: switch.driveway_string_lights
+              state: unavailable
+      then:
+        - action: switch.turn_off
+          target:
+            entity_id: switch.driveway_string_lights
+    - if:
+        - condition: not
+          conditions:
+            - condition: state
+              entity_id: switch.tp_link_smart_plug_3077_pluga1
+              state: unavailable
+      then:
+        - action: switch.turn_off
+          target:
+            entity_id: switch.tp_link_smart_plug_3077_pluga1
   mode: single
 - id: "1736821367317"
   alias: Turn off the back hallway lamp at 11PM
@@ -402,15 +415,32 @@
     - event: sunset
       offset: -01:00:00
       trigger: sun
-  conditions:
-    - condition: not
-      conditions:
-        - condition: state
-          entity_id: switch.driveway_string_lights
-          state: unavailable
+  conditions: []
   actions:
-    - entity_id: switch.driveway_string_lights
-      action: switch.turn_on
+    - if:
+        - condition: not
+          conditions:
+            - condition: state
+              entity_id: switch.driveway_string_lights
+              state: unavailable
+      then:
+        - action: switch.turn_on
+          metadata: {}
+          data: {}
+          target:
+            entity_id: switch.driveway_string_lights
+    - if:
+        - condition: not
+          conditions:
+            - condition: state
+              entity_id: switch.tp_link_smart_plug_3077_pluga1
+              state: unavailable
+      then:
+        - action: switch.turn_on
+          metadata: {}
+          data: {}
+          target:
+            entity_id: switch.tp_link_smart_plug_3077_pluga1
   mode: single
 - id: "1737592566178"
   alias: Turn off back entry light at 11 PM if still on
