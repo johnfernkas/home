@@ -6,7 +6,6 @@ sleep_mode_on_actions:
         entity_id:
           - light.kitchen_sink_overhead
           - light.kitchen_overhead
-          - light.office_west_desk_lamp
           - light.office_console_table_lamp
           - light.office_overhead
           - light.front_room_south_floor_lamp
@@ -24,6 +23,8 @@ sleep_mode_on_actions:
           - light.laundry_room_main_lights
           - light.john_s_desk_lights
           - light.hue_ambiance_candle_1_2
+          - light.guest_bedroom_sconces
+          - light.office_desk_lamp
       action: homeassistant.turn_off
     - if:
         - condition: zone
@@ -112,7 +113,6 @@ sleep_mode_off_actions:
     - data: {}
       target:
         entity_id:
-          - light.office_west_desk_lamp
           - light.office_console_table_lamp
           - light.front_room_south_floor_lamp
           - light.upstairs_bathroom_lamp
@@ -183,6 +183,18 @@ sleep_mode_off_actions:
         brightness_pct: 5
       target:
         entity_id: light.downstairs_hallway_accent_light
+    - action: light.turn_on
+      metadata: {}
+      target:
+        entity_id: light.guest_bedroom_sconces
+      data:
+        brightness_pct: 50
+    - action: light.turn_on
+      metadata: {}
+      target:
+        entity_id: light.office_desk_lamp
+      data:
+        brightness_pct: 50
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:
