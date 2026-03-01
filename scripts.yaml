@@ -194,7 +194,7 @@ sleep_mode_off_actions:
       target:
         entity_id: light.office_desk_lamp
       data:
-        brightness_pct: 50
+        brightness_pct: 70
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:
