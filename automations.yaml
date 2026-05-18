@@ -596,3 +596,17 @@
         entity_id: cover.konnected_64e394_garage_door
       data: {}
   mode: single
+- id: "1747600000001"
+  alias: Notify when dishwasher is done
+  description: ""
+  triggers:
+    - trigger: state
+      entity_id: sensor.103080535351042415_bsh_common_status_operationstate
+      to: BSH.Common.EnumType.OperationState.Finished
+  conditions: []
+  actions:
+    - action: notify.mobile_app_jpf_iphone
+      data:
+        title: "\U0001F37D️ Dishwasher Done"
+        message: The dishwasher has finished its cycle.
+  mode: single
