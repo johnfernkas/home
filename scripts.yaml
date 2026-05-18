@@ -205,37 +205,6 @@ sleep_mode_off_actions:
       target:
         entity_id: light.front_room_east_wall_lamp
       data: {}
-    - if:
-        - condition: zone
-          entity_id: person.john
-          zone: zone.home
-      then:
-        - action: weather.get_forecasts
-          target:
-            entity_id: weather.downstairs
-          data:
-            type: daily
-          response_variable: forecast
-        - action: notify.esc_pos_printer_192_168_1_87_9100
-          data:
-            message: >-
-              {{ '=' * 56 }}
-
-              GOOD MORNING, JOHN
-              {{ now().strftime('%A, %B %-d') }}
-
-              {{ '=' * 56 }}
-
-              WEATHER
-                Now:  {{ state_attr('weather.downstairs', 'temperature') | int }}°F  {{ states('weather.downstairs') | replace('-', ' ') | title }}
-                High: {{ forecast['weather.downstairs']['forecast'][0]['temperature'] | int }}°F
-                Low:  {{ forecast['weather.downstairs']['forecast'][0]['templow'] | int }}°F
-
-              {{ '=' * 56 }}
-              {{ now().strftime('%-I:%M %p') }}
-
-
-
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:
