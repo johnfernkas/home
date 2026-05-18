@@ -2,7 +2,7 @@ substitutions:
   name: upsy-desky-76dbcc
   friendly_name: Upsy Desky 76dbcc
 packages:
-  tj_horner.upsy_desky: github://tjhorner/upsy-desky/firmware/stock.yaml@v4.0.2
+  tj_horner.upsy_desky: github://tjhorner/upsy-desky/firmware/stock.yaml@v5.0.1
 esphome:
   name: ${name}
   name_add_mac_suffix: false
