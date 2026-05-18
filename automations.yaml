@@ -561,3 +561,38 @@
       target:
         device_id: 42fe3015ad299c85c554662206f3c3da
   mode: single
+- id: "1772564491700"
+  alias: Open Garage Door with Pico Remote
+  description: ""
+  triggers:
+    - device_id: dd3ab30ea1971953dbe92eebbc49cff2
+      domain: lutron_caseta
+      type: press
+      subtype: "on"
+      metadata: {}
+      trigger: device
+  conditions: []
+  actions:
+    - action: cover.open_cover
+      metadata: {}
+      target:
+        entity_id: cover.konnected_64e394_garage_door
+      data: {}
+  mode: single
+- id: "1772564547045"
+  alias: Close Garage Door with Pico Remote
+  description: ""
+  triggers:
+    - device_id: dd3ab30ea1971953dbe92eebbc49cff2
+      domain: lutron_caseta
+      type: press
+      subtype: "off"
+      trigger: device
+  conditions: []
+  actions:
+    - action: cover.close_cover
+      metadata: {}
+      target:
+        entity_id: cover.konnected_64e394_garage_door
+      data: {}
+  mode: single

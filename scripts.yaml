@@ -105,6 +105,11 @@ sleep_mode_on_actions:
           data: {}
           target:
             entity_id: light.back_entry_main_lights
+    - action: light.turn_off
+      metadata: {}
+      target:
+        entity_id: light.front_room_east_wall_lamp
+      data: {}
   mode: single
   icon: mdi:sleep
 sleep_mode_off_actions:
@@ -195,6 +200,11 @@ sleep_mode_off_actions:
         entity_id: light.office_desk_lamp
       data:
         brightness_pct: 70
+    - action: light.turn_on
+      metadata: {}
+      target:
+        entity_id: light.front_room_east_wall_lamp
+      data: {}
   mode: single
   icon: mdi:weather-sunset-up
 renew_lets_encrypt_ssl_certificates:
