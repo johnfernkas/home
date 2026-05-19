@@ -35,7 +35,7 @@ John Fernkas's Home Assistant configuration for the house in Indianapolis.
 
 ### Outdoor
 - **Bhyve** — smart irrigation (front and back yard)
-- **Driveway floodlights** — motion-activated via Lutron
+- **Driveway floodlights** — motion-activated
 
 ### Other
 - **ESPHome** — basement AQ sensor (offline), standing desk controller, garage door
