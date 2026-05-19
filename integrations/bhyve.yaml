@@ -1,2 +1,0 @@
-username: !secret bhyve_username
-password: !secret bhyve_password
