@@ -18,7 +18,7 @@ John Fernkas's Home Assistant configuration for the house in Indianapolis.
 ### Climate
 - **Ecobee** — downstairs thermostat (`climate.downstairs`), provides weather data
 - **Midea AC** — upstairs bedroom window unit (`climate.midea_ac`)
-- **Ecobee** — office thermostat (`climate.office`)
+- **Dyson Hot+Cool** — under-desk fan/heater in office (`climate.office`)
 
 ### Audio
 - **Sonos** — Front Room (Beam), Upstairs Bedroom (Beam), Kitchen, Upstairs Bathroom, Sonos Move (portable), Office (Five)
