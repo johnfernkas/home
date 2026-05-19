@@ -1,6 +1,6 @@
 # Home Assistant Configuration
 
-Home Assistant configuration for a house in the midwest US.
+Personal Home Assistant configuration.
 
 ## Setup
 
