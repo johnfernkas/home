@@ -15,4 +15,4 @@ __pycache__
 /image
 .HA_VERSION
 /esphome/trash
-/custom_components
+/custom_components/.mcp_proxy_config.json
