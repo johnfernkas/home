@@ -520,12 +520,9 @@
   alias: Switch upstairs AC to fan when dishwasher has started
   description: ""
   triggers:
-    - device_id: 5fe64a9215c9d2ff94bf6fe7685f8907
-      domain: home_connect_alt
-      type: program_started
-      metadata: {}
-      trigger: device
-      enabled: true
+    - trigger: state
+      entity_id: sensor.103080535351042415_bsh_common_status_operationstate
+      to: BSH.Common.EnumType.OperationState.Run
   conditions:
     - condition: state
       entity_id: climate.midea_ac
@@ -533,33 +530,29 @@
       state: cooling
   actions:
     - action: climate.set_hvac_mode
-      metadata: {}
       data:
         hvac_mode: fan_only
       target:
-        device_id: 42fe3015ad299c85c554662206f3c3da
+        entity_id: climate.midea_ac
   mode: single
 - id: "1752292644582"
   alias: Switch upstairs AC to cooling when dishwasher finishes
   description: ""
   triggers:
-    - device_id: 5fe64a9215c9d2ff94bf6fe7685f8907
-      domain: home_connect_alt
-      type: program_finished
-      trigger: device
-      enabled: true
+    - trigger: state
+      entity_id: sensor.103080535351042415_bsh_common_status_operationstate
+      to: BSH.Common.EnumType.OperationState.Finished
   conditions:
     - condition: state
       entity_id: climate.midea_ac
-      attribute: hvac_action
-      state: fan
+      attribute: hvac_mode
+      state: fan_only
   actions:
     - action: climate.set_hvac_mode
-      metadata: {}
       data:
         hvac_mode: cool
       target:
-        device_id: 42fe3015ad299c85c554662206f3c3da
+        entity_id: climate.midea_ac
   mode: single
 - id: "1772564491700"
   alias: Open Garage Door with Pico Remote
