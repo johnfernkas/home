@@ -21,7 +21,7 @@ John Fernkas's Home Assistant configuration for the house in Indianapolis.
 - **Ecobee** — office thermostat (`climate.office`)
 
 ### Audio
-- **Sonos** — Front Room (Beam, TV), Upstairs TV (Beam), Kitchen, Upstairs Bathroom, Sonos Move (portable), Office (Five)
+- **Sonos** — Front Room (Beam), Upstairs Bedroom (Beam), Kitchen, Basement, Upstairs Bathroom, Sonos Move (portable), Office (Five)
 
 ### Security
 - **SimpliSafe** — whole-home alarm system
