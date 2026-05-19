@@ -36,7 +36,7 @@ This gives 88 tools covering entity registry, area management, device registry, 
 | `shell_commands.yaml` | Shell command integrations |
 | `integrations/` | One file per platform integration |
 
-The `integrations/` directory holds configs for: Lutron Caséta (smart lighting, uses local TLS certs in `/ssl/lutron/`), InfluxDB (time-series logging of sensor data), sensor/switch/binary\_sensor platforms, input booleans, Lovelace dashboard resources, and bhyve (smart irrigation).
+The `integrations/` directory holds configs for: Lutron Caséta (smart lighting, uses local TLS certs in `/ssl/lutron/`), input booleans, and Lovelace dashboard resources. `sensor.yaml`, `switch.yaml`, and `binary_sensor.yaml` are intentionally empty `[]` — all platform integrations have been migrated to UI config entries. InfluxDB and bhyve are now UI-managed config entries.
 
 ### Scripts
 
