@@ -534,6 +534,7 @@
         hvac_mode: fan_only
       target:
         entity_id: climate.midea_ac
+        device_id: 800d3e39baac08c0b5a561033e987537
   mode: single
 - id: "1752292644582"
   alias: Switch upstairs AC to cooling when dishwasher finishes
@@ -553,6 +554,7 @@
         hvac_mode: cool
       target:
         entity_id: climate.midea_ac
+        device_id: 800d3e39baac08c0b5a561033e987537
   mode: single
 - id: "1772564491700"
   alias: Open Garage Door with Pico Remote
