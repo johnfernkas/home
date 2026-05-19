@@ -70,7 +70,7 @@ Standard HA blueprints for motion-triggered lights, zone-departure notifications
 
 ## Key automations
 
-- **Sleep Mode On/Off** — triggered by `input_boolean.sleep_mode`; time-based triggers (10:30pm/7am) are disabled by default, enabled when no house sitter is present
+- **Sleep Mode On/Off** — triggered by `input_boolean.sleep_mode`; optional time-based triggers at 10:30pm/7am can be enabled separately
 - **Driveway lights** — motion-activated after sunset, override via `input_boolean.driveway_motion_sensor_override`
 - **Dishwasher** — notifies John's iPhone when cycle finishes; switches upstairs AC to fan mode while running and restores when done
 - **Irrigation** — two sets (every other day / every three days) for front and backyard; toggled seasonally via enable/disable in HA

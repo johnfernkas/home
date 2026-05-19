@@ -12,7 +12,7 @@ John Fernkas's Home Assistant configuration for the house in Indianapolis.
 
 ### Lighting
 - **Lutron Caséta** — primary smart lighting throughout the house (local TLS connection)
-- **Philips Hue** — guest bedroom sconces
+- **Philips Hue** — upstairs bedroom sconces
 - **ZHA** — Zigbee coordinator for Aqara/LUMI devices
 
 ### Climate
