@@ -38,7 +38,7 @@ John Fernkas's Home Assistant configuration for the house in Indianapolis.
 
 ### Other
 - **ESPHome** — basement AQ sensor (offline), standing desk controller, garage door
-- **ESC/POS Thermal Printer** — Epson TM-T88IV via Pi Zero W bridge at `192.168.1.87:9100`
+- **ESC/POS Thermal Printer** — Epson TM-T88IV via Pi Zero W TCP→USB bridge on the local network
 - **iPad Kiosk** — HA dashboard kiosk in the office (browser_mod)
 - **SimpliSafe** — alarm panel
 

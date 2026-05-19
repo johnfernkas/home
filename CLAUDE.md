@@ -16,10 +16,7 @@ CI runs both `make lint` and a full HA config check (via `frenck/action-home-ass
 
 ## MCP Server
 
-An `ha-mcp` MCP server is configured project-locally (via `claude mcp add-json`). It connects to the HAOS add-on at:
-
-- **Local:** `http://homeassistant.local:9583/private_HBM-vEoYnEEt4QfjgDMokg`
-- **Remote webhook:** `https://home.johnfernkas.com/api/webhook/mcp_f0d00ca07fa43e60023d39ba9ca28df1`
+An `ha-mcp` MCP server is configured project-locally (via `claude mcp add-json`), using the HAOS ha-mcp add-on with a webhook proxy for remote access. Connection URLs and tokens are stored in local Claude Code config, not in this repo.
 
 This gives 88 tools covering entity registry, area management, device registry, automation management, history, and more. Prefer this over direct REST API calls. The `HA_TOKEN` env var is also available for raw REST API access.
 
