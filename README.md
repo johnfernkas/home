@@ -1,6 +1,6 @@
 # Home Assistant Configuration
 
-John Fernkas's Home Assistant configuration for the house in Indianapolis.
+Home Assistant configuration for a house in the midwest US.
 
 ## Setup
 
@@ -47,12 +47,12 @@ John Fernkas's Home Assistant configuration for the house in Indianapolis.
 
 | Automation | Description |
 |---|---|
-| Sleep Mode On | Triggered by `input_boolean.sleep_mode`; turns off lights, starts fans, arms alarm |
-| Sleep Mode Off | Turns on lights, prints morning brief to thermal printer (if John is home) |
+| Sleep Mode On | Triggered by `input_boolean.sleep_mode`; turns off lights and activates nighttime mode |
+| Sleep Mode Off | Turns on lights and prints morning brief to thermal printer |
 | Morning Brief | Prints weather forecast + office temp to thermal printer on wake |
-| Dishwasher Done | Push notification to John's iPhone when cycle finishes |
+| Dishwasher Done | Push notification when cycle finishes |
 | Dishwasher AC | Switches upstairs AC to fan while dishwasher runs, restores when done |
-| Driveway Lights | Motion-activated after sunset; override via helper |
+| Driveway Lights | Motion-activated after sunset |
 | Irrigation | Front and backyard on configurable schedules (every 2 or 3 days) |
 
 ## Repo Structure

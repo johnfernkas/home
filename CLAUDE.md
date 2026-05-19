@@ -42,8 +42,8 @@ The `integrations/` directory holds configs for: Lutron Caséta (smart lighting,
 
 All scripts are UI-managed and stored in HA, not in `scripts.yaml`. Key scripts:
 
-- `sleep_mode_on_actions` — turns off lights, starts fans, arms alarm
-- `sleep_mode_off_actions` — turns on lights, stops fans, prints morning brief to ESC/POS thermal printer (if John is home)
+- `sleep_mode_on_actions` — turns off lights, starts fans, activates nighttime mode
+- `sleep_mode_off_actions` — turns on lights, stops fans, prints morning brief to ESC/POS thermal printer
 - `renew_lets_encrypt_ssl_certificates` — renews SSL certs via Let's Encrypt add-on
 
 ### Secrets
@@ -66,13 +66,13 @@ Lovelace is in `storage` mode (managed via UI). `integrations/lovelace.yaml` onl
 
 ### Blueprints (`blueprints/`)
 
-Standard HA blueprints for motion-triggered lights, zone-departure notifications, and confirmable notifications. Not customized beyond stock HA examples.
+Standard HA blueprints for motion-triggered lights and notifications. Not customized beyond stock HA examples.
 
 ## Key automations
 
-- **Sleep Mode On/Off** — triggered by `input_boolean.sleep_mode`; optional time-based triggers at 10:30pm/7am can be enabled separately
-- **Driveway lights** — motion-activated after sunset, override via `input_boolean.driveway_motion_sensor_override`
-- **Dishwasher** — notifies John's iPhone when cycle finishes; switches upstairs AC to fan mode while running and restores when done
+- **Sleep Mode On/Off** — triggered by `input_boolean.sleep_mode`; optional time-based triggers can be enabled separately
+- **Driveway lights** — motion-activated after sunset
+- **Dishwasher** — sends notification when cycle finishes; switches upstairs AC to fan mode while running and restores when done
 - **Irrigation** — two sets (every other day / every three days) for front and backyard; toggled seasonally via enable/disable in HA
 - **Christmas lights** — sunset on / 2am off, guard against `unavailable` state
 
