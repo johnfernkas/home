@@ -537,7 +537,7 @@
       data:
         hvac_mode: fan_only
       target:
-        device_id: 42fe3015ad299c85c554662206f3c3da
+        device_id: 800d3e39baac08c0b5a561033e987537
   mode: single
 - id: "1752292644582"
   alias: Switch upstairs AC to cooling when dishwasher finishes
@@ -559,7 +559,7 @@
       data:
         hvac_mode: cool
       target:
-        device_id: 42fe3015ad299c85c554662206f3c3da
+        device_id: 800d3e39baac08c0b5a561033e987537
   mode: single
 - id: "1772564491700"
   alias: Open Garage Door with Pico Remote
