@@ -26,7 +26,7 @@ John Fernkas's Home Assistant configuration for the house in Indianapolis.
 
 ### Security
 - **SimpliSafe** — whole-home alarm system
-- **UniFi Protect** — G3 Instant camera in basement
+- **UniFi Protect** — all internal and external cameras
 - **Konnected** — garage door opener (`cover.konnected_64e394_garage_door`)
 
 ### Appliances
