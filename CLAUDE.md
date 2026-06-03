@@ -18,7 +18,41 @@ CI runs both `make lint` and a full HA config check (via `frenck/action-home-ass
 
 An `ha-mcp` MCP server is configured project-locally (via `claude mcp add-json`), using the HAOS ha-mcp add-on with a webhook proxy for remote access. Connection URLs and tokens are stored in local Claude Code config, not in this repo.
 
-This gives 88 tools covering entity registry, area management, device registry, automation management, history, and more. Prefer this over direct REST API calls. The `HA_TOKEN` env var is also available for raw REST API access.
+This gives 88 tools covering entity registry, area management, device registry, automation management, history, and more. Prefer this over direct REST API calls. The `HA_TOKEN` env var is also available for raw REST API calls when MCP isn't available.
+
+### Architecture
+
+```
+Claude Code → Nabu Casa webhook URL → mcp_proxy HA integration → ha-mcp add-on (port 9583)
+```
+
+- **ha-mcp add-on** — runs on `0.0.0.0:9583` with a secret path; HA instance is at `192.168.1.10`
+- **Nabu Casa / Webhook Proxy add-on** — bridges external access; installs the `mcp_proxy` custom integration into HA core and generates a webhook URL
+- **mcp_proxy integration** — HA config entry (`MCP Webhook Proxy`) that receives webhook calls and proxies them to the ha-mcp add-on at `127.0.0.1:9583`
+- **Claude config** — set to the external webhook URL, works both on LAN and remotely
+
+The current webhook URL and secret path are in `.mcp_proxy_config.json` (gitignored). The ha-mcp tools are only loaded at session start — if the server was down when Claude started, use `claude mcp list` to confirm connection and start a new session.
+
+### Troubleshooting
+
+**`claude mcp list` shows ha-mcp as failed:**
+
+1. Check if the add-on is running: HAOS → Settings → Add-ons → Home Assistant MCP Server
+2. If the add-on is fine, the mcp_proxy integration is likely stale. Run:
+   ```bash
+   # Find the config entry ID
+   curl -s -H "Authorization: Bearer $HA_TOKEN" http://192.168.1.10:8123/api/config/config_entries/entry \
+     | python3 -c "import json,sys; [print(e['entry_id'], e['title']) for e in json.load(sys.stdin) if 'mcp' in e['domain']]"
+   
+   # Reload it
+   curl -s -X POST -H "Authorization: Bearer $HA_TOKEN" \
+     http://192.168.1.10:8123/api/config/config_entries/entry/<entry_id>/reload
+   ```
+3. If reload doesn't fix it (webhook returns empty body), delete the config entry and restart the Webhook Proxy add-on — it will recreate the entry pointing to the current secret path.
+
+**Secret path changed (ha-mcp add-on was reinstalled):**
+
+The secret path is stored in the add-on's `/data/secret_path.txt`. If it changes, the webhook proxy add-on auto-detects it on restart and reloads the mcp_proxy config entry. Update Claude's config to the new webhook URL shown in the Webhook Proxy add-on logs if it also rotated the webhook ID.
 
 ## Architecture
 
