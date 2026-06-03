@@ -166,7 +166,7 @@ sleep_mode_off_actions:
     - action: climate.set_hvac_mode
       target:
         entity_id:
-          - climate.midea_ac
+          - climate.midea_ac_2
       data:
         hvac_mode: "off"
       continue_on_error: true

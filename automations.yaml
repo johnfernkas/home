@@ -525,7 +525,7 @@
       to: BSH.Common.EnumType.OperationState.Run
   conditions:
     - condition: state
-      entity_id: climate.midea_ac
+      entity_id: climate.midea_ac_2
       attribute: hvac_action
       state: cooling
   actions:
@@ -533,8 +533,8 @@
       data:
         hvac_mode: fan_only
       target:
-        entity_id: climate.midea_ac
-        device_id: 800d3e39baac08c0b5a561033e987537
+        entity_id: climate.midea_ac_2
+        device_id: 3c313e469e3deb00c4562e7f0b2c1852
   mode: single
 - id: "1752292644582"
   alias: Switch upstairs AC to cooling when dishwasher finishes
@@ -545,7 +545,7 @@
       to: BSH.Common.EnumType.OperationState.Finished
   conditions:
     - condition: state
-      entity_id: climate.midea_ac
+      entity_id: climate.midea_ac_2
       attribute: hvac_mode
       state: fan_only
   actions:
@@ -553,8 +553,8 @@
       data:
         hvac_mode: cool
       target:
-        entity_id: climate.midea_ac
-        device_id: 800d3e39baac08c0b5a561033e987537
+        entity_id: climate.midea_ac_2
+        device_id: 3c313e469e3deb00c4562e7f0b2c1852
   mode: single
 - id: "1772564491700"
   alias: Open Garage Door with Pico Remote
