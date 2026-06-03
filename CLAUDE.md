@@ -18,7 +18,7 @@ CI runs both `make lint` and a full HA config check (via `frenck/action-home-ass
 
 An `ha-mcp` MCP server is configured project-locally (via `claude mcp add-json`), using the HAOS ha-mcp add-on with a webhook proxy for remote access. Connection URLs and tokens are stored in local Claude Code config, not in this repo.
 
-This gives 88 tools covering entity registry, area management, device registry, automation management, history, and more. Prefer this over direct REST API calls. The `HA_TOKEN` env var is also available for raw REST API calls when MCP isn't available.
+This gives 88 tools covering entity registry, area management, device registry, automation management, history, and more. **Always use the MCP tools first.** Only fall back to direct REST API calls via `$HA_TOKEN` if the MCP server is confirmed unavailable.
 
 ### Architecture
 
