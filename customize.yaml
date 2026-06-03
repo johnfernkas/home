@@ -23,7 +23,7 @@ binary_sensor.side_door:
 
 # Misc
 
-climate.midea_ac_2:
+climate.midea_ac:
   icon: mdi:air-conditioner
 
 # People
